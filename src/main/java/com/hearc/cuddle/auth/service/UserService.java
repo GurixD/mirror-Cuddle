@@ -21,7 +21,7 @@ public class UserService implements UserService_I{
     @Override
     public void save(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-        user.setRoles(new HashSet<>(roleRepository.findAll()));
+        user.setRoles(roleRepository.findAll().get(0));
         userRepository.save(user);
     }
 
