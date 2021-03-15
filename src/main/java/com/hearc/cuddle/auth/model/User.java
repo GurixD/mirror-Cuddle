@@ -1,7 +1,8 @@
-package com.hearc.cuddle.entities;
+package com.hearc.cuddle.auth.model;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 
 @Entity
@@ -9,7 +10,7 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
 
@@ -25,6 +26,11 @@ public class User {
     @Column
     private String lastName;
 
+    @Transient
+    private String passwordConfirm;
+
+    @ManyToMany
+    private Set<Role> roles;
 
     public void setId(Long id) {
         this.id = id;
@@ -65,5 +71,21 @@ public class User {
 
     public String getLastName() {
         return lastName;
+    }
+
+    public String getPasswordConfirm() {
+        return passwordConfirm;
+    }
+
+    public void setPasswordConfirm(String passwordConfirm) {
+        this.passwordConfirm = passwordConfirm;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
