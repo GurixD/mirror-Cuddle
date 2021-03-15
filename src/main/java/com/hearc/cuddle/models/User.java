@@ -1,4 +1,4 @@
-package com.hearc.cuddle.entities;
+package com.hearc.cuddle.models;
 
 
 import javax.persistence.*;
@@ -24,6 +24,10 @@ public class User {
 
     @Column
     private String lastName;
+
+//    @ManyToOne
+//    @JoinColumn(name = "role", referencedColumnName = "users")
+//    private Role role;
 
 
     public void setId(Long id) {
@@ -66,4 +70,12 @@ public class User {
     public String getLastName() {
         return lastName;
     }
+
+//    public void setRole(Role role) {
+//        this.role = role;
+//    }
+//
+//    public Role getRole() {
+//        return role;
+//    }
 }
