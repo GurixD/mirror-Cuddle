@@ -1,8 +1,7 @@
-package com.hearc.cuddle.repositories;
+package com.hearc.cuddle.auth.repository;
 
-import com.hearc.cuddle.models.Role;
+import com.hearc.cuddle.auth.model.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RoleRepository extends JpaRepository<Role, Long> {
-
 }
