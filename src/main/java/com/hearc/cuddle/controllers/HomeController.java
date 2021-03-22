@@ -13,24 +13,24 @@ public class HomeController {
     @Autowired
     UserRepository userRepository;
 
-    @Autowired
+//    @Autowired
 
-    @GetMapping("/hello")
-    public String hello() {
-        return "hello";
-    }
-
-    // Login form
-    @RequestMapping("/login")
-    public String login() {
-        return "login";
-    }
-
-    // Login form with error
-    @RequestMapping("/login-error")
-    public String loginError(Model model) {
-        model.addAttribute("loginError", true);
-        return "login";
-    }
+//    @GetMapping("/hello")
+//    public String hello() {
+//        return "hello";
+//    }
+//
+//    // Login form
+//    @RequestMapping("/login")
+//    public String login() {
+//        return "login";
+//    }
+//
+//    // Login form with error
+//    @RequestMapping("/login-error")
+//    public String loginError(Model model) {
+//        model.addAttribute("loginError", true);
+//        return "login";
+//    }
 
 }
