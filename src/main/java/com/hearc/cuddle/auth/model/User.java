@@ -2,11 +2,11 @@ package com.hearc.cuddle.auth.model;
 
 
 import javax.persistence.*;
-import java.util.Set;
 
 
 @Entity
 @Table(name = "user")
+@Access(AccessType.FIELD)
 public class User {
 
     @Id
@@ -26,7 +26,6 @@ public class User {
     @Column
     private String lastName;
 
-
     @Transient
     private String passwordConfirm;
 
@@ -37,7 +36,6 @@ public class User {
         this.id = id;
     }
 
-    @Id
     public Long getId() {
         return id;
     }
