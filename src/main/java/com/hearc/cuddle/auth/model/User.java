@@ -29,7 +29,7 @@ public class User {
     @Transient
     private String passwordConfirm;
 
-    @ManyToOne
+    @OneToOne
     private Role role;
 
     public void setId(Long id) {
