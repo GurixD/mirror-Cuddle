@@ -5,14 +5,16 @@ import java.util.Set;
 
 @Entity
 @Table(name = "role")
+@Access(AccessType.FIELD)
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
     private String name;
 
-    @OneToMany(mappedBy = "roles")
+    @OneToMany(mappedBy = "role")
     private Set<User> users;
 
     public Long getId() {
@@ -38,4 +40,5 @@ public class Role {
     public void setUsers(Set<User> users) {
         this.users = users;
     }
+
 }

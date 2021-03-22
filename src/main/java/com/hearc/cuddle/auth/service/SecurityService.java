@@ -16,7 +16,7 @@ public class SecurityService implements SecurityService_I{
     private AuthenticationManager authenticationManager;
 
     @Autowired
-    private UserDetailsService userDetailsService;
+    private UserDetailsService userDetailsServiceImpl;
 
     private static final Logger logger = LoggerFactory.getLogger(SecurityService_I.class);
 
@@ -32,7 +32,7 @@ public class SecurityService implements SecurityService_I{
 
     @Override
     public void autoLogin(String username, String password) {
-        UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+        UserDetails userDetails = userDetailsServiceImpl.loadUserByUsername(username);
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, password, userDetails.getAuthorities());
 
         authenticationManager.authenticate(usernamePasswordAuthenticationToken);

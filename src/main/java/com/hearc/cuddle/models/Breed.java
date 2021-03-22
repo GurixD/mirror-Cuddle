@@ -1,4 +1,4 @@
-package com.hearc.cuddle.entities;
+package com.hearc.cuddle.models;
 
 import javax.persistence.*;
 
