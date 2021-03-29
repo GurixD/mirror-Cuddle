@@ -42,7 +42,7 @@ public class UserController {
 
         securityService.autoLogin(userForm.getEmail(), userForm.getPasswordConfirm());
 
-        return "redirect:/hello";
+        return "redirect:/home";
     }
 
     @GetMapping("/login")
@@ -54,10 +54,5 @@ public class UserController {
             model.addAttribute("message", "You have been logged out successfully.");
 
         return "login";
-    }
-
-    @GetMapping({"/", "/hello"})
-    public String hello(Model model) {
-        return "hello";
     }
 }

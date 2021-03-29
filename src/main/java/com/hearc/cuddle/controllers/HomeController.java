@@ -15,6 +15,16 @@ public class HomeController {
 
 //    @Autowired
 
+    @GetMapping({"/", "/home"})
+    public String home(Model model) {
+        return "home";
+    }
+
+    @GetMapping({"/hello"})
+    public String hello(Model model) {
+        return "hello";
+    }
+
 //    @GetMapping("/hello")
 //    public String hello() {
 //        return "hello";
