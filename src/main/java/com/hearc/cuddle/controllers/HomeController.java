@@ -13,9 +13,9 @@ public class HomeController {
 
     @Autowired
 
-    @GetMapping("/hello")
+    @GetMapping("/home")
     public String hello() {
-        return "hello";
+        return "home";
     }
 
 }
