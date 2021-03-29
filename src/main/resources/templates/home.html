@@ -1,0 +1,74 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- Insert header fragment -->
+<head th:insert="fragments/fragments.html :: header">
+</head>
+<body>
+	<!-- Replace fragment  -->
+	<div th:replace="fragments/fragments.html :: navigation"></div>
+	<!-- Template from https://bbbootstrap.com/snippets/simple-todo-list-template-11821916 -->
+	<!--For Page-->
+	<div class="page">
+		<p class="h2 text-center" th:text="${title}"></p>
+		<!--Card-->
+		<div class="card">
+			<!--Card Header-->
+			<div class="card-header">
+				<p>
+					<i class="fa fa-bars"></i> <i class="fa fa-calendar ml-4" aria-hidden="true"></i> <i class="fa fa-star ml-4" aria-hidden="true"></i> <span
+						class="float-right"
+					> <span class="mr-4 navTask">Task</span> <span class="mr-4">Archive</span> <i class="fa fa-search" aria-hidden="true"></i>
+					</span>
+				</p>
+			</div>
+			<!--Card Body-->
+			<div class="card-body">
+				<!-- TODOS  -->
+				<p class="heading1">
+					<span class="today">Tâches</span> <span class="float-right headingright" th:text="${totalTime}  + 'h' "></span>
+				</p>
+				<!-- ITERATION -->
+				<div th:each="todo: ${todos}">
+					<form id="todayForm" th:action="@{/Check}" th:object="${todo}" method="post">
+						<input type="hidden" th:value="*{todoID}" id="todoID" name="todoID" /> 
+						<input type="hidden" th:value="*{checked}" id="checked" name="checked" />
+						<input type="hidden" th:value="*{author}" id="author" name="author" /> 
+						<input type="hidden" th:value="*{message}" id="message" name="message" />
+						<input type="hidden" th:value="*{priority}" id="priority" name="priority" /> 
+						<input type="hidden" th:value="*{time}" id="time" name="time" />
+						<div th:if="${todo.checked} == true">
+							<p>
+								<i class="fa fa-check-circle-o mr-2"></i> 
+								<input class="button time ml-2 mt-2" type="submit" value="Réouvrir" /> 
+								<span class="task2" th:text="${todo.author}"></span> 
+								<span class="task-finished task" th:text="${todo.message}"></span> 
+								<span class="time ml-2" th:text="${todo.priority.description}"></span>
+								<span class="time ml-2 date-bold" th:text="${#dates.format(todo.date, 'dd.MM.yyyy')}"></span> 
+								<span class="float-right" th:text="${todo.time} + 'h'"></span>
+								<!-- <input class="checkbox" type="checkbox" onchange="document.getElementById('todayForm').submit()">-->
+							</p>
+						</div>
+						<div th:if="${todo.checked} == false">
+							<p>
+								<i class="fa fa-circle-o mr-2"></i> 
+								<input class="button time ml-2 mt-2" type="submit" value="Clôturer" /> 
+								<span class="task2" th:text="${todo.author}"></span> 
+								<span class="task" th:text="${todo.message}"></span> 
+								<span class="time ml-2" th:text="${todo.priority.description}"></span>
+								<span class="time ml-2 date-bold" th:text="${#dates.format(todo.date, 'dd.MM.yyyy')}"></span> 
+								<span class="float-right" th:text="${todo.time} + 'h'"></span>
+								<!-- <input class="checkbox" type="checkbox" onchange="document.getElementById('todayForm').submit()">-->
+							</p>
+						</div>
+					</form>
+				</div>
+				<p class="text-muted">
+					<i class="fa fa-plus mr-1" aria-hidden="true"></i> 
+					<a href="/form" th:href="@{/form}">Ajouter une tâche</a>
+				</p>
+			</div>
+		</div>
+	</div>
+	<div th:replace="fragments/fragments.html :: scripts"></div>
+</body>
+</html>
