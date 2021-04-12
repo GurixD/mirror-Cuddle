@@ -4,9 +4,9 @@ variables:
   SOME_VAR: "some value"
 
 stages:
-#  - build
-#  - test
   - sonarqube
+  - build
+  - test
   - deploy
 
 before_script:
