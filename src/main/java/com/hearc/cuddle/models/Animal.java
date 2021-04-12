@@ -14,6 +14,15 @@ public class Animal {
     private String name;
 
     @Column
+    private int age;
+
+    @Column
+    private String sex;
+
+    @Column
+    private String description;
+
+    @Column
     private String image;
 
     @OneToOne
@@ -38,6 +47,30 @@ public class Animal {
 
     public String getName() {
         return name;
+    }
+
+    public void SetAge(int age) {
+        this.age = age;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 
     public void setImage(String image) {

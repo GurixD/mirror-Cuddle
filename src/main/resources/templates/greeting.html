@@ -22,8 +22,8 @@
             <td th:text="${animal.getId()}">Product ID</td>
             <td th:text="${animal.getName()}">Name</td>
             <td th:text="${animal.getImage()}">Brand</td>
-            <td th:text="${animal.getBreed()}">Made in</td>
-            <td th:text="${animal.getSpecies()}">Price</td>
+            <td th:text="${animal.getBreed().getName()}">Made in</td>
+            <td th:text="${animal.getSpecies().getName()}">Price</td>
 <!--            <td>-->
 <!--                <a th:href="/@{'/edit/' + ${product.id}}">Edit</a>-->
 <!--                &nbsp;&nbsp;&nbsp;-->
