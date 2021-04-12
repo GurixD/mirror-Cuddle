@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>Login page</h1>
-<p th:if="${loginError}" class="error">Wrong user or password</p>
+
 <form th:action="@{/login}" method="post">
     <label for="username">Username</label>:
     <input type="text" id="username" name="username" autofocus="autofocus" /> <br />
@@ -13,5 +13,9 @@
     <input type="password" id="password" name="password" /> <br />
     <input type="submit" value="Log in" />
 </form>
+
+<p th:text="${error}" />
+<p th:text="${message}" />
+
 </body>
 </html>
