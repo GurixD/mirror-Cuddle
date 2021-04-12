@@ -47,6 +47,7 @@ katalon_test_suite:
     - alpine-docker
 
 sonarqube:
+  image: maven:latest
   stage: sonarqube
   script:
     - echo "start sonarqube stage"
