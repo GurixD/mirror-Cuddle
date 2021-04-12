@@ -50,6 +50,7 @@ sonarqube:
   stage: sonarqube
   script:
     - echo "start sonarqube stage"
+    - mvn sonar:sonar -Dsonar.projectKey=cuddle -Dsonar.host.url=http://157.26.83.85:9000 -Dsonar.login=3b0c393705cc386e1cd35c720a614282ce0cc956
     - echo "sonarqube ok"
   only:
     - master
