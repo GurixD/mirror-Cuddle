@@ -55,7 +55,7 @@ sonarqube:
   only:
     - master
   tags:
-    - alpine-docker
+    - Cuddle runner
 
 deploy_ssh:
   stage: deploy
