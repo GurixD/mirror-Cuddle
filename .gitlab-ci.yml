@@ -4,9 +4,9 @@ variables:
   SOME_VAR: "some value"
 
 stages:
-  - sonarqube
   - build
   - test
+  - sonarqube
   - deploy
 
 before_script:
@@ -51,7 +51,10 @@ sonarqube:
   stage: sonarqube
   script:
     - echo "start sonarqube stage"
-    - mvn sonar:sonar -Dsonar.projectKey=cuddle -Dsonar.host.url=http://157.26.83.85:9000 -Dsonar.login=3b0c393705cc386e1cd35c720a614282ce0cc956
+    - mvn clean package sonar:sonar\​
+      -Dsonar.projectKey=$SONARQUBE_PROJECT_KEY\​
+      -Dsonar.host.url=$SONARQUBE_URL\​
+      -Dsonar.login=$SONARQUBE_LOGIN_KEY
     - echo "sonarqube ok"
   only:
     - master
