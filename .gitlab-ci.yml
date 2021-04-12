@@ -4,8 +4,8 @@ variables:
   SOME_VAR: "some value"
 
 stages:
-  - build
-  - test
+#  - build
+#  - test
   - sonarqube
   - deploy
 
