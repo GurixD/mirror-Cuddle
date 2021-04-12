@@ -1,4 +1,4 @@
-image: ubuntu
+image: maven:latest
 
 variables:
   SOME_VAR: "some value"
@@ -19,6 +19,7 @@ build:
   stage: build
   script:
     - echo "Build process"
+    - mvn clean package
     - echo "Build ok"
   only:
     - master
