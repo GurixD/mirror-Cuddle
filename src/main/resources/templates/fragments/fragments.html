@@ -14,7 +14,7 @@
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="/home">
 			<img src="https://cdn.discordapp.com/attachments/782614625334067200/823492326135300126/IMG-20210215-WA0000.jpg"
-				 height="64" width="64" >
+				 height="64" width="64" class="rounded-circle" style="object-fit: cover">
 			Cuddle
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,12 +67,13 @@
 </div>
 
 <!--  *************** fragment de cards *************** -->
-<div th:fragment="adoptCard(name, id, species, race, image)">
-	<div class="card m-2" style="width: 18rem;">
-		<img class="card-img-top" th:src="${image}" >
+<div th:fragment="adoptCard( id, name, age, sex, desc, species, race, image)">
+	<div class="card m-2" style="width: 300px;">
+		<img class="card-img-top" style="height: 300px; object-fit: cover" th:src="${image}" >
 		<div class="card-body">
-			<h5 class="card-title" th:text="${name}">Name</h5>
-			<p class="card-text" th:text="${race} + ', ' + ${species}"></p>
+			<h5 class="card-title d-inline mr-2" th:text="${name}"></h5><div class="d-inline" th:text="'Age : '+${age}"></div>
+			<p class="card-text" th:text="${sex} + ', ' + ${race} + ', ' + ${species}"></p>
+			<p class="card-text" th:text="${desc}"></p>
 			<a th:href="'/details/' + ${id}" class="stretched-link"></a>
 		</div>
 	</div>
