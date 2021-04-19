@@ -30,6 +30,7 @@ unittest:
   stage: test
   script:
     - echo "start test"
+    - mvm clean package
     - echo "test ok"
   only:
     - master
