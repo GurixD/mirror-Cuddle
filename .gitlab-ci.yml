@@ -24,7 +24,7 @@ build:
   only:
     - master
   tags:
-    - alpine-docker
+    - Cuddle runner
 
 unittest:
   stage: test
@@ -34,7 +34,7 @@ unittest:
   only:
     - master
   tags:
-    - alpine-docker
+    - Cuddle runner
 
 katalon_test_suite:
   stage: test
@@ -44,7 +44,7 @@ katalon_test_suite:
   only:
     - master
   tags:
-    - alpine-docker
+    - Cuddle runner
 
 sonarqube:
   image: maven:latest
@@ -55,6 +55,7 @@ sonarqube:
     #  -Dsonar.projectKey=$SONARQUBE_PROJECT_KEY\​
     #  -Dsonar.host.url=$SONARQUBE_URL\​
     #  -Dsonar.login=$SONARQUBE_LOGIN_KEY
+    - echo "Wow, code is so clean!"
     - echo "sonarqube ok"
   only:
     - master
@@ -67,11 +68,13 @@ deploy_ssh:
     - echo "do some stuff before"
   script:
     - echo "deploy apps"
+    - docker-compose down
+    - docker-compose up -d
     - echo "deploy ok"
   only:
     - master
   tags:
-    - alpine-docker
+    - Cuddle runner
   when: manual
 
 after_script:
