@@ -3,8 +3,11 @@ package com.hearc.cuddle.service;
 import com.hearc.cuddle.models.Animal;
 import com.hearc.cuddle.repository.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -29,4 +32,12 @@ public class AnimalService {
     }
 
     public List<Animal> findByName(String name){return animalRepo.findByName(name);}
+
+    public List<Animal> getRandom(int number)
+    {
+        List<Animal> animals = animalRepo.findAll();
+        Collections.shuffle(animals);
+        return animals.subList(0, number-1);
+    }
+
 }
