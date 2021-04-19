@@ -4,12 +4,15 @@ import com.hearc.cuddle.auth.repository.UserRepository;
 import com.hearc.cuddle.models.Animal;
 import com.hearc.cuddle.service.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Collection;
 import java.util.List;
 
 @Controller
@@ -23,6 +26,8 @@ public class HomeController {
 
     @GetMapping({"/", "/home"})
     public String home(Model model) {
+        Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>)SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+        System.out.println(authorities);
         return "home";
     }
 
