@@ -1,6 +1,7 @@
 package ch.hearc.cuddle.models;
 
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
 
 @Entity
 @Table(name="animal")
@@ -49,11 +50,11 @@ public class Animal {
         return name;
     }
 
-    public void SetAge(int age) {
+    public void SetAge(Integer age) {
         this.age = age;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
