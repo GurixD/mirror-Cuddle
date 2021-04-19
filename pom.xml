@@ -15,6 +15,9 @@
     <description>Projet JEE</description>
     <properties>
         <java.version>11</java.version>
+        <sonar.projectKey>GurixD_mirror-Cuddle</sonar.projectKey>
+        <sonar.organization>gurixd</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
     </properties>
     <dependencies>
         <dependency>
