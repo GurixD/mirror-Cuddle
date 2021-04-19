@@ -26,6 +26,11 @@ public class HomeController {
     @GetMapping({"/", "/home"})
     public String home(Model model) {
         Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>)SecurityContextHolder.getContext().getAuthentication().getAuthorities();
+        List<Animal> carouselAnimals = animalService.getRandom(6);
+        List<Animal> randomAnimals = animalService.getRandom(4);
+        model.addAttribute("firstCarouselAnimal", carouselAnimals.remove(0));
+        model.addAttribute("carouselAnimals", carouselAnimals);
+        model.addAttribute("randAnimals", randomAnimals);
         System.out.println(authorities);
         return "home";
     }

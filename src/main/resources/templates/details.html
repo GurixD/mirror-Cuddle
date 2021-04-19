@@ -11,30 +11,30 @@
     <div class="row">
         <div class="col">
             <div class="card flex-row border-0">
-                <img class="card-img-left m-md-4"
-                     src="https://cdn.discordapp.com/attachments/782614625334067200/823499339283562506/IMG_20210129_114017.jpg"
-                     width="250" height="250">
+                <img class="card-img-left rounded m-md-4" style="object-fit: cover"
+                     th:src="${animal.getImage()}"
+                     width="300" height="300">
                 <div class="card-body">
-                    <h5 class="card-title">Yuri de Karnel</h5>
+                    <h5 class="card-title" th:text="${animal.getName()}">Yuri de Karnel</h5>
                     <p class="card-text">
                         <b>Age : </b>
-                        <span>1008 ans</span>
+                        <span th:text="${animal.getAge()}">1008 ans</span>
                     </p>
                     <p class="card-text">
                         <b>Sexe : </b>
-                        <span>1008 ans</span>
+                        <span th:text="${animal.getSex()}">1008 ans</span>
                     </p>
                     <p class="card-text">
-                        <b>Race : </b>
-                        <span>1008 ans</span>
+                        <b>Breed : </b>
+                        <span th:text="${animal.getBreed().getName()}">1008 ans</span>
                     </p>
                     <p class="card-text">
-                        <b>Espèce : </b>
-                        <span>1008 ans</span>
+                        <b>Species : </b>
+                        <span th:text="${animal.getSpecies().getName()}">1008 ans</span>
                     </p>
                     <p class="card-text">
                         <b>Description : </b>
-                        <span>1008 ans</span>
+                        <span th:text="${animal.getDescription()}">1008 ans</span>
                     </p>
 
                 </div>

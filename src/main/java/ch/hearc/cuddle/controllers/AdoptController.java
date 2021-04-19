@@ -22,10 +22,8 @@ public class AdoptController {
 
     @GetMapping({"/adopt"})
     public String adopt(Model model) {
-        List<Animal> animalsList = animalService.listAll();
-        System.out.println(animalsList);
-//        model.addAttribute("name", name);
-        model.addAttribute("listAnimals", animalsList);
+        List<Animal> listAnimals = animalService.listAll();
+        model.addAttribute("listAnimals", listAnimals);
         return "adopt";
     }
 
