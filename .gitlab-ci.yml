@@ -32,7 +32,7 @@ unittest:
   stage: test
   script:
     - echo "start test"
-    - mvn clean package
+    #- mvn clean package
     - echo "test ok"
   only:
     - master
@@ -54,10 +54,7 @@ sonarqube:
   stage: sonarqube
   script:
     - echo "start sonarqube stage"
-    #- mvn clean package sonar:sonar\​
-    #  -Dsonar.projectKey=$SONARQUBE_PROJECT_KEY\​
-    #  -Dsonar.host.url=$SONARQUBE_URL\​
-    #  -Dsonar.login=$SONARQUBE_LOGIN_KEY
+    - mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
     - echo "Wow, code is so clean!"
     - echo "sonarqube ok"
   only:
