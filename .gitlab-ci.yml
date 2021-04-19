@@ -2,6 +2,7 @@ image: maven:latest
 
 variables:
   SOME_VAR: "some value"
+  SONAR_TOKEN: $SONAR_TOKEN
 
 stages:
   - build
