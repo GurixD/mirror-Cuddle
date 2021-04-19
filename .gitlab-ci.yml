@@ -16,6 +16,7 @@ before_script:
   - echo $CI_COMMIT_SHORT_SHA # calls another predefined variable
 
 build:
+  image: maven:latest
   stage: build
   script:
     - echo "Build process"
@@ -30,7 +31,7 @@ unittest:
   stage: test
   script:
     - echo "start test"
-    - mvm clean package
+    - mvn clean package
     - echo "test ok"
   only:
     - master
