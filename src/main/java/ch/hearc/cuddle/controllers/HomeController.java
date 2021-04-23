@@ -31,6 +31,8 @@ public class HomeController {
         model.addAttribute("carouselAnimals", carouselAnimals.subList(1,5));
         model.addAttribute("randAnimals", carouselAnimals.subList(0,3));
         System.out.println(authorities);
+
+        animalService.getRandom(4);
         return "home";
     }
 
