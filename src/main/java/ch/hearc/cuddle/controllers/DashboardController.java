@@ -1,5 +1,6 @@
 package ch.hearc.cuddle.controllers;
 
+import ch.hearc.cuddle.auth.service.UserService;
 import ch.hearc.cuddle.models.Animal;
 import ch.hearc.cuddle.models.Breed;
 import ch.hearc.cuddle.models.Species;
@@ -7,11 +8,18 @@ import ch.hearc.cuddle.repository.AnimalRepository;
 import ch.hearc.cuddle.service.AnimalService;
 import ch.hearc.cuddle.service.BreedService;
 import ch.hearc.cuddle.service.SpeciesService;
+import ch.hearc.cuddle.validator.AnimalValidator;
+import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -38,11 +46,40 @@ public class DashboardController {
     BreedService breedService;
 
 
+    @Autowired
+    private AnimalValidator animalValidator;
+
     @GetMapping("/addAnimal")
     public String addAnimal(Model model) {
+
+        addAnimalModel(model, new Animal());
+
+        return "addAnimal";
+    }
+
+    @PostMapping("/addAnimal")
+    public String addAnimal(@ModelAttribute("newAnimal") Animal newAnimal, BindingResult bindingResult, Model model) {
+
+        animalValidator.validate(newAnimal, bindingResult);
+
+        if(bindingResult.hasErrors())
+        {
+            List<ObjectError> errors = bindingResult.getAllErrors();
+            for (ObjectError error : errors)
+            {
+                System.out.println(error);
+            }
+
+            addAnimalModel(model, newAnimal);
+            return "addAnimal";
+        }
+
+        return "redirect:/home";
+    }
+
+    private void addAnimalModel(Model model, Animal animal) {
         List<Species> species = speciesService.findAll();
         List<Breed> breeds = breedService.findAll();
-        Animal newAnimal = new Animal();
 
         model.addAttribute("species", species);
         model.addAttribute("breeds", breeds);
@@ -93,5 +130,6 @@ class FileUploadUtil {
         } catch (IOException ioe) {
             throw new IOException("Could not save image file: " + fileName, ioe);
         }
+        model.addAttribute("newAnimal", animal);
     }
 }
