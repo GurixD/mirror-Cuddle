@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.List;
 
 @Controller
-public class DetailsController {
+public class AdoptController {
 
     @Autowired
     UserRepository userRepository;
@@ -20,11 +20,11 @@ public class DetailsController {
     @Autowired
     AnimalService animalService;
 
-    @GetMapping({"/details/{id}"})
-    public String details(@PathVariable("id")String id, Model model) {
-        Animal animal = animalService.get(Long.parseLong(id));
-        model.addAttribute("animal", animal);
-        return "details";
+    @GetMapping({"/adopt"})
+    public String adopt(Model model) {
+        List<Animal> listAnimals = animalService.listAll();
+        model.addAttribute("listAnimals", listAnimals);
+        return "adopt";
     }
 
 
