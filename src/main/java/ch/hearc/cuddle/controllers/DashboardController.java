@@ -44,6 +44,9 @@ public class DashboardController {
     public String addAnimal(@ModelAttribute("newAnimal") Animal newAnimal) {
 
         System.out.println(newAnimal.getName());
+        System.out.println(newAnimal.getSex());
+        System.out.println(newAnimal.getDescription());
+        System.out.println(newAnimal.getAge());
 
         return "redirect:/home";
     }
