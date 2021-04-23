@@ -27,6 +27,8 @@ public class HomeController {
     public String home(Model model) {
         Collection<SimpleGrantedAuthority> authorities = (Collection<SimpleGrantedAuthority>)SecurityContextHolder.getContext().getAuthentication().getAuthorities();
         System.out.println(authorities);
+
+        animalService.getRandom(4);
         return "home";
     }
 

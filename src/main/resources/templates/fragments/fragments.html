@@ -67,12 +67,12 @@
 </div>
 
 <!--  *************** fragment de cards *************** -->
-<div th:fragment="adoptCard(name, id, species, race, image)">
+<div th:fragment="adoptCard(name, id, species, breed, image)">
 	<div class="card m-2" style="width: 18rem;">
 		<img class="card-img-top" th:src="${image}" >
 		<div class="card-body">
 			<h5 class="card-title" th:text="${name}">Name</h5>
-			<p class="card-text" th:text="${race} + ', ' + ${species}"></p>
+			<p class="card-text" th:text="${breed} + ', ' + ${species}"></p>
 			<a th:href="'/details/' + ${id}" class="stretched-link"></a>
 		</div>
 	</div>
