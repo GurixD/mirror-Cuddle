@@ -2,13 +2,17 @@ package ch.hearc.cuddle.models;
 
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
+import java.io.File;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 @Entity
 @Table(name="animal")
 public class Animal {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
@@ -79,6 +83,15 @@ public class Animal {
     }
 
     public String getImage() {
+        return image;
+    }
+
+    @Transient
+    public String getImagePath() {
+        if (image == null || id == null) return image;
+
+        String imgPath = "/media/img/animal/" + id + "/" + image;
+        if (new File("."+imgPath).exists()) return imgPath;
         return image;
     }
 

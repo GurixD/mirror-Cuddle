@@ -10,7 +10,7 @@
 <div class="d-flex flex-row flex-wrap justify-content-start align-self-start align-items-stretch" >
     <div class="animalCard m-3" th:each="animal : ${listAnimals}">
         <div class="p-2" th:replace="fragments/fragments.html :: adoptCard(${animal.getId()}, ${animal.getName()}, ${animal.getAge()}, ${animal.getSex()},
-    ${animal.getDescription()}, ${animal.getSpecies().getName()}, ${animal.getBreed().getName()}, ${animal.getImage()})"></div>
+    ${animal.getDescription()}, ${animal.getSpecies().getName()}, ${animal.getBreed().getName()}, ${animal.getImagePath()})"></div>
     </div>
 </div>
 
