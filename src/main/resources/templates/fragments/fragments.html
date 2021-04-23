@@ -12,7 +12,7 @@
 <!--  *************** fragment de navigation *************** -->
 <div th:fragment="navigation">
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="/home">
+		<a class="navbar-brand" th:href="@{/home}">
 			<img src="https://cdn.discordapp.com/attachments/782614625334067200/823492326135300126/IMG-20210215-WA0000.jpg"
 				 height="64" width="64" class="rounded-circle" style="object-fit: cover">
 			Cuddle
@@ -23,10 +23,10 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav ml-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+					<a class="nav-link" th:href="@{/home}">Home <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="/adopt">Adopt</a>
+					<a class="nav-link" th:href="@{/adopt}">Adopt</a>
 				</li>
 <!--				<li class="nav-item" sec:authorize="isAuthenticated()">-->
 <!--					<a th:href="@{/logout}"></a>-->
@@ -39,7 +39,11 @@
 <!--				</li>-->
 
 				<li sec:authorize="!isAuthenticated()" class="nav-item">
-					<a class="btn btn-outline-light" th:href="@{/login}">Login</a>
+					<a class="nav-link" th:href="@{/login}">Login</a>
+				</li>
+				<li sec:authorize="isAuthenticated()" class="nav-item">
+					<a class="nav-link" th:href="@{/dashboard}">Dashboard
+					</a>
 				</li>
 				<li sec:authorize="isAuthenticated()" class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
