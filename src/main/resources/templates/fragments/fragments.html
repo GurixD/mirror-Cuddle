@@ -15,9 +15,9 @@
 <!--  *************** fragment de navigation *************** -->
 <div th:fragment="navigation">
     <nav class="navbar navbar-expand-lg navbar-light text-light" style="background-color: #169919;">
-        <a class="navbar-brand text-light" th:href="@{/home}">
+        <a class="navbar-brand text-light font-weight-bold" th:href="@{/home}">
             <img src="/media/img/logo.jpg"
-                 height="64" width="64" class="rounded-circle" style="object-fit: cover">
+                 height="64" width="64" class="rounded-circle mr-2" style="object-fit: cover">
             Cuddle
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -63,7 +63,7 @@
 
 <!--  *************** fragment de cards *************** -->
 <div th:fragment="adoptCard( id, name, age, sex, desc, species, race, image)">
-    <div class="card m-2" style="width: 300px;">
+    <div class="card mx-2 mb-2" style="width: 300px;">
         <img class="card-img-top" style="height: 300px; object-fit: cover" th:src="${image}">
         <div class="card-body">
             <h5 class="card-title d-inline mr-2" th:text="${name}"></h5>
