@@ -1,5 +1,6 @@
 package ch.hearc.cuddle.service;
 
+import ch.hearc.cuddle.models.Breed;
 import ch.hearc.cuddle.models.DatabaseEnum;
 import ch.hearc.cuddle.models.Species;
 import ch.hearc.cuddle.repository.SpeciesRepository;
@@ -38,34 +39,53 @@ public class SpeciesService {
         return species;
     }
 
-    public Species save(DatabaseEnum species) {
-        if (!StringUtils.hasText(species.getName())) {
+    public Species save(Species species) {
+        if (StringUtils.hasText(species.getName())) {
 
             if (species.getId() != null && existsById(species.getId())) {
                 System.out.println("Species with id already exists");
             } else
-                return speciesRepo.save((Species) species);
+                return speciesRepo.save(species);
         }
 
         return null;
     }
 
-    public void update(DatabaseEnum species) {
+    public boolean update(Species species) {
         if (StringUtils.hasText(species.getName())) {
             if (!existsById(species.getId())) {
                 System.out.println("Cannot find Species with id");
-            } else
-                speciesRepo.save((Species)species);
+                return false;
+            } else {
+                speciesRepo.save(species);
+                return true;
+            }
         }
+
+        return false;
     }
 
-    public void deleteById(Long id) {
-        if (existsById(id)) {
-            speciesRepo.deleteById(id);
+    public boolean deleteById(Long id) {
+        try {
+            if (existsById(id)) {
+                speciesRepo.deleteById(id);
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
         }
+        return false;
     }
 
     public Long count() {
         return speciesRepo.count();
+    }
+
+    public Species toSpecies(DatabaseEnum dbEnum) {
+        Species species = new Species();
+        species.setId(dbEnum.getId());
+        species.setName(dbEnum.getName());
+
+        return species;
     }
 }
