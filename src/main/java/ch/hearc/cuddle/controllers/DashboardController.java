@@ -9,6 +9,7 @@ import ch.hearc.cuddle.service.AnimalService;
 import ch.hearc.cuddle.service.BreedService;
 import ch.hearc.cuddle.service.SpeciesService;
 import ch.hearc.cuddle.validator.AnimalValidator;
+import org.apache.commons.io.FilenameUtils;
 import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -29,6 +30,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
@@ -57,8 +60,27 @@ public class DashboardController {
         return "addAnimal";
     }
 
+    private void addAnimalModel(Model model, Animal animal) {
+        List<Species> species = speciesService.findAll();
+        List<Breed> breeds = breedService.findAll();
+
+        model.addAttribute("species", species);
+        model.addAttribute("breeds", breeds);
+        model.addAttribute("newAnimal", animal);
+    }
+
     @PostMapping("/addAnimal")
-    public String addAnimal(@ModelAttribute("newAnimal") Animal newAnimal, BindingResult bindingResult, Model model) {
+    public String addAnimal(@ModelAttribute("newAnimal") Animal newAnimal, @RequestParam("formImage") MultipartFile multipartFile, BindingResult bindingResult, Model model
+                            ) throws IOException {
+
+        String fileExt = FilenameUtils.getExtension(multipartFile.getOriginalFilename()).toLowerCase();
+        String fileName = UUID.randomUUID() + "." + fileExt;
+        String[] mimeTypes = {"image/png", "image/jpeg", "image/jpg", "image/gif"};
+
+        if (!multipartFile.isEmpty() && Arrays.asList(mimeTypes).contains(multipartFile.getContentType()))
+        {
+            newAnimal.setImage(fileName);
+        }
 
         animalValidator.validate(newAnimal, bindingResult);
 
@@ -74,43 +96,10 @@ public class DashboardController {
             return "addAnimal";
         }
 
-        return "redirect:/home";
-    }
-
-    private void addAnimalModel(Model model, Animal animal) {
-        List<Species> species = speciesService.findAll();
-        List<Breed> breeds = breedService.findAll();
-
-        model.addAttribute("species", species);
-        model.addAttribute("breeds", breeds);
-        model.addAttribute("newAnimal", newAnimal);
-
-        return "addAnimal";
-    }
-
-    @PostMapping("/addAnimal")
-    public String addAnimal(@ModelAttribute("newAnimal") Animal newAnimal,
-                            @RequestParam("formImage") MultipartFile multipartFile) throws IOException {
-
-//        String fileName = StringUtils.cleanPath(multipartFile.getOriginalFilename());
-        String fileName = UUID.randomUUID().toString();
-        newAnimal.setImage(fileName);
-
-        System.out.println(fileName);
-        System.out.println(newAnimal.getId());
-        System.out.println(newAnimal.getImage());
-        System.out.println(newAnimal.getName());
-        System.out.println(newAnimal.getSex());
-        System.out.println(newAnimal.getDescription());
-        System.out.println(newAnimal.getAge());
-
         Animal savedAnimal = animalService.save(newAnimal);
-
         String uploadDir = "media/img/animal/" + savedAnimal.getId();
-
         FileUploadUtil.saveFile(uploadDir, fileName, multipartFile);
-//        return "redirect:/home";
-        return "addAnimal";
+        return "redirect:/home";
     }
 }
 
@@ -130,6 +119,5 @@ class FileUploadUtil {
         } catch (IOException ioe) {
             throw new IOException("Could not save image file: " + fileName, ioe);
         }
-        model.addAttribute("newAnimal", animal);
     }
 }

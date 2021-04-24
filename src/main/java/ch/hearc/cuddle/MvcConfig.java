@@ -13,7 +13,7 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        exposeDirectory("media", registry);
+        exposeDirectory("media/img/animal", registry);
     }
 
     private void exposeDirectory(String dirName, ResourceHandlerRegistry registry) {

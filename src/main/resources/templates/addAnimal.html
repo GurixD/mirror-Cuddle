@@ -34,7 +34,7 @@
     </div>
     <div class="form-group">
         <label for="formImage">Image url</label>
-        <input type="file" name="formImage" accept="image/png, image/jpeg" class="form-control" th:classappend="${#fields.hasErrors('image')} ? is-invalid" id="formImage" th:field="*{image}">
+        <input type="file" name="formImage" accept="image/png, image/jpeg, image/jpg, image/gif" class="form-control" th:classappend="${#fields.hasErrors('image')} ? is-invalid" id="formImage">
         <p th:if="${#fields.hasErrors('image')}">Must not be empty</p>
     </div>
     <div class="form-group">
