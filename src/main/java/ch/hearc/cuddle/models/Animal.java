@@ -1,5 +1,7 @@
 package ch.hearc.cuddle.models;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
 
@@ -50,7 +52,7 @@ public class Animal {
         return name;
     }
 
-    public void SetAge(Integer age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
