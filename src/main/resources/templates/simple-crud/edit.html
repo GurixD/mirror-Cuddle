@@ -9,15 +9,13 @@
     <br/><br/>
     <form th:action="${add} ? @{/dashboard/{type}/add(type=${type})} : @{/dashboard/{type}/{id}/edit(type=${type}, id=${enum.id})}"
           th:object="${enum}" method="POST">
-        <table border="0">
+        <table class="table">
             <tr th:if="${enum.id}">
                 <td>ID</td>
-                <td>:</td>
                 <td th:utext="${enum.id}">...</td>
             </tr>
             <tr>
                 <td>Name</td>
-                <td>:</td>
                 <td><input type="text" th:field="*{name}"/></td>
             </tr>
         </table>

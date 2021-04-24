@@ -26,7 +26,7 @@ public class Animal {
     @Column
     private String sex;
 
-    @Column
+    @Column(length = 500)
     private String description;
 
     @Column
