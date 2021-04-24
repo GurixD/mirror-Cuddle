@@ -17,8 +17,8 @@ public class AnimalService {
         return animalRepo.findAll();
     }
 
-    public void save(Animal product) {
-        animalRepo.save(product);
+    public Animal save(Animal product) {
+        return animalRepo.save(product);
     }
 
     public Animal get(long id) {

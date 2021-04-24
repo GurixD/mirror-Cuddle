@@ -29,8 +29,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/resources/**", "/css/**", "/js/**" ,
-                        "/registration", "/", "/home").permitAll()
+                .antMatchers("/resources/**", "/css/**", "/js/**" ,"/media/**",
+                        "/registration", "/", "/home", "/adopt","/details/**").permitAll()
                 .antMatchers("/*").hasAnyRole("ADMIN","STAFF","VETENARY")
                 .anyRequest().authenticated()
                 .and()
@@ -39,6 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                     .logout()
                     .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                    .logoutSuccessUrl("/home")
                     .permitAll();
     }
 

@@ -4,7 +4,7 @@
 <body>
 <div th:insert="fragments/fragments.html::navigation"></div>
 <div class="container">
-<form method="post" th:action="@{/dashboard/addAnimal}" th:object="${newAnimal}">
+<form method="post" th:action="@{/dashboard/addAnimal}" th:object="${newAnimal}" enctype="multipart/form-data">
     <div class="form-group">
         <label for="formName">Pet name</label>
         <input type="text" class="form-control" th:classappend="${#fields.hasErrors('name')} ? is-invalid" id="formName" th:field="*{name}">
@@ -34,7 +34,7 @@
     </div>
     <div class="form-group">
         <label for="formImage">Image url</label>
-        <input type="text" class="form-control" th:classappend="${#fields.hasErrors('image')} ? is-invalid" id="formImage" th:field="*{image}">
+        <input type="file" name="formImage" accept="image/png, image/jpeg, image/jpg, image/gif" class="form-control" th:classappend="${#fields.hasErrors('image')} ? is-invalid" id="formImage">
         <p th:if="${#fields.hasErrors('image')}">Must not be empty</p>
     </div>
     <div class="form-group">
