@@ -5,7 +5,7 @@
 <div th:insert="fragments/fragments.html::navigation"></div>
 <div class="container">
     <h1 th:text="${add} ? ${'Create an animal'} : ${'Edit an animal '}"></h1>
-    <a href="/dashboard/animals">Back to animal List</a>
+    <a class="btn btn-primary" href="/dashboard/animals">Back to animal List</a>
     <br/><br/>
     <form th:action="${add} ? @{/dashboard/animals/add} : @{/dashboard/animals/{id}/edit(id=${animal.id})}"
           th:object="${animal}" method="POST">
