@@ -14,16 +14,16 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MultipartException.class)
     public String handleError1(MultipartException e, RedirectAttributes redirectAttributes) {
         System.out.println("YO2? : "+e.getCause().getMessage());
-//        redirectAttributes.addFlashAttribute("message", e.getCause().getMessage());
-        return "dashboard";
+        redirectAttributes.addFlashAttribute("message", e.getCause().getMessage());
+        return "redirect:/dashboard";
 
     }
 
     @ExceptionHandler(MaxUploadSizeExceededException.class)
     public String handleMaxUploadSizeError(MaxUploadSizeExceededException e, RedirectAttributes redirectAttributes) {
         System.out.println("YO? : "+e.getCause().getMessage());
-//        redirectAttributes.addFlashAttribute("message", e.getCause().getMessage());
-        return "dashboard";
+        redirectAttributes.addFlashAttribute("message", e.getCause().getMessage());
+        return "redirect:/dashboard";
 
     }
 }
