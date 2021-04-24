@@ -25,9 +25,9 @@ public class SimpleCrudController {
     @Autowired
     private BreedService breedService;
 
-
     @GetMapping(value = "/{type}")
     public String get(Model model, @PathVariable String type, @RequestParam(value = "page", defaultValue = "1") int pageNumber) {
+        System.out.println("TYPE");
         if (wrongType(type))
             return "error";
 
@@ -166,7 +166,7 @@ public class SimpleCrudController {
         }
 
         if (dbEnum == null)
-            model.addAttribute("errorMessage", "Contact not found");
+            model.addAttribute("errorMessage", StringUtils.capitalize(type) + " not found");
 
         model.addAttribute("typeName", StringUtils.capitalize(type));
         model.addAttribute("type", type);
@@ -199,7 +199,7 @@ public class SimpleCrudController {
             return "redirect:/dashboard/" + type + "/" + dbEnum.getId();
         }
 
-        model.addAttribute("errorMessage", "Not found");
+        model.addAttribute("errorMessage", StringUtils.capitalize(type) + " not found");
         model.addAttribute("add", false);
 
         return "simple-crud/edit";

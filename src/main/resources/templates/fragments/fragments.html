@@ -2,71 +2,75 @@
 
 <!--  *************** fragment du header *************** -->
 <head th:fragment="header">
-<title>Cuddle</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Cuddle</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-<link rel="stylesheet" type="text/css"	th:href="@{/css/bootstrap.min.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/main.css}"/>
 
 </head>
 
 <!--  *************** fragment de navigation *************** -->
 <div th:fragment="navigation">
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" th:href="@{/home}">
-			<img src="https://cdn.discordapp.com/attachments/782614625334067200/823492326135300126/IMG-20210215-WA0000.jpg"
-				 height="64" width="64" class="rounded-circle" style="object-fit: cover">
-			Cuddle
-		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav ml-auto">
-				<li class="nav-item">
-					<a class="nav-link" th:href="@{/home}">Home <span class="sr-only">(current)</span></a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" th:href="@{/adopt}">Adopt</a>
-				</li>
-				<li sec:authorize="!isAuthenticated()" class="nav-item">
-					<a class="nav-link" th:href="@{/login}">Login</a>
-				</li>
-				<li sec:authorize="isAuthenticated()" class="nav-item">
-					<a class="nav-link" th:href="@{/dashboard}">Dashboard
-					</a>
-				</li>
-				<li sec:authorize="isAuthenticated()" class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-					   aria-haspopup="true" aria-expanded="false" sec:authentication="name">
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="pl-3" th:href="@{/logout}">Logout</a>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</nav>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" th:href="@{/home}">
+            <img src="https://cdn.discordapp.com/attachments/782614625334067200/823492326135300126/IMG-20210215-WA0000.jpg"
+                 height="64" width="64" class="rounded-circle" style="object-fit: cover">
+            Cuddle
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/home}">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/adopt}">Adopt</a>
+                </li>
+                <li sec:authorize="!isAuthenticated()" class="nav-item">
+                    <a class="nav-link" th:href="@{/login}">Login</a>
+                </li>
+                <li sec:authorize="isAuthenticated()" class="nav-item">
+                    <a class="nav-link" th:href="@{/dashboard}">Dashboard
+                    </a>
+                </li>
+                <li sec:authorize="isAuthenticated()" class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-toggle="dropdown"
+                       aria-haspopup="true" aria-expanded="false" sec:authentication="name">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="pl-3" th:href="@{/logout}">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
 </div>
 
 
 <!--  *************** fragment js *************** -->
 <div th:fragment="scripts">
-	<script type="text/javascript" src="js/jquery.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
 </div>
 
 <!--  *************** fragment de cards *************** -->
 <div th:fragment="adoptCard( id, name, age, sex, desc, species, race, image)">
-	<div class="card m-2" style="width: 300px;">
-		<img class="card-img-top" style="height: 300px; object-fit: cover" th:src="${image}" >
-		<div class="card-body">
-			<h5 class="card-title d-inline mr-2" th:text="${name}"></h5><div class="d-inline" th:text="'Age : '+${age}"></div>
-			<p class="card-text" th:text="${sex} + ', ' + ${race} + ', ' + ${species}"></p>
-			<p class="card-text" th:text="${desc}"></p>
-			<a th:href="'/details/' + ${id}" class="stretched-link"></a>
-		</div>
-	</div>
+    <div class="card m-2" style="width: 300px;">
+        <img class="card-img-top" style="height: 300px; object-fit: cover" th:src="${image}">
+        <div class="card-body">
+            <h5 class="card-title d-inline mr-2" th:text="${name}"></h5>
+            <div class="d-inline" th:text="'Age : '+${age}"></div>
+            <p class="card-text" th:text="${sex} + ', ' + ${race} + ', ' + ${species}"></p>
+            <p class="card-text" th:text="${desc}"></p>
+            <a th:href="'/details/' + ${id}" class="stretched-link"></a>
+        </div>
+    </div>
 
 </div>
 
