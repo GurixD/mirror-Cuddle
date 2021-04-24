@@ -5,7 +5,7 @@
 <div th:insert="fragments/fragments.html::navigation"></div>
 <div class="container">
     <h1 th:text="${'View ' + typeName}"></h1>
-    <a th:href="@{/dashboard/{type}(type=${type})}" th:text="${'Back to ' + typeName + ' List'}"></a>
+    <a class="btn btn-primary" th:href="@{/dashboard/{type}(type=${type})}" th:text="${'Back to ' + typeName + ' List'}"></a>
     <br/><br/>
     <div th:if="${enum}">
         <table class="table w-75">
@@ -20,8 +20,8 @@
         </table>
         <br/><br/>
         <div th:if="not ${allowDelete}">
-            <a th:href="@{/dashboard/{type}/{id}/edit(type=${type}, id=${enum.id})}">Edit</a> |
-            <a th:href="@{/dashboard/{type}/{id}/delete(type=${type}, id=${enum.id})}">Delete</a>
+            <a class="btn btn-primary" th:href="@{/dashboard/{type}/{id}/edit(type=${type}, id=${enum.id})}">Edit</a>
+            <a class="btn btn-primary" th:href="@{/dashboard/{type}/{id}/delete(type=${type}, id=${enum.id})}">Delete</a>
         </div>
         <form th:if="${allowDelete}" th:action="@{/dashboard/{type}/{id}/delete(type=${type}, id=${enum.id})}"
               method="POST">
