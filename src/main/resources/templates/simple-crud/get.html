@@ -6,7 +6,7 @@
 <div class="container">
     <h1 th:text="${typeName + ' List'}"></h1>
     <div>
-        <a th:href="@{/{type}/add(type=${type})}" th:text="${'Add ' + type}"></a> |
+        <a th:href="@{/dashboard/{type}/add(type=${type})}" th:text="${'Add ' + type}"></a> |
         <a th:href="@{/}">Back to Index</a>
     </div>
     <br/><br/>
