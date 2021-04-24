@@ -17,7 +17,6 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MultipartException.class)
     public String handleError1(MultipartException e, HttpServletRequest request,
                                HttpServletResponse response, RedirectAttributes redirectAttributes) {
-        System.out.println("YO2? : "+e.getCause().getMessage());
         redirectAttributes.addFlashAttribute("message", e.getCause().getMessage());
 
         return "redirect:"+request.getHeader("Referer");
@@ -27,8 +26,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(MaxUploadSizeExceededException.class)
     public String handleMaxUploadSizeError(MaxUploadSizeExceededException e, HttpServletRequest request,
                                            HttpServletResponse response, RedirectAttributes redirectAttributes) {
-        System.out.println("YO? : "+e.getCause().getMessage());
-        redirectAttributes.addFlashAttribute("message", e.getCause().getMessage());
+        redirectAttributes.addFlashAttribute("message", "File size is too big (>8MB)");
         return "redirect:"+request.getHeader("Referer");
 
     }
