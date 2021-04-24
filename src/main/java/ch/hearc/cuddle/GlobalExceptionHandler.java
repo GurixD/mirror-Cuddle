@@ -7,23 +7,29 @@ import org.springframework.web.multipart.MultipartException;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(MultipartException.class)
-    public String handleError1(MultipartException e, RedirectAttributes redirectAttributes) {
+    public String handleError1(MultipartException e, HttpServletRequest request,
+                               HttpServletResponse response, RedirectAttributes redirectAttributes) {
         System.out.println("YO2? : "+e.getCause().getMessage());
         redirectAttributes.addFlashAttribute("message", e.getCause().getMessage());
-        return "redirect:/dashboard";
+
+        return "redirect:"+request.getHeader("Referer");
 
     }
 
     @ExceptionHandler(MaxUploadSizeExceededException.class)
-    public String handleMaxUploadSizeError(MaxUploadSizeExceededException e, RedirectAttributes redirectAttributes) {
+    public String handleMaxUploadSizeError(MaxUploadSizeExceededException e, HttpServletRequest request,
+                                           HttpServletResponse response, RedirectAttributes redirectAttributes) {
         System.out.println("YO? : "+e.getCause().getMessage());
         redirectAttributes.addFlashAttribute("message", e.getCause().getMessage());
-        return "redirect:/dashboard";
+        return "redirect:"+request.getHeader("Referer");
 
     }
 }
