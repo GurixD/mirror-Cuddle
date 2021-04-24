@@ -2,7 +2,14 @@
     background-color: transparent !important;
 }
 
+.pointer {
+    cursor: pointer;
+}
+
 .form-img {
     width: 200px;
-    cursor: pointer;
+}
+
+.error {
+    color: red;
 }

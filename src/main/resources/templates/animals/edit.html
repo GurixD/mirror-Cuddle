@@ -53,8 +53,8 @@
             </tr>
             <tr>
                 <td>Image</td>
-                <td><img id="animalImg" onclick="imgClick();" class="form-img" th:src="*{image}" alt="Image"/><input
-                        accept="image/png, image/jpeg, image/jpg, image/gif" name="image" id="inputFile" type="file"
+                <td><img id="animalImg" onclick="imgClick();" class="form-img pointer" th:src="${animal.getImagePath()}" alt="Image"/><input
+                        accept="image/png, image/jpeg, image/jpg, image/gif" name="formImage" id="inputFile" type="file"
                         class="d-none"></td>
             </tr>
             <tr>
