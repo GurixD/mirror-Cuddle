@@ -1,26 +1,19 @@
 package ch.hearc.cuddle.controllers;
 
-import ch.hearc.cuddle.auth.service.UserService;
 import ch.hearc.cuddle.models.Animal;
 import ch.hearc.cuddle.models.Breed;
+import ch.hearc.cuddle.models.DatabaseEnum;
 import ch.hearc.cuddle.models.Species;
-import ch.hearc.cuddle.repository.AnimalRepository;
 import ch.hearc.cuddle.service.AnimalService;
 import ch.hearc.cuddle.service.BreedService;
 import ch.hearc.cuddle.service.SpeciesService;
 import ch.hearc.cuddle.validator.AnimalValidator;
 import org.apache.commons.io.FilenameUtils;
-import org.dom4j.rule.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -30,10 +23,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/dashboard")
@@ -48,7 +42,6 @@ public class DashboardController {
     @Autowired
     BreedService breedService;
 
-
     @Autowired
     private AnimalValidator animalValidator;
 
@@ -56,11 +49,24 @@ public class DashboardController {
     public String dashboard(Model model) {
         List<Species> species = speciesService.findAll();
         List<Breed> breeds = breedService.findAll();
-        Animal newAnimal = new Animal();
+        List<Animal> animals = animalService.listAll();
+        Map<String, Animal[]> animalDict = species.stream() //
+                .parallel() //
+                .collect(Collectors //
+                        .toMap(DatabaseEnum::getName, //
+                                l -> animals //
+                                        .stream() //
+                                        .parallel() //
+                                        .filter(a -> a //
+                                                .getSpecies() //
+                                                .getId() //
+                                                .equals(l.getId())) //
+                                        .toArray(Animal[]::new))); //
 
+        model.addAttribute("animalDict", animalDict);
         model.addAttribute("species", species);
         model.addAttribute("breeds", breeds);
-        model.addAttribute("newAnimal", newAnimal);
+
 
         return "dashboard";
     }
@@ -97,11 +103,9 @@ public class DashboardController {
 
         animalValidator.validate(newAnimal, bindingResult);
 
-        if(bindingResult.hasErrors())
-        {
+        if (bindingResult.hasErrors()) {
             List<ObjectError> errors = bindingResult.getAllErrors();
-            for (ObjectError error : errors)
-            {
+            for (ObjectError error : errors) {
                 System.out.println(error);
             }
 

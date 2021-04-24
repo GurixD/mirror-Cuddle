@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/fragments.html :: header">
+<body>
+<div th:insert="fragments/fragments.html::navigation"></div>
+<div class="container">
+    <h1>Animal List</h1>
+    <div>
+        <a href="/dashboard/animals/add">Add Animal</a> |
+        <a href="/dashboard">Back to Dashboard</a>
+    </div>
+    <br/><br/>
+    <div>
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Species</th>
+                <th>Age</th>
+                <th>Action</th>
+            </tr>
+            <tr th:each="animal : ${animals}">
+                <td><a th:href="@{/dashboard/animals/{id}(id=${animal.id})}" th:utext="${animal.id}">...</a>
+                </td>
+                <td><a th:href="@{/dashboard/animals/{id}(id=${animal.id})}" th:utext="${animal.name}">...</a>
+                </td>
+                <td><a th:href="@{/dashboard/animals/{id}(id=${animal.id})}" th:utext="${animal.species.name}">...</a>
+                </td>
+                <td><a th:href="@{/dashboard/animals/{id}(id=${animal.id})}" th:utext="${animal.age}">...</a>
+                </td>
+                <td><span><a th:href="@{/dashboard/animals/{id}/edit(id=${animal.id})}">Edit</a> | <a th:href="@{/dashboard/animals/{id}/delete(id=${animal.id})}">Delete</a></span></td>
+            </tr>
+        </table>
+    </div>
+    <br/><br/>
+    <div>
+        <span th:if="${hasPrev}"><a th:href="@{/dashboard/animals?page={prev}(prev=${prev})}">Prev</a>&nbsp;&nbsp;&nbsp;</span>
+        <span th:if="${hasNext}"><a
+                th:href="@{/dashboard/animals?page={next}(next=${next})}">Next</a></span>
+    </div>
+</div>
+</body>
+</html>

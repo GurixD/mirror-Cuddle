@@ -8,15 +8,13 @@
     <a th:href="@{/dashboard/{type}(type=${type})}" th:text="${'Back to ' + typeName + ' List'}"></a>
     <br/><br/>
     <div th:if="${enum}">
-        <table border="0">
+        <table class="table w-75">
             <tr>
                 <td>ID</td>
-                <td>:</td>
                 <td th:utext="${enum.id}">...</td>
             </tr>
             <tr>
                 <td>Name</td>
-                <td>:</td>
                 <td th:utext="${enum.name}">...</td>
             </tr>
         </table>

@@ -6,22 +6,23 @@
 <div class="container">
     <h1 th:text="${typeName + ' List'}"></h1>
     <div>
-        <a th:href="@{/{type}/add(type=${type})}" th:text="${'Add ' + type}"></a> |
-        <a th:href="@{/}">Back to Index</a>
+        <a th:href="@{/dashboard/{type}/add(type=${type})}" th:text="${'Add ' + type}"></a> |
+        <a th:href="@{/dashboard}">Back to Dashboard</a>
     </div>
     <br/><br/>
     <div>
-        <table border="1">
+        <table class="table">
             <tr>
                 <th>Id</th>
                 <th>Name</th>
+                <th>Action</th>
             </tr>
             <tr th:each="enum : ${enums}">
                 <td><a th:href="@{/dashboard/{type}/{id}(type=${type}, id=${enum.id})}" th:utext="${enum.id}">...</a>
                 </td>
                 <td><a th:href="@{/dashboard/{type}/{id}(type=${type}, id=${enum.id})}" th:utext="${enum.name}">...</a>
                 </td>
-                <td><a th:href="@{/dashboard/{type}/{id}/edit(type=${type}, id=${enum.id})}">Edit</a></td>
+                <td><span><a th:href="@{/dashboard/{type}/{id}/edit(type=${type}, id=${enum.id})}">Edit</a> | <a th:href="@{/dashboard/{type}/{id}/delete(type=${type}, id=${enum.id})}">Delete</a></span></td>
             </tr>
         </table>
     </div>

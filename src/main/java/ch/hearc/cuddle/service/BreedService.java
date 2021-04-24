@@ -38,34 +38,54 @@ public class BreedService {
         return breeds;
     }
 
-    public Breed save(DatabaseEnum breed) {
-        if (!StringUtils.hasText(breed.getName())) {
+    public Breed save(Breed breed) {
+        if (StringUtils.hasText(breed.getName())) {
 
             if (breed.getId() != null && existsById(breed.getId())) {
                 System.out.println("Breed with id already exists");
             } else
-                return breedRepo.save((Breed) breed);
+                return breedRepo.save(breed);
         }
 
         return null;
     }
 
-    public void update(DatabaseEnum breed) {
+    public boolean update(Breed breed) {
         if (StringUtils.hasText(breed.getName())) {
             if (!existsById(breed.getId())) {
                 System.out.println("Cannot find Breed with id");
-            } else
-                breedRepo.save((Breed)breed);
+                return false;
+            } else {
+                breedRepo.save(breed);
+                return true;
+            }
         }
+
+        return false;
     }
 
-    public void deleteById(Long id) {
-        if (existsById(id)) {
-            breedRepo.deleteById(id);
+    public boolean deleteById(Long id) {
+        try {
+            if (existsById(id)) {
+                breedRepo.deleteById(id);
+                return true;
+            }
+        } catch (Exception e) {
+            return false;
         }
+
+        return false;
     }
 
     public Long count() {
         return breedRepo.count();
+    }
+
+    public Breed toBreed(DatabaseEnum dbEnum) {
+        Breed b = new Breed();
+        b.setId(dbEnum.getId());
+        b.setName(dbEnum.getName());
+
+        return b;
     }
 }
