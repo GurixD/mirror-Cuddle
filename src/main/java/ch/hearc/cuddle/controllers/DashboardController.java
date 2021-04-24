@@ -52,6 +52,19 @@ public class DashboardController {
     @Autowired
     private AnimalValidator animalValidator;
 
+    @GetMapping("")
+    public String dashboard(Model model) {
+        List<Species> species = speciesService.findAll();
+        List<Breed> breeds = breedService.findAll();
+        Animal newAnimal = new Animal();
+
+        model.addAttribute("species", species);
+        model.addAttribute("breeds", breeds);
+        model.addAttribute("newAnimal", newAnimal);
+
+        return "dashboard";
+    }
+
     @GetMapping("/addAnimal")
     public String addAnimal(Model model) {
 
