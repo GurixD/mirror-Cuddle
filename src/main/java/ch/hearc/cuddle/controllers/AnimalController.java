@@ -2,6 +2,7 @@ package ch.hearc.cuddle.controllers;
 
 import ch.hearc.cuddle.models.Animal;
 import ch.hearc.cuddle.models.Animal;
+import ch.hearc.cuddle.models.Breed;
 import ch.hearc.cuddle.models.Species;
 import ch.hearc.cuddle.service.AnimalService;
 import ch.hearc.cuddle.service.BreedService;
@@ -21,6 +22,12 @@ public class AnimalController {
 
     @Autowired
     private AnimalService animalService;
+
+    @Autowired
+    private SpeciesService speciesService;
+
+    @Autowired
+    private BreedService breedService;
 
     @GetMapping(value = "")
     public String get(Model model, @RequestParam(value = "page", defaultValue = "1") int pageNumber) {
@@ -43,13 +50,14 @@ public class AnimalController {
 
     @GetMapping(value = "/{id}")
     public String getById(Model model, @PathVariable long id) {
-
-
         Animal animal = animalService.findById(id);
+
 
         if (animal == null) {
             model.addAttribute("errorMessage", "Animal not found");
         }
+
+        System.out.println(animal.getImage());
         model.addAttribute("animal", animal);
 
         return "animals/getById";
@@ -58,12 +66,14 @@ public class AnimalController {
 
     @GetMapping(value = {"/add"})
     public String showAdd(Model model) {
-
-
         Animal animal = new Animal();
+        List<Species> species = speciesService.findAll();
+        List<Breed> breeds = breedService.findAll();
 
         model.addAttribute("add", true);
         model.addAttribute("animal", animal);
+        model.addAttribute("species", species);
+        model.addAttribute("breeds", breeds);
 
         return "animals/edit";
     }
@@ -71,10 +81,7 @@ public class AnimalController {
 
     @PostMapping(value = "/add")
     public String add(Model model, @ModelAttribute("animal") Animal newAnimal) {
-
-
         Animal animal = animalService.save(newAnimal);
-
 
         if (animal != null)
             return "redirect:/dashboard/animals/" + animal.getId();
@@ -90,16 +97,17 @@ public class AnimalController {
 
     @GetMapping(value = {"/{id}/edit"})
     public String showEdit(Model model, @PathVariable long id) {
-
-
         Animal animal = animalService.findById(id);
-
+        List<Species> species = speciesService.findAll();
+        List<Breed> breeds = breedService.findAll();
 
         if (animal == null)
             model.addAttribute("errorMessage", "Animal not found");
 
         model.addAttribute("add", false);
         model.addAttribute("animal", animal);
+        model.addAttribute("species", species);
+        model.addAttribute("breeds", breeds);
 
         return "animals/edit";
     }
@@ -107,8 +115,6 @@ public class AnimalController {
 
     @PostMapping(value = {"/{id}/edit"})
     public String update(Model model, @PathVariable long id, @ModelAttribute("animal") Animal animal) {
-
-
         animal.setId(id);
 
         boolean ok = animalService.update(animal);
@@ -125,8 +131,6 @@ public class AnimalController {
 
     @GetMapping(value = {"/{id}/delete"})
     public String showDeleteById(Model model, @PathVariable long id) {
-
-
         Animal animal = animalService.findById(id);
 
         if (animal == null) {
@@ -143,20 +147,15 @@ public class AnimalController {
 
     @PostMapping(value = {"/{id}/delete"})
     public String deleteById(Model model, @PathVariable long id) {
-
-
-
         Animal animal = animalService.findById(id);
         boolean ok = animalService.deleteById(id);
-
-
-        System.out.println(id);
 
         if (ok)
             return "redirect:/dashboard/animals";
 
         model.addAttribute("animal", animal);
         model.addAttribute("errorMessage", "Could not delete");
+
         return "animals/getById";
     }
 

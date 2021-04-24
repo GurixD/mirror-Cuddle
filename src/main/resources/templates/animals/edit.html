@@ -11,8 +11,10 @@
           th:object="${animal}" method="POST">
         <table class="table">
             <thead>
-                <td>Entry</td>
-                <td>Value</td>
+            <tr>
+                <th>Entry</th>
+                <th>Value</th>
+            </tr>
             </thead>
             <tbody>
             <tr th:if="${animal.id}">
@@ -25,11 +27,21 @@
             </tr>
             <tr>
                 <td>Species</td>
-                <td><input type="text" th:field="*{species.name}"/></td>
+                <td>
+                    <select th:field="*{species}">
+                        <option th:each="s: ${species}" th:value="${s.id}" th:text="${s.name}"
+                                th:selected="${!add && s.id == animal.species.id}"></option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>Breed</td>
-                <td><input type="text" th:field="*{breed.name}"/></td>
+                <td>
+                    <select th:field="*{breed}">
+                        <option th:each="b: ${breeds}" th:value="${b.id}" th:text="${b.name}"
+                                th:selected="${!add && b.id == animal.breed.id}"></option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td>Age</td>
@@ -38,6 +50,10 @@
             <tr>
                 <td>Sex</td>
                 <td><input type="text" th:field="*{sex}"/></td>
+            </tr>
+            <tr>
+                <td>Image</td>
+                <td><img class="form-img" th:src="*{image}" alt="Image"/></td>
             </tr>
             <tr>
                 <td>Description</td>

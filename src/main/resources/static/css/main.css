@@ -1,3 +1,7 @@
 .no-hover {
     background-color: transparent !important;
 }
+
+.form-img {
+    width: 200px;
+}
