@@ -13,7 +13,7 @@ public class AnimalService {
     @Autowired
     private AnimalRepository animalRepo;
 
-    public List<Animal> listAll() {
+    public List<Animal> findAll() {
         return animalRepo.findAll();
     }
 
