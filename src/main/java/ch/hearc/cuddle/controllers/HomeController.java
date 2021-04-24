@@ -35,37 +35,4 @@ public class HomeController {
         animalService.getRandom(4);
         return "home";
     }
-
-    @GetMapping({"/hello"})
-    public String hello(Model model) {
-        return "hello";
-    }
-
-    @GetMapping("/greeting")
-    public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
-        List<Animal> animalsList = animalService.findByName("Billy");
-        System.out.println(animalsList);
-        model.addAttribute("name", name);
-        model.addAttribute("listAnimals", animalsList);
-        return "greeting";
-    }
-
-//    @GetMapping("/hello")
-//    public String hello() {
-//        return "hello";
-//    }
-//
-//    // Login form
-//    @RequestMapping("/login")
-//    public String login() {
-//        return "login";
-//    }
-//
-//    // Login form with error
-//    @RequestMapping("/login-error")
-//    public String loginError(Model model) {
-//        model.addAttribute("loginError", true);
-//        return "login";
-//    }
-
 }
