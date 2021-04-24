@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/fragments.html :: header">
+<body>
+<div th:insert="fragments/fragments.html::navigation"></div>
+<div class="container">
+    <h1 th:text="${typeName + ' List'}"></h1>
+    <div>
+        <a th:href="@{/dashboard/{type}/add(type=${type})}" th:text="${'Add ' + type}"></a> |
+        <a th:href="@{/dashboard}">Back to Dashboard</a>
+    </div>
+    <br/><br/>
+    <div>
+        <table class="table">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Action</th>
+            </tr>
+            <tr th:each="enum : ${enums}">
+                <td><a th:href="@{/dashboard/{type}/{id}(type=${type}, id=${enum.id})}" th:utext="${enum.id}">...</a>
+                </td>
+                <td><a th:href="@{/dashboard/{type}/{id}(type=${type}, id=${enum.id})}" th:utext="${enum.name}">...</a>
+                </td>
+                <td><span><a th:href="@{/dashboard/{type}/{id}/edit(type=${type}, id=${enum.id})}">Edit</a> | <a th:href="@{/dashboard/{type}/{id}/delete(type=${type}, id=${enum.id})}">Delete</a></span></td>
+            </tr>
+        </table>
+    </div>
+    <br/><br/>
+    <div>
+        <span th:if="${hasPrev}"><a th:href="@{/dashboard/{type}?page={prev}(type=${type}, prev=${prev})}">Prev</a>&nbsp;&nbsp;&nbsp;</span>
+        <span th:if="${hasNext}"><a
+                th:href="@{/dashboard/{type}?page={next}(type=${type}, next=${next})}">Next</a></span>
+    </div>
+</div>
+</body>
+</html>

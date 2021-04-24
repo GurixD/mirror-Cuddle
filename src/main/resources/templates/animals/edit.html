@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/fragments.html :: header">
+<body>
+<div th:insert="fragments/fragments.html::navigation"></div>
+<div class="container">
+    <h1 th:text="${add} ? ${'Create a ' + typeName} : ${'Edit a ' + typeName}"></h1>
+    <a th:href="@{/dashboard/{type}(type=${type})}" th:text="${'Back to ' + typeName + ' List'}"></a>
+    <br/><br/>
+    <form th:action="${add} ? @{/dashboard/{type}/add(type=${type})} : @{/dashboard/{type}/{id}/edit(type=${type}, id=${enum.id})}"
+          th:object="${enum}" method="POST">
+        <table border="0">
+            <tr th:if="${enum.id}">
+                <td>ID</td>
+                <td>:</td>
+                <td th:utext="${enum.id}">...</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>:</td>
+                <td><input type="text" th:field="*{name}"/></td>
+            </tr>
+        </table>
+        <input type="submit" th:value="${add} ? 'Create' : 'Update'"/>
+    </form>
+
+    <br/>
+    <!-- Check if errorMessage is not null and not empty -->
+    <div th:if="${errorMessage}" th:utext="${errorMessage}" class="error"></div>
+</div>
+</body>
+</html>
