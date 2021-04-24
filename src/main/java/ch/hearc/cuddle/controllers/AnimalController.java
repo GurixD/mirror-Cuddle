@@ -7,12 +7,16 @@ import ch.hearc.cuddle.models.Species;
 import ch.hearc.cuddle.service.AnimalService;
 import ch.hearc.cuddle.service.BreedService;
 import ch.hearc.cuddle.service.SpeciesService;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 @Controller
 @RequestMapping("/dashboard/animals")
@@ -80,14 +84,26 @@ public class AnimalController {
 
 
     @PostMapping(value = "/add")
-    public String add(Model model, @ModelAttribute("animal") Animal newAnimal) {
-        Animal animal = animalService.save(newAnimal);
+    public String add(Model model, @ModelAttribute("animal") Animal newAnimal, @RequestParam("image") MultipartFile multipartFile) {
+        String fileExt = FilenameUtils.getExtension(multipartFile.getOriginalFilename()).toLowerCase();
+        String fileName = UUID.randomUUID() + "." + fileExt;
+        String[] mimeTypes = {"image/png", "image/jpeg", "image/jpg", "image/gif"};
 
-        if (animal != null)
-            return "redirect:/dashboard/animals/" + animal.getId();
+        if (!multipartFile.isEmpty() && Arrays.asList(mimeTypes).contains(multipartFile.getContentType()))
+        {
+            newAnimal.setImage(fileName);
+            Animal animal = animalService.save(newAnimal);
+
+            if (animal != null)
+                return "redirect:/dashboard/animals/" + animal.getId();
+            else
+                model.addAttribute("errorMessage", "Failed to add");
+        }
+        else
+            model.addAttribute("errorMessage", "Image empty");
+
 
         model.addAttribute("animal", newAnimal);
-        model.addAttribute("errorMessage", "Failed to add");
         model.addAttribute("add", true);
 
         return "animals/edit";

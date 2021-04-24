@@ -8,7 +8,7 @@
     <a href="/dashboard/animals">Back to animal List</a>
     <br/><br/>
     <form th:action="${add} ? @{/dashboard/animals/add} : @{/dashboard/animals/{id}/edit(id=${animal.id})}"
-          th:object="${animal}" method="POST">
+          enctype="multipart/form-data" th:object="${animal}" method="POST">
         <table class="table">
             <thead>
             <tr>
@@ -53,7 +53,9 @@
             </tr>
             <tr>
                 <td>Image</td>
-                <td><img class="form-img" th:src="*{image}" alt="Image"/></td>
+                <td><img id="animalImg" onclick="imgClick();" class="form-img" th:src="*{image}" alt="Image"/><input
+                        accept="image/png, image/jpeg, image/jpg, image/gif" name="image" id="inputFile" type="file"
+                        class="d-none"></td>
             </tr>
             <tr>
                 <td>Description</td>
@@ -68,5 +70,7 @@
     <!-- Check if errorMessage is not null and not empty -->
     <div th:if="${errorMessage}" th:utext="${errorMessage}" class="error"></div>
 </div>
+<div th:replace="fragments/fragments.html :: scripts"></div>
+<script src="/js/edit.js"></script>
 </body>
 </html>

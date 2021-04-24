@@ -54,5 +54,6 @@
     </div>
     <div th:if="${errorMessage}" th:utext="${errorMessage}" class="error"></div>
 </div>
+<div th:replace="fragments/fragments.html :: scripts"></div>
 </body>
 </html>
