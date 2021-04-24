@@ -30,6 +30,9 @@ public class Animal {
     private String description;
 
     @Column
+    private String treatment;
+
+    @Column
     private String image;
 
     @OneToOne
@@ -111,5 +114,13 @@ public class Animal {
 
     public Species getSpecies() {
         return species;
+    }
+
+    public String getTreatment() {
+        return treatment;
+    }
+
+    public void setTreatment(String treatment) {
+        this.treatment = treatment;
     }
 }
