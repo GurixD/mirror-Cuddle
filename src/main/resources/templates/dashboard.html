@@ -4,33 +4,35 @@
 <body>
 <div th:insert="fragments/fragments.html::navigation"></div>
 <div class="container">
-    <table class="table mt-1">
+    <div class="row mt-4">
+        <a class="col btn btn-primary mx-2" href="/dashboard/species">Manage Species</a>
+        <a class="col btn btn-primary mx-2" href="/dashboard/breeds">Manage Breeds</a>
+        <a class="col btn btn-primary mx-2" href="/dashboard/treatments">Add treatment</a>
+
+    </div>
+
+    <table class="table mt-4 table-hover">
         <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Sex</th>
+            <th scope="col">Breed</th>
+            <th scope="col">Treatment</th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+        <tbody th:each="map : ${animalDict}">
+        <tr class="no-hover">
+            <th scope="row" colspan="6" th:text="${map.key}"></th>
         </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
+        <tr th:each="animals : ${map.value}" th:onclick="'window.location.href=\'/details/'+ ${animals.getId()} +'\''" role="button" >
+            <th scope="row" th:text="${animals.getId()}"></th>
+            <td th:text="${animals.getName()}"></td>
+            <td th:text="${animals.getAge()}"></td>
+            <td th:text="${animals.getSex()}"></td>
+            <td th:text="${animals.getBreed().getName()}"></td>
+            <td></td>
         </tr>
         </tbody>
     </table>
