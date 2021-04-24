@@ -52,5 +52,6 @@
     <!-- Check if errorMessage is not null and not empty -->
     <div th:if="${errorMessage}" th:utext="${errorMessage}" class="error"></div>
 </div>
+<div th:replace="fragments/fragments.html :: scripts"></div>
 </body>
 </html>

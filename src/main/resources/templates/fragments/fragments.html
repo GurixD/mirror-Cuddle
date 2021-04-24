@@ -41,7 +41,7 @@
                     </a>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdown" role="button"
+                    <a class="nav-link dropdown-toggle text-light"  id="navbarDropdown" role="button"
                        data-toggle="dropdown"
                        aria-haspopup="true" aria-expanded="false" sec:authentication="name">
                     </a>
@@ -52,14 +52,13 @@
             </ul>
         </div>
     </nav>
-
 </div>
 
 
 <!--  *************** fragment js *************** -->
 <div th:fragment="scripts">
-    <script type="text/javascript" src="js/jquery.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
 </div>
 
 <!--  *************** fragment de cards *************** -->
