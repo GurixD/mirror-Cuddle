@@ -56,7 +56,7 @@
             Delete this ? <input type="submit" th:value="Yes"/>
         </form>
     </div>
-    <div th:if="${errorMessage}" th:text="${errorMessage}" class="error"></div>
+    <div th:if="${errorMessage}" th:utext="${errorMessage}" class="error"></div>
 </div>
 <div th:replace="fragments/fragments.html :: scripts"></div>
 </body>
