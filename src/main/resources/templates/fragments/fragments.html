@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
           rel="stylesheet">
 
+
 </head>
 
 <!--  *************** fragment de navigation *************** -->
@@ -81,5 +82,17 @@
 
 </div>
 
+<div th:fragment="alertBox">
+    <div th:if="${message}" class="alert alert-danger alert-dismissible fade show" role="alert"
+         style="position: fixed;
+            bottom: 5px;
+            left:2%;
+            width: 96%;">
+        <span th:text="${message}"></span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
 
 </html>
