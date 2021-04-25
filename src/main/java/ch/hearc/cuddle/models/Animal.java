@@ -95,8 +95,8 @@ public class Animal {
     public String getImagePath() {
         if (image == null || id == null) return image;
 
-        String imgPath = "/media/img/animal/" + id + "/" + image;
-        if (new File("."+imgPath).exists()) return imgPath;
+        String imgPath = "media/img/animal/" + id + "/" + image;
+        if (new File(imgPath).exists()) return "/" + imgPath;
         return image;
     }
 

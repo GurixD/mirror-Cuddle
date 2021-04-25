@@ -15,11 +15,10 @@ public class AnimalValidator implements Validator {
 
     @Override
     public void validate(Object o, Errors errors) {
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "NotEmpty");
-        ValidationUtils.rejectIfEmpty(errors, "age", "NotNull");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "sex", "NotEmpty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "image", "NotEmpty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "species", "NotEmpty");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "breed", "NotEmpty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "NotEmpty", "Name is empty");
+        ValidationUtils.rejectIfEmpty(errors, "age", "NotNull", "Age is empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "sex", "NotEmpty", "Sex is empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "species", "NotEmpty", "Species is empty");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "breed", "NotEmpty", "Breed is empty");
     }
 }
