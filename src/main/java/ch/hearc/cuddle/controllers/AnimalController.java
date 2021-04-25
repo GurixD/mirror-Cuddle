@@ -246,7 +246,7 @@ public class AnimalController {
     }
 
     @PostMapping(value = {"/{id}/editTreatment"})
-    public String updateTreatment(Model model, @PathVariable long id, @ModelAttribute("animal") Animal newAnimal, @RequestParam("formImage") MultipartFile multipartFile, BindingResult errors) throws IOException {
+    public String updateTreatment(Model model, @PathVariable long id, @ModelAttribute("animal") Animal newAnimal, BindingResult errors) throws IOException {
         Animal oldAnimal = animalService.findById(id);
         oldAnimal.setTreatment(newAnimal.getTreatment());
         model.addAttribute("animal", oldAnimal);

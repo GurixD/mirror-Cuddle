@@ -41,6 +41,10 @@
                 <td>Description</td>
                 <td th:text="${animal.description}">...</td>
             </tr>
+            <tr>
+                <td>Treatment</td>
+                <td th:text="${animal.treatment}">...</td>
+            </tr>
         </table>
         <br/><br/>
         <div th:if="not ${allowDelete}">
