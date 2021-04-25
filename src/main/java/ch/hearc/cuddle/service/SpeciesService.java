@@ -39,6 +39,10 @@ public class SpeciesService {
         return species;
     }
 
+    public List<Species> findByName(String name) {
+        return speciesRepo.findByName(name);
+    }
+
     public Species save(Species species) {
         if (StringUtils.hasText(species.getName())) {
 

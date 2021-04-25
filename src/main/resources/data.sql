@@ -1,6 +1,6 @@
 insert into cuddle.role (id, name)
 values  (1, 'ROLE_ADMIN'),
-        (2, 'ROLE_VETENARY'),
+        (2, 'ROLE_VETERINARY'),
         (3, 'ROLE_STAFF');
 
 insert into cuddle.user (id, email, first_name, last_name, password, role_id)
