@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/fragments.html :: header">
+<body>
+<div th:insert="fragments/fragments.html::navigation"></div>
+<div class="container">
+    <div class="row mt-4">
+        <a class="col btn btn-primary mx-2" href="/dashboard/animals">Manage Animals</a>
+        <a class="col btn btn-primary mx-2" href="/dashboard/species">Manage Species</a>
+        <a class="col btn btn-primary mx-2" href="/dashboard/breeds">Manage Breeds</a>
+        <a class="col btn btn-primary mx-2" href="/dashboard/users">Manage users</a>
+    </div>
+
+    <table class="table mt-4 table-hover">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Sex</th>
+            <th scope="col">Breed</th>
+            <th scope="col">Treatment</th>
+        </tr>
+        </thead>
+        <tbody th:each="map : ${animalDict}">
+        <tr class="no-hover">
+            <th scope="row" colspan="6" th:text="${map.key}"></th>
+        </tr>
+        <tr th:each="animals : ${map.value}" th:onclick="'window.location.href=\'/details/'+ ${animals.getId()} +'\''" role="button" >
+            <th scope="row" th:text="${animals.getId()}"></th>
+            <td th:text="${animals.getName()}"></td>
+            <td th:text="${animals.getAge()}"></td>
+            <td th:text="${animals.getSex()}"></td>
+            <td th:text="${animals.getBreed().getName()}"></td>
+            <td></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div th:replace="fragments/fragments.html :: scripts"></div>
+</body>
+</html>

@@ -22,21 +22,41 @@ public class UserValidator implements Validator {
     public void validate(Object o, Errors errors) {
         User user = (User) o;
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty");
+//        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty", "Email Empty");
         if (user.getEmail().length() < 6 || user.getEmail().length() > 32) {
-            errors.rejectValue("email", "Size.userForm.email");
+            errors.rejectValue("email", "Size.userForm.email", "Email not valid");
         }
         if (userService.findByEmail(user.getEmail()) != null) {
-            errors.rejectValue("email", "Duplicate.userForm.email");
+            errors.rejectValue("email", "Duplicate.userForm.email", "Email duplicate");
         }
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
+//        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
         if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
-            errors.rejectValue("password", "Size.userForm.password");
+            errors.rejectValue("password", "Size.userForm.password", "Password not valid");
         }
 
         if (!user.getPasswordConfirm().equals(user.getPassword())) {
-            errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm");
+            errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm", "Password do not correspond");
+        }
+    }
+
+    public void validateUpdate(Object o, Errors errors) {
+        User user = (User) o;
+
+//        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "NotEmpty", "Email Empty");
+        if (user.getEmail().length() < 6 || user.getEmail().length() > 32) {
+            errors.rejectValue("email", "Size.userForm.email", "Email not valid");
+        }
+
+//        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "NotEmpty");
+        if(!user.getPassword().isEmpty()){
+            if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
+                errors.rejectValue("password", "Size.userForm.password", "Password not valid");
+            }
+
+            if (!user.getPasswordConfirm().equals(user.getPassword())) {
+                errors.rejectValue("passwordConfirm", "Diff.userForm.passwordConfirm", "Password do not correspond");
+            }
         }
     }
 }

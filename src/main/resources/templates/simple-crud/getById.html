@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/fragments.html :: header">
+<body>
+<div th:insert="fragments/fragments.html::navigation"></div>
+<div class="container">
+    <h1 th:text="${'View ' + typeName}"></h1>
+    <a class="btn btn-primary" th:href="@{/dashboard/{type}(type=${type})}" th:text="${'Back to ' + typeName + ' List'}"></a>
+    <br/><br/>
+    <div th:if="${enum}">
+        <table class="table w-75">
+            <tr>
+                <td>ID</td>
+                <td th:utext="${enum.id}">...</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td th:utext="${enum.name}">...</td>
+            </tr>
+        </table>
+        <br/><br/>
+        <div th:if="not ${allowDelete}">
+            <a class="btn btn-primary" th:href="@{/dashboard/{type}/{id}/edit(type=${type}, id=${enum.id})}">Edit</a>
+            <a class="btn btn-primary" th:href="@{/dashboard/{type}/{id}/delete(type=${type}, id=${enum.id})}">Delete</a>
+        </div>
+        <form th:if="${allowDelete}" th:action="@{/dashboard/{type}/{id}/delete(type=${type}, id=${enum.id})}"
+              method="POST">
+            Delete this ? <input type="submit" th:value="Yes"/>
+        </form>
+    </div>
+    <div th:if="${errorMessage}" th:utext="${errorMessage}" class="error"></div>
+</div>
+<div th:replace="fragments/fragments.html :: scripts"></div>
+</body>
+</html>

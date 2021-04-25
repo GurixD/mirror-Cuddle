@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/fragments.html :: header">
+<body>
+<div th:insert="fragments/fragments.html::navigation"></div>
+<div class="container">
+    <h1 th:text="${add} ? ${'Create an animal'} : ${'Edit an animal '}"></h1>
+    <a class="btn btn-primary" href="/dashboard/animals">Back to animal List</a>
+    <br/><br/>
+    <form th:action="${add} ? @{/dashboard/animals/add} : @{/dashboard/animals/{id}/edit(id=${animal.id})}"
+          enctype="multipart/form-data" th:object="${animal}" method="POST">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Entry</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${animal.id}">
+                <td>ID</td>
+                <td th:utext="${animal.id}">...</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td><input type="text" th:field="*{name}"/></td>
+            </tr>
+            <tr>
+                <td>Species</td>
+                <td>
+                    <select th:field="*{species}">
+                        <option th:each="s: ${species}" th:value="${s.id}" th:text="${s.name}"
+                                th:selected="${!add && s.id == animal.species.id}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Breed</td>
+                <td>
+                    <select th:field="*{breed}">
+                        <option th:each="b: ${breeds}" th:value="${b.id}" th:text="${b.name}"
+                                th:selected="${!add && b.id == animal.breed.id}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td><input type="text" th:field="*{age}"/></td>
+            </tr>
+            <tr>
+                <td>Sex</td>
+                <td><input type="text" th:field="*{sex}"/></td>
+            </tr>
+            <tr>
+                <td>Image</td>
+                <td><img id="animalImg" onclick="imgClick();" class="form-img pointer" th:src="${animal.getImagePath()}" alt="Image"/><input
+                        accept="image/png, image/jpeg, image/jpg, image/gif" name="formImage" id="inputFile" type="file"
+                        class="d-none"></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><textarea th:field="*{description}"></textarea></td>
+            </tr>
+            </tbody>
+        </table>
+        <input type="submit" th:value="${add} ? 'Create' : 'Update'"/>
+    </form>
+
+    <br/>
+    <!-- Check if errorMessage is not null and not empty -->
+    <div th:if="${errorMessage}" th:utext="${errorMessage}" class="error"></div>
+</div>
+<div th:replace="fragments/fragments.html :: scripts"></div>
+<script src="/js/edit.js"></script>
+</body>
+</html>

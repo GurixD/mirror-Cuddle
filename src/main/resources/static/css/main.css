@@ -1,0 +1,15 @@
+.no-hover {
+    background-color: transparent !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.form-img {
+    width: 200px;
+}
+
+.error {
+    color: red;
+}

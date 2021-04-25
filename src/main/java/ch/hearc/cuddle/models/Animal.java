@@ -1,13 +1,20 @@
 package ch.hearc.cuddle.models;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
+import javax.persistence.criteria.CriteriaBuilder;
+import java.io.File;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 @Entity
 @Table(name="animal")
 public class Animal {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
@@ -19,8 +26,11 @@ public class Animal {
     @Column
     private String sex;
 
-    @Column
+    @Column(length = 500)
     private String description;
+
+    @Column
+    private String treatment;
 
     @Column
     private String image;
@@ -49,11 +59,11 @@ public class Animal {
         return name;
     }
 
-    public void SetAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
@@ -81,6 +91,15 @@ public class Animal {
         return image;
     }
 
+    @Transient
+    public String getImagePath() {
+        if (image == null || id == null) return image;
+
+        String imgPath = "media/img/animal/" + id + "/" + image;
+        if (new File(imgPath).exists()) return "/" + imgPath;
+        return image;
+    }
+
     public void setBreed(Breed breed) {
         this.breed = breed;
     }
@@ -95,5 +114,13 @@ public class Animal {
 
     public Species getSpecies() {
         return species;
+    }
+
+    public String getTreatment() {
+        return treatment;
+    }
+
+    public void setTreatment(String treatment) {
+        this.treatment = treatment;
     }
 }
