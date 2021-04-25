@@ -45,7 +45,7 @@ public class DashboardController {
     public String dashboard(Model model) {
         List<Species> species = speciesService.findAll();
         List<Breed> breeds = breedService.findAll();
-        List<Animal> animals = animalService.listAll();
+        List<Animal> animals = animalService.findAll();
         Map<String, Animal[]> animalDict = species.stream() //
                 .parallel() //
                 .collect(Collectors //

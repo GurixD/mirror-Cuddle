@@ -160,7 +160,7 @@ public class AnimalController {
         List<Breed> breeds = breedService.findAll();
 
         model.addAttribute("animal", newAnimal);
-        model.addAttribute("add", true);
+        model.addAttribute("add", false);
         model.addAttribute("species", species);
         model.addAttribute("breeds", breeds);
 
@@ -180,15 +180,15 @@ public class AnimalController {
                 newImage = true;
             }
 
-            Animal animal = animalService.save(newAnimal);
+            boolean updated = animalService.update(newAnimal);
 
-            if (animal != null) {
+            if (updated) {
                 if (newImage) {
-                    String uploadDir = "media/img/animal/" + animal.getId();
+                    String uploadDir = "media/img/animal/" + newAnimal.getId();
                     FileHelper.saveFile(uploadDir, fileName, multipartFile);
                     FileHelper.deleteFile(uploadDir, oldImage);
                 }
-                return "redirect:/dashboard/animals/" + animal.getId();
+                return "redirect:/dashboard/animals/" + newAnimal.getId();
             } else
                 errors.addError(new ObjectError("animal", "Failed to save animal"));
         }

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/fragments.html :: header">
+<body>
+<div th:insert="fragments/fragments.html::navigation"></div>
+<div class="container">
+    <h1 th:text="${add} ? ${'Create a user'} : ${'Edit a user '}"></h1>
+    <a class="btn btn-primary" href="/dashboard/users">Back to user List</a>
+    <br/><br/>
+    <form th:action="${add} ? @{/dashboard/users/add} : @{/dashboard/users/{id}/edit(id=${user.id})}"
+          enctype="multipart/form-data" th:object="${user}" method="POST">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Entry</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${user.id}">
+                <td>ID</td>
+                <td th:utext="${user.id}">...</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="email" th:field="*{email}"/></td>
+            </tr>
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" th:field="*{firstName}"/></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" th:field="*{lastName}"/></td>
+            </tr>
+            <tr>
+                <td>Role</td>
+                <td>
+                    <select th:field="*{role}">
+                        <option th:each="r: ${roles}" th:value="${r.id}" th:text="${r.name}"
+                                th:selected="${!add && r.id == user.role}"></option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Password</td>
+                <td><input type="password" th:field="*{password}"/></td>
+            </tr>
+            <tr>
+                <td>Password confirm</td>
+                <td><input type="password" th:field="*{passwordConfirm}"/></td>
+            </tr>
+            </tbody>
+        </table>
+        <input type="submit" th:value="${add} ? 'Create' : 'Update'"/>
+    </form>
+
+    <br/>
+    <!-- Check if errorMessage is not null and not empty -->
+    <div th:if="${errorMessage}" th:utext="${errorMessage}" class="error"></div>
+</div>
+<div th:replace="fragments/fragments.html :: scripts"></div>
+<script src="/js/edit.js"></script>
+</body>
+</html>

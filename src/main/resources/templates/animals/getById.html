@@ -4,8 +4,8 @@
 <body>
 <div th:insert="fragments/fragments.html::navigation"></div>
 <div class="container">
-    <h1>View Animals</h1>
-    <a href="/dashboard/animals">Back to Animals</a>
+    <h1>View Animal</h1>
+    <a class="btn btn-primary" href="/dashboard/animals">Back to Animals</a>
     <br/><br/>
     <div th:if="${animal}" th:object="${animal}">
         <table class="table">
@@ -44,8 +44,8 @@
         </table>
         <br/><br/>
         <div th:if="not ${allowDelete}">
-            <a th:href="@{/dashboard/animals/{id}/edit(id=${animal.id})}">Edit</a> |
-            <a th:href="@{/dashboard/animals/{id}/delete(id=${animal.id})}">Delete</a>
+            <a class="btn btn-primary" th:href="@{/dashboard/animals/{id}/edit(id=${animal.id})}">Edit</a>
+            <a class="btn btn-primary" th:href="@{/dashboard/animals/{id}/delete(id=${animal.id})}">Delete</a>
         </div>
         <form th:if="${allowDelete}" th:action="@{/dashboard/animals/{id}/delete(id=${animal.id})}"
               method="POST">

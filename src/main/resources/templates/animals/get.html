@@ -6,8 +6,8 @@
 <div class="container">
     <h1>Animal List</h1>
     <div>
-        <a href="/dashboard/animals/add">Add Animal</a> |
-        <a href="/dashboard">Back to Dashboard</a>
+        <a class="btn btn-primary" href="/dashboard/animals/add">Add Animal</a>
+        <a class="btn btn-primary" href="/dashboard">Back to Dashboard</a>
     </div>
     <br/><br/>
     <div>
@@ -28,15 +28,16 @@
                 </td>
                 <td><a th:href="@{/dashboard/animals/{id}(id=${animal.id})}" th:text="${animal.age}">...</a>
                 </td>
-                <td><span><a th:href="@{/dashboard/animals/{id}/edit(id=${animal.id})}">Edit</a> | <a th:href="@{/dashboard/animals/{id}/delete(id=${animal.id})}">Delete</a></span></td>
+                <td><span><a class="btn btn-primary" th:href="@{/dashboard/animals/{id}/edit(id=${animal.id})}">Edit</a>
+                    <a class="btn btn-primary" th:href="@{/dashboard/animals/{id}/delete(id=${animal.id})}">Delete</a></span></td>
             </tr>
         </table>
     </div>
     <br/><br/>
     <div>
-        <span th:if="${hasPrev}"><a th:href="@{/dashboard/animals?page={prev}(prev=${prev})}">Prev</a>&nbsp;&nbsp;&nbsp;</span>
-        <span th:if="${hasNext}"><a
-                th:href="@{/dashboard/animals?page={next}(next=${next})}">Next</a></span>
+        <span th:if="${hasPrev}"><a class="btn btn-primary" th:href="@{/dashboard/animals?page={prev}(prev=${prev})}">Prev</a>&nbsp;&nbsp;&nbsp;</span>
+        <span th:if="${hasNext}"><a class="btn btn-primary"
+                                    th:href="@{/dashboard/animals?page={next}(next=${next})}">Next</a></span>
     </div>
 </div>
 <div th:replace="fragments/fragments.html :: scripts"></div>

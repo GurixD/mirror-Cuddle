@@ -5,10 +5,14 @@ import ch.hearc.cuddle.models.DatabaseEnum;
 import ch.hearc.cuddle.models.Species;
 import ch.hearc.cuddle.service.BreedService;
 import ch.hearc.cuddle.service.SpeciesService;
+import ch.hearc.cuddle.validator.BreedValidator;
+import ch.hearc.cuddle.validator.SpeciesValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -24,6 +28,12 @@ public class SimpleCrudController {
 
     @Autowired
     private BreedService breedService;
+
+    @Autowired
+    private SpeciesValidator speciesValidator;
+
+    @Autowired
+    private BreedValidator breedValidator;
 
     @GetMapping(value = "/{type}")
     public String get(Model model, @PathVariable String type, @RequestParam(value = "page", defaultValue = "1") int pageNumber) {
@@ -118,29 +128,45 @@ public class SimpleCrudController {
 
 
     @PostMapping(value = "/{type}/add")
-    public String add(Model model, @PathVariable String type, @ModelAttribute("dbEnum") DatabaseEnum newEnum) {
+    public String add(Model model, @PathVariable String type, @ModelAttribute("dbEnum") DatabaseEnum newEnum, BindingResult errors) {
         if (wrongType(type))
             return "error";
 
         DatabaseEnum dbEnum;
-
-        switch (type) {
+        switch (type){
             default:
             case "species":
-                dbEnum = speciesService.save(speciesService.toSpecies(newEnum));
+                speciesValidator.validate(speciesService.toSpecies(newEnum), errors);
                 break;
             case "breeds":
-                dbEnum = breedService.save(breedService.toBreed(newEnum));
+                breedValidator.validate(breedService.toBreed(newEnum), errors);
                 break;
         }
 
-        if(dbEnum != null)
-            return "redirect:/dashboard/" + type + "/" + dbEnum.getId();
+        if(!errors.hasErrors()) {
+            switch (type) {
+                default:
+                case "species":
+                    dbEnum = speciesService.save(speciesService.toSpecies(newEnum));
+                    break;
+                case "breeds":
+                    dbEnum = breedService.save(breedService.toBreed(newEnum));
+                    break;
+            }
+
+            if (dbEnum != null)
+                return "redirect:/dashboard/" + type + "/" + dbEnum.getId();
+        }
+
+        StringBuilder errorsString = new StringBuilder();
+        for (ObjectError er : errors.getAllErrors()) {
+            errorsString.append(er.getDefaultMessage()).append("<br>");
+        }
 
         model.addAttribute("typeName",StringUtils.capitalize(type));
         model.addAttribute("type", type);
         model.addAttribute("enum", newEnum);
-        model.addAttribute("errorMessage", "Failed to add");
+        model.addAttribute("errorMessage", errorsString.toString());
         model.addAttribute("add", true);
 
         return "simple-crud/edit";
@@ -178,28 +204,48 @@ public class SimpleCrudController {
 
 
     @PostMapping(value = {"/{type}/{id}/edit"})
-    public String update(Model model, @PathVariable String type, @PathVariable long id, @ModelAttribute("dbEnum") DatabaseEnum dbEnum) {
+    public String update(Model model, @PathVariable String type, @PathVariable long id, @ModelAttribute("dbEnum") DatabaseEnum dbEnum, BindingResult errors) {
         if (wrongType(type))
             return "error";
 
         dbEnum.setId(id);
-
-        boolean ok;
-        switch (type) {
+        switch (type){
             default:
             case "species":
-                ok = speciesService.update(speciesService.toSpecies(dbEnum));
+                speciesValidator.validate(speciesService.toSpecies(dbEnum), errors);
                 break;
             case "breeds":
-                ok = breedService.update(breedService.toBreed(dbEnum));
+                breedValidator.validate(breedService.toBreed(dbEnum), errors);
                 break;
         }
 
-        if (ok) {
-            return "redirect:/dashboard/" + type + "/" + dbEnum.getId();
+        if (!errors.hasErrors()) {
+            boolean ok;
+            switch (type) {
+                default:
+                case "species":
+                    ok = speciesService.update(speciesService.toSpecies(dbEnum));
+                    break;
+                case "breeds":
+                    ok = breedService.update(breedService.toBreed(dbEnum));
+                    break;
+            }
+
+
+            if (ok) {
+                return "redirect:/dashboard/" + type + "/" + dbEnum.getId();
+            }
         }
 
-        model.addAttribute("errorMessage", StringUtils.capitalize(type) + " not found");
+        StringBuilder errorsString = new StringBuilder();
+        for (ObjectError er : errors.getAllErrors()) {
+            errorsString.append(er.getDefaultMessage()).append("<br>");
+        }
+
+        model.addAttribute("enum", dbEnum);
+        model.addAttribute("type", type);
+        model.addAttribute("typeName", StringUtils.capitalize(type));
+        model.addAttribute("errorMessage", errorsString.toString());
         model.addAttribute("add", false);
 
         return "simple-crud/edit";

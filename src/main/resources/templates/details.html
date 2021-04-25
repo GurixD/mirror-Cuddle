@@ -1,11 +1,13 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" >
 <!-- Insert header fragment -->
 <head th:insert="fragments/fragments.html :: header">
 <body>
 
 
 <div th:replace="fragments/fragments.html :: navigation"></div>
+
+
 <!--For Page-->
 <div class="container">
     <div class="row">
@@ -15,72 +17,58 @@
                      th:src="${animal.getImagePath()}"
                      width="300" height="300">
                 <div class="card-body">
-                    <h5 class="card-title" th:text="${animal.getName()}">Yuri de Karnel</h5>
+                    <h5 class="card-title" th:text="${animal.getName()}"></h5>
                     <p class="card-text">
                         <b>Age : </b>
-                        <span th:text="${animal.getAge()}">1008 ans</span>
+                        <span th:text="${animal.getAge()}"></span>
                     </p>
                     <p class="card-text">
                         <b>Sex : </b>
-                        <span th:text="${animal.getSex()}">1008 ans</span>
+                        <span th:text="${animal.getSex()}"></span>
                     </p>
                     <p class="card-text">
                         <b>Breed : </b>
-                        <span th:text="${animal.getBreed().getName()}">1008 ans</span>
+                        <span th:text="${animal.getBreed().getName()}"></span>
                     </p>
                     <p class="card-text">
                         <b>Species : </b>
-                        <span th:text="${animal.getSpecies().getName()}">1008 ans</span>
+                        <span th:text="${animal.getSpecies().getName()}"></span>
                     </p>
                     <p class="card-text">
                         <b>Description : </b>
-                        <span th:text="${animal.getDescription()}">1008 ans</span>
+                        <span th:text="${animal.getDescription()}"></span>
+                    </p>
+                    <p class="card-text" sec:authorize="isAuthenticated()">
+                        <b>Treatment : </b>
+                        <span th:text="${animal.getTreatment()}"></span>
                     </p>
 
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <!--Section: Contact v.2-->
+    <div class="row" sec:authorize="!isAuthenticated()">
         <section class="mb-4">
-
-            <!--Section heading-->
             <h2 class="h1-responsive font-weight-bold text-center my-4">Want to adopt ? Contact Us !</h2>
-            <!--Section description-->
             <p class="text-center w-responsive mx-auto mb-5">Do you have any questions or want to adopt ? Please do not hesitate to contact us directly. Our team will come back to you within to help you.</p>
 
             <div class="row">
-
-                <!--Grid column-->
                 <div class="col-md-9 mb-md-0 mb-5">
                     <form id="contact-form" name="contact-form">
-
-                        <!--Grid row-->
                         <div class="row">
-
-                            <!--Grid column-->
                             <div class="col-md-6">
                                 <div class="md-form mb-0">
                                     <input type="text" id="name" name="name" class="form-control">
                                     <label for="name" class="">Your name</label>
                                 </div>
                             </div>
-                            <!--Grid column-->
-
-                            <!--Grid column-->
                             <div class="col-md-6">
                                 <div class="md-form mb-0">
                                     <input type="text" id="email" name="email" class="form-control">
                                     <label for="email" class="">Your email</label>
                                 </div>
                             </div>
-                            <!--Grid column-->
-
                         </div>
-                        <!--Grid row-->
-
-                        <!--Grid row-->
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="md-form mb-0">
@@ -89,14 +77,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!--Grid row-->
-
-                        <!--Grid row-->
                         <div class="row">
-
-                            <!--Grid column-->
                             <div class="col-md-12">
-
                                 <div class="md-form">
                                     <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
                                     <label for="message">Your message</label>
@@ -104,7 +86,6 @@
 
                             </div>
                         </div>
-                        <!--Grid row-->
                         <div class="text-center text-md-left">
                             <input type="submit" class="btn btn-primary" value="Send">
                         </div>
@@ -112,9 +93,6 @@
 
 
                 </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
                 <div class="col-md-3 text-center">
                     <ul class="list-unstyled mb-0">
                         <li>
@@ -130,12 +108,8 @@
                         </li>
                     </ul>
                 </div>
-                <!--Grid column-->
-
             </div>
-
         </section>
-        <!--Section: Contact v.2-->
     </div>
 </div>
 <div th:replace="fragments/fragments.html :: scripts"></div>

@@ -1,5 +1,6 @@
 package ch.hearc.cuddle.service;
 
+import ch.hearc.cuddle.models.Animal;
 import ch.hearc.cuddle.models.Breed;
 import ch.hearc.cuddle.models.DatabaseEnum;
 import ch.hearc.cuddle.repository.BreedRepository;
@@ -36,6 +37,10 @@ public class BreedService {
                 Sort.by("id").ascending());
         breedRepo.findAll(sortedByIdAsc).forEach(breeds::add);
         return breeds;
+    }
+
+    public List<Breed> findByName(String name) {
+        return breedRepo.findByName(name);
     }
 
     public Breed save(Breed breed) {
