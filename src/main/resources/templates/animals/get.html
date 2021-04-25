@@ -20,13 +20,13 @@
                 <th>Action</th>
             </tr>
             <tr th:each="animal : ${animals}">
-                <td><a th:href="@{/dashboard/animals/{id}(id=${animal.id})}" th:utext="${animal.id}">...</a>
+                <td><a th:href="@{/dashboard/animals/{id}(id=${animal.id})}" th:text="${animal.id}">...</a>
                 </td>
-                <td><a th:href="@{/dashboard/animals/{id}(id=${animal.id})}" th:utext="${animal.name}">...</a>
+                <td><a th:href="@{/dashboard/animals/{id}(id=${animal.id})}" th:text="${animal.name}">...</a>
                 </td>
-                <td><a th:href="@{/dashboard/animals/{id}(id=${animal.id})}" th:utext="${animal.species.name}">...</a>
+                <td><a th:href="@{/dashboard/animals/{id}(id=${animal.id})}" th:text="${animal.species.name}">...</a>
                 </td>
-                <td><a th:href="@{/dashboard/animals/{id}(id=${animal.id})}" th:utext="${animal.age}">...</a>
+                <td><a th:href="@{/dashboard/animals/{id}(id=${animal.id})}" th:text="${animal.age}">...</a>
                 </td>
                 <td><span><a th:href="@{/dashboard/animals/{id}/edit(id=${animal.id})}">Edit</a> | <a th:href="@{/dashboard/animals/{id}/delete(id=${animal.id})}">Delete</a></span></td>
             </tr>

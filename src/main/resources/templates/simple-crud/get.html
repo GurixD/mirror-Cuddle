@@ -18,9 +18,9 @@
                 <th>Action</th>
             </tr>
             <tr th:each="enum : ${enums}">
-                <td><a th:href="@{/dashboard/{type}/{id}(type=${type}, id=${enum.id})}" th:utext="${enum.id}">...</a>
+                <td><a th:href="@{/dashboard/{type}/{id}(type=${type}, id=${enum.id})}" th:text="${enum.id}">...</a>
                 </td>
-                <td><a th:href="@{/dashboard/{type}/{id}(type=${type}, id=${enum.id})}" th:utext="${enum.name}">...</a>
+                <td><a th:href="@{/dashboard/{type}/{id}(type=${type}, id=${enum.id})}" th:text="${enum.name}">...</a>
                 </td>
                 <td><span><a th:href="@{/dashboard/{type}/{id}/edit(type=${type}, id=${enum.id})}">Edit</a> | <a th:href="@{/dashboard/{type}/{id}/delete(type=${type}, id=${enum.id})}">Delete</a></span></td>
             </tr>

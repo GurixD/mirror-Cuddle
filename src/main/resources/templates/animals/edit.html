@@ -19,7 +19,7 @@
             <tbody>
             <tr th:if="${animal.id}">
                 <td>ID</td>
-                <td th:utext="${animal.id}">...</td>
+                <td th:text="${animal.id}">...</td>
             </tr>
             <tr>
                 <td>Name</td>
@@ -68,7 +68,7 @@
 
     <br/>
     <!-- Check if errorMessage is not null and not empty -->
-    <div th:if="${errorMessage}" th:utext="${errorMessage}" class="error"></div>
+    <div th:if="${errorMessage}" th:text="${errorMessage}" class="error"></div>
 </div>
 <div th:replace="fragments/fragments.html :: scripts"></div>
 <script src="/js/edit.js"></script>
