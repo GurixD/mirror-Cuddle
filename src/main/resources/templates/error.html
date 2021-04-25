@@ -1,47 +1,15 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
-<head>
-<style>
-table td {
-	vertical-align: top;
-	border: solid 1px #888;
-	padding: 10px;
-}
-</style>
-</head>
+      xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/fragments.html :: header">
+
 <body>
-	<h1>Custom Thymeleaf error page !</h1>
-	<table>
-		<tr>
-			<td>Date</td>
-			<td th:text="${timestamp}" />
-		</tr>
-		<tr>
-			<td>Path</td>
-			<td th:text="${path}" />
-		</tr>
-		<tr>
-			<td>Error</td>
-			<td th:text="${error}" />
-		</tr>
-		<tr>
-			<td>Status</td>
-			<td th:text="${status}" />
-		</tr>
-		<tr>
-			<td>Message</td>
-			<td th:text="${message}" />
-		</tr>
-		<tr>
-			<td>Exception</td>
-			<td th:text="${exception}" />
-		</tr>
-		<tr>
-			<td>Trace</td>
-			<td><pre th:text="${trace}" /></td>
-		</tr>
-	</table>
-	<div th:replace="fragments/fragments.html :: scripts"></div>
+<div th:replace="fragments/fragments.html :: navigation"></div>
+<div class="container mt-4">
+    <h1 class="row mt-4">Something went wrong</h1>
+    <h2 class="row mt-4" th:text="${status + ' error : ' + error}"></h2>
+</div>
+
+<div th:replace="fragments/fragments.html :: scripts"></div>
 </body>
 </html>

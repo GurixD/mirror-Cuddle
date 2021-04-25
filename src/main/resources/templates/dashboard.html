@@ -6,8 +6,8 @@
 <div class="container">
     <div class="row mt-4">
         <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_VETERINARY')" class="col btn btn-primary mx-2" href="/dashboard/animals">Manage Animals</a>
-        <a sec:authorize="hasRole('ROLE_ADMIN')" class="col btn btn-primary mx-2" href="/dashboard/species">Manage Species</a>
-        <a sec:authorize="hasRole('ROLE_ADMIN')" class="col btn btn-primary mx-2" href="/dashboard/breeds">Manage Breeds</a>
+        <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_VETERINARY')" class="col btn btn-primary mx-2" href="/dashboard/species">Manage Species</a>
+        <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_VETERINARY')" class="col btn btn-primary mx-2" href="/dashboard/breeds">Manage Breeds</a>
         <a sec:authorize="hasRole('ROLE_ADMIN')" class="col btn btn-primary mx-2" href="/dashboard/users">Manage users</a>
     </div>
 
