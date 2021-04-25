@@ -1,14 +1,14 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:insert="fragments/fragments.html :: header">
 <body>
 <div th:insert="fragments/fragments.html::navigation"></div>
 <div class="container">
     <div class="row mt-4">
-        <a class="col btn btn-primary mx-2" href="/dashboard/animals">Manage Animals</a>
-        <a class="col btn btn-primary mx-2" href="/dashboard/species">Manage Species</a>
-        <a class="col btn btn-primary mx-2" href="/dashboard/breeds">Manage Breeds</a>
-        <a class="col btn btn-primary mx-2" href="/dashboard/users">Manage users</a>
+        <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_VETERINARY')" class="col btn btn-primary mx-2" href="/dashboard/animals">Manage Animals</a>
+        <a sec:authorize="hasRole('ROLE_ADMIN')" class="col btn btn-primary mx-2" href="/dashboard/species">Manage Species</a>
+        <a sec:authorize="hasRole('ROLE_ADMIN')" class="col btn btn-primary mx-2" href="/dashboard/breeds">Manage Breeds</a>
+        <a sec:authorize="hasRole('ROLE_ADMIN')" class="col btn btn-primary mx-2" href="/dashboard/users">Manage users</a>
     </div>
 
     <table class="table mt-4 table-hover">
