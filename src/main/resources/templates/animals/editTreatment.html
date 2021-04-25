@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/fragments.html :: header">
+<body>
+<div th:insert="fragments/fragments.html::navigation"></div>
+<div class="container">
+    <h1 th:text="${'Edit Treatment'}"></h1>
+    <a class="btn btn-primary" href="/dashboard/animals">Back to animal List</a>
+    <br/><br/>
+    <form th:action="@{/dashboard/animals/{id}/editTreatment(id=${animal.id})}"
+          enctype="multipart/form-data" th:object="${animal}" method="POST">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Entry</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${animal.id}">
+                <td>ID</td>
+                <td th:text="${animal.id}">...</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td th:text="${animal.name}"></td>
+            </tr>
+            <tr>
+                <td>Species</td>
+                <td th:text="${animal.species.name}">
+                </td>
+            </tr>
+            <tr>
+                <td>Breed</td>
+                <td th:text="${animal.breed.name}">
+                </td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td th:text="${animal.age}"></td>
+            </tr>
+            <tr>
+                <td>Sex</td>
+                <td th:text="${animal.sex}"></td>
+            </tr>
+            <tr>
+                <td>Image</td>
+                <td><img id="animalImg" class="form-img" th:src="${animal.getImagePath()}" alt="Image"/></td>
+            </tr>
+            <tr>
+                <td>Treatment</td>
+                <td><textarea th:field="*{treatment}"></textarea></td>
+            </tr>
+            </tbody>
+        </table>
+        <input type="submit" th:value="${'Update'}"/>
+    </form>
+
+    <br/>
+    <!-- Check if errorMessage is not null and not empty -->
+    <div th:if="${errorMessage}" th:utext="${errorMessage}" class="error"></div>
+</div>
+<div th:replace="fragments/fragments.html :: scripts"></div>
+<script src="/js/edit.js"></script>
+</body>
+</html>

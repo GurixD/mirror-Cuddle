@@ -234,4 +234,37 @@ public class AnimalController {
         return "animals/getById";
     }
 
+    @GetMapping(value = {"/{id}/editTreatment"})
+    public String showEditTreatment(Model model, @PathVariable long id) {
+        Animal animal = animalService.findById(id);
+
+        if (animal == null)
+            model.addAttribute("errorMessage", "Animal not found");
+
+        model.addAttribute("animal", animal);
+        return "animals/editTreatment";
+    }
+
+    @PostMapping(value = {"/{id}/editTreatment"})
+    public String updateTreatment(Model model, @PathVariable long id, @ModelAttribute("animal") Animal newAnimal, BindingResult errors) throws IOException {
+        Animal oldAnimal = animalService.findById(id);
+        oldAnimal.setTreatment(newAnimal.getTreatment());
+        model.addAttribute("animal", oldAnimal);
+
+        boolean updated = animalService.update(oldAnimal);
+
+        if (updated) {
+            return "redirect:/dashboard/animals/" + newAnimal.getId();
+        } else
+            errors.addError(new ObjectError("animal", "Failed to update treatment"));
+
+        StringBuilder errorsString = new StringBuilder();
+        for (ObjectError er : errors.getAllErrors()) {
+            errorsString.append(er.getDefaultMessage()).append("<br>");
+        }
+
+        model.addAttribute("errorMessage", errorsString.toString());
+
+        return "animals/editTreatment";
+    }
 }
