@@ -11,11 +11,11 @@
         <table class="table w-75">
             <tr>
                 <td>ID</td>
-                <td th:utext="${enum.id}">...</td>
+                <td th:text="${enum.id}">...</td>
             </tr>
             <tr>
                 <td>Name</td>
-                <td th:utext="${enum.name}">...</td>
+                <td th:text="${enum.name}">...</td>
             </tr>
         </table>
         <br/><br/>
@@ -28,7 +28,7 @@
             Delete this ? <input type="submit" th:value="Yes"/>
         </form>
     </div>
-    <div th:if="${errorMessage}" th:utext="${errorMessage}" class="error"></div>
+    <div th:if="${errorMessage}" th:text="${errorMessage}" class="error"></div>
 </div>
 <div th:replace="fragments/fragments.html :: scripts"></div>
 </body>
