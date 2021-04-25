@@ -29,7 +29,9 @@
                 <td><a th:href="@{/dashboard/animals/{id}(id=${animal.id})}" th:utext="${animal.age}">...</a>
                 </td>
                 <td><span><a class="btn btn-primary" th:href="@{/dashboard/animals/{id}/edit(id=${animal.id})}">Edit</a>
-                    <a class="btn btn-primary" th:href="@{/dashboard/animals/{id}/delete(id=${animal.id})}">Delete</a></span></td>
+                    <a class="btn btn-primary" th:href="@{/dashboard/animals/{id}/delete(id=${animal.id})}">Delete</a>
+                    <a class="btn btn-primary" th:href="@{/dashboard/animals/{id}/editTreatment(id=${animal.id})}">Edit Treatment</a>
+                </span></td>
             </tr>
         </table>
     </div>
