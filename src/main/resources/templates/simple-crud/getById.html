@@ -20,7 +20,7 @@
         </table>
         <br/><br/>
         <div th:if="not ${allowDelete}">
-            <a class="btn btn-success" th:href="@{/dashboard/{type}/{id}/edit(type=${type}, id=${enum.id})}">Edit</a>
+            <a class="btn btn-primary" th:href="@{/dashboard/{type}/{id}/edit(type=${type}, id=${enum.id})}">Edit</a>
             <a class="btn btn-danger" th:href="@{/dashboard/{type}/{id}/delete(type=${type}, id=${enum.id})}">Delete</a>
         </div>
         <form th:if="${allowDelete}" th:action="@{/dashboard/{type}/{id}/delete(type=${type}, id=${enum.id})}"

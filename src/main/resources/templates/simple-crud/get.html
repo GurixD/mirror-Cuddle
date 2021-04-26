@@ -22,7 +22,7 @@
                 </td>
                 <td><a th:href="@{/dashboard/{type}/{id}(type=${type}, id=${enum.id})}" th:text="${enum.name}">...</a>
                 </td>
-                <td><span><a class="btn btn-sucess" th:href="@{/dashboard/{type}/{id}/edit(type=${type}, id=${enum.id})}">Edit</a>
+                <td><span><a class="btn btn-primary" th:href="@{/dashboard/{type}/{id}/edit(type=${type}, id=${enum.id})}">Edit</a>
                     <a class="btn btn-danger" th:href="@{/dashboard/{type}/{id}/delete(type=${type}, id=${enum.id})}">Delete</a></span></td>
             </tr>
         </table>
