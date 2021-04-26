@@ -20,11 +20,12 @@ RUN sed -i 's/\r$//' mvnw
 RUN chmod +x ./mvnw
 RUN ./mvnw dependency:go-offline -B
 
-# Rename application.properties
-RUN mv src/main/resources/example.application.properties src/main/resources/application.properties
 
 # Copy the project source
 COPY src src
+
+# Rename application.properties
+RUN mv src/main/resources/example.application.properties src/main/resources/application.properties
 
 # Package the application
 RUN ./mvnw package -DskipTests
