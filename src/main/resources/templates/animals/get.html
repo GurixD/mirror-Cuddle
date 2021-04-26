@@ -28,9 +28,9 @@
                 </td>
                 <td><a th:href="@{/dashboard/animals/{id}(id=${animal.id})}" th:text="${animal.age}">...</a>
                 </td>
-                <td><span><a class="btn btn-primary" th:href="@{/dashboard/animals/{id}/edit(id=${animal.id})}">Edit</a>
-                    <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_VETERINARY')" class="btn btn-primary" th:href="@{/dashboard/animals/{id}/editTreatment(id=${animal.id})}">Edit Treatment</a>
-                    <a class="btn btn-primary" th:href="@{/dashboard/animals/{id}/delete(id=${animal.id})}">Delete</a>
+                <td><span><a class="btn btn-sucess" th:href="@{/dashboard/animals/{id}/edit(id=${animal.id})}">Edit</a>
+                    <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_VETERINARY')" class="btn btn-success" th:href="@{/dashboard/animals/{id}/editTreatment(id=${animal.id})}">Edit Treatment</a>
+                    <a class="btn btn-danger" th:href="@{/dashboard/animals/{id}/delete(id=${animal.id})}">Delete</a>
 
                 </span></td>
             </tr>
