@@ -33,4 +33,4 @@ build/
 .vscode/
 
 src/main/resources/application.properties
-#media/img/animal/
+media/img/animal/
