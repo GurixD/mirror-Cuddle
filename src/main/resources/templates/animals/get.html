@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:insert="fragments/fragments.html :: header">
 <body>
 <div th:insert="fragments/fragments.html::navigation"></div>
@@ -29,8 +29,9 @@
                 <td><a th:href="@{/dashboard/animals/{id}(id=${animal.id})}" th:text="${animal.age}">...</a>
                 </td>
                 <td><span><a class="btn btn-primary" th:href="@{/dashboard/animals/{id}/edit(id=${animal.id})}">Edit</a>
+                    <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_VETERINARY')" class="btn btn-primary" th:href="@{/dashboard/animals/{id}/editTreatment(id=${animal.id})}">Edit Treatment</a>
                     <a class="btn btn-primary" th:href="@{/dashboard/animals/{id}/delete(id=${animal.id})}">Delete</a>
-                    <a class="btn btn-primary" th:href="@{/dashboard/animals/{id}/editTreatment(id=${animal.id})}">Edit Treatment</a>
+
                 </span></td>
             </tr>
         </table>

@@ -5,11 +5,37 @@
 <div th:insert="fragments/fragments.html::navigation"></div>
 <div class="container">
     <div class="row mt-4">
-        <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_VETERINARY')" class="col btn btn-primary mx-2" href="/dashboard/animals">Manage Animals</a>
-        <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_VETERINARY')" class="col btn btn-primary mx-2" href="/dashboard/species">Manage Species</a>
-        <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_VETERINARY')" class="col btn btn-primary mx-2" href="/dashboard/breeds">Manage Breeds</a>
+        <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_VETERINARY', 'ROLE_STAFF')" class="col btn btn-primary mx-2" href="/dashboard/animals">Manage Animals</a>
+        <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_VETERINARY', 'ROLE_STAFF')" class="col btn btn-primary mx-2" href="/dashboard/species">Manage Species</a>
+        <a sec:authorize="hasAnyRole('ROLE_ADMIN', 'ROLE_VETERINARY', 'ROLE_STAFF')" class="col btn btn-primary mx-2" href="/dashboard/breeds">Manage Breeds</a>
         <a sec:authorize="hasRole('ROLE_ADMIN')" class="col btn btn-primary mx-2" href="/dashboard/users">Manage users</a>
     </div>
+
+    <form method="get" th:action="@{/dashboard}" class="ml-4 mt-3 row">
+        <div class="form-inline mr-4">
+            <label for="formSpecies">Species</label>
+            <select class="form-control ml-2" id="formSpecies" th:name="speciesID">
+                <option disabled selected value> -- select a species -- </option>
+                <option th:each="species : ${listSpecies}" th:value="${species.getId()}"
+                        th:text="${species.getName()}" th:selected="${speciesID == species.getId()}"></option>
+            </select>
+        </div>
+        <div class="form-inline mr-4">
+            <label for="formBreed">Breed</label>
+            <select class="form-control ml-2" id="formBreed" th:name="breedID">
+                <option disabled selected value> -- select a breed -- </option>
+                <option th:each="breed : ${listBreed}" th:value="${breed.getId()}"
+                        th:text="${breed.getName()}" th:selected="${breedID == breed.getId()}"></option>
+            </select>
+        </div>
+        <div class="form-inline mr-4">
+            <label class="form-check-label" for="formTreatment">Has a treatment</label>
+            <input type="checkbox" class="ml-2 form-check-input" id="formTreatment" th:name="hasTreatment" th:checked="${hasTreatment}">
+        </div>
+
+        <button type="submit" class="btn btn-primary material-icons">search</button>
+        <a th:href="'/dashboard'" class="btn btn-danger ml-1 material-icons" role="button">clear</a>
+    </form>
 
     <table class="table mt-4 table-hover">
         <thead>

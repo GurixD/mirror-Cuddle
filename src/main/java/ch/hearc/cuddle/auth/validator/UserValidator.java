@@ -1,11 +1,10 @@
 package ch.hearc.cuddle.auth.validator;
 
-import ch.hearc.cuddle.auth.service.UserService;
 import ch.hearc.cuddle.auth.model.User;
+import ch.hearc.cuddle.auth.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
-import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
 @Component

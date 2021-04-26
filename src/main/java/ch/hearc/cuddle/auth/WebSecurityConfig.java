@@ -12,7 +12,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
-import org.springframework.stereotype.Component;
 
 @Configuration
 @EnableWebSecurity
@@ -32,7 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/resources/**", "/css/**", "/js/**" ,"/media/**",
                         "/registration", "/", "/home", "/adopt","/details/**").permitAll()
                 .antMatchers("/dashboard").hasAnyRole("ADMIN","STAFF","VETERINARY")
-                .antMatchers("/dashboard/animals", "/dashboard/species", "/dashboard/breeds")
+                .antMatchers("/dashboard/animals/editTreatment")
                 .hasAnyRole("ADMIN","VETERINARY")
                 .antMatchers("/dashboard/users", "/*").hasRole("ADMIN")
                 .anyRequest().authenticated()

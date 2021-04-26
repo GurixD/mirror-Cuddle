@@ -64,8 +64,6 @@ public class AnimalController {
         if (animal == null) {
             model.addAttribute("errorMessage", "Animal not found");
         }
-
-        System.out.println(animal.getImagePath());
         model.addAttribute("animal", animal);
 
         return "animals/getById";
@@ -109,6 +107,7 @@ public class AnimalController {
 
         if (!errors.hasErrors()) {
             newAnimal.setImage(fileName);
+            newAnimal.setTreatment("");
             Animal animal = animalService.save(newAnimal);
 
             if (animal != null) {
@@ -152,7 +151,7 @@ public class AnimalController {
     public String update(Model model, @PathVariable long id, @ModelAttribute("animal") Animal newAnimal, @RequestParam("formImage") MultipartFile multipartFile, BindingResult errors) throws IOException {
         Animal oldAnimal = animalService.findById(id);
         newAnimal.setId(id);
-
+        newAnimal.setTreatment(oldAnimal.getTreatment());
         String fileExt = FilenameUtils.getExtension(multipartFile.getOriginalFilename()).toLowerCase();
         String fileName = UUID.randomUUID() + "." + fileExt;
 
@@ -171,8 +170,6 @@ public class AnimalController {
             boolean newImage = false;
             String oldImage = oldAnimal.getImage();
 
-            System.out.println(multipartFile.isEmpty());
-            System.out.println(multipartFile.getContentType());
             if (multipartFile.isEmpty() || !Arrays.asList(FileHelper.ALLOWED_FILES).contains(multipartFile.getContentType())) {
                 newAnimal.setImage(oldAnimal.getImage());
             } else {

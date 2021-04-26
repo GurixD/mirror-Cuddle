@@ -30,26 +30,18 @@ public class AdoptController {
     SpeciesService speciesService;
 
     @GetMapping({"/adopt"})
-    public String adopt(Model model, @RequestParam(required = false) Integer speciesID, @RequestParam(required = false) Integer breedID) {
-        System.out.println(speciesID);
-        System.out.println(breedID);
+    public String adopt(Model model, @RequestParam(required = false) Integer speciesID) {
         List<Animal> listAnimals = animalService.findAll();
-        List<Breed> listBreed = breedService.findAll();
         List<Species> listSpecies = speciesService.findAll();
 
         if (speciesID != null)
             listAnimals = listAnimals.stream().filter(animal -> animal.getSpecies().getId() == speciesID.intValue())
                     .collect(Collectors.toList());
 
-        if (breedID != null)
-            listAnimals = listAnimals.stream().filter(animal -> animal.getBreed().getId() == breedID.intValue())
-                    .collect(Collectors.toList());
 
         model.addAttribute("listAnimals", listAnimals);
-        model.addAttribute("listBreed", listBreed);
         model.addAttribute("listSpecies", listSpecies);
         model.addAttribute("speciesID", speciesID);
-        model.addAttribute("breedID", breedID);
         return "adopt";
     }
 

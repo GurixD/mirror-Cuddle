@@ -8,7 +8,7 @@ import java.util.Set;
 @Access(AccessType.FIELD)
 public class Role {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column

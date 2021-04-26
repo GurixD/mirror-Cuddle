@@ -18,14 +18,6 @@
                     th:text="${species.getName()}" th:selected="${speciesID == species.getId()}"></option>
         </select>
     </div>
-    <div class="form-inline mr-4">
-        <label for="formBreed">Breed</label>
-        <select class="form-control ml-2" id="formBreed" th:name="breedID">
-            <option disabled selected value> -- select a breed -- </option>
-            <option th:each="breed : ${listBreed}" th:value="${breed.getId()}"
-                    th:text="${breed.getName()}" th:selected="${breedID == breed.getId()}"></option>
-        </select>
-    </div>
     <button type="submit" class="btn btn-primary material-icons">search</button>
     <a th:href="'/adopt'" class="btn btn-danger ml-1 material-icons" role="button">clear</a>
 </form>
