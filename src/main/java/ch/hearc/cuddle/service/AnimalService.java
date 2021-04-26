@@ -1,8 +1,6 @@
 package ch.hearc.cuddle.service;
 
 import ch.hearc.cuddle.models.Animal;
-import ch.hearc.cuddle.models.Breed;
-import ch.hearc.cuddle.models.DatabaseEnum;
 import ch.hearc.cuddle.repository.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -29,7 +27,7 @@ public class AnimalService {
     }
 
     public Animal get(long id) {
-        return animalRepo.findById(id).get();
+        return animalRepo.findById(id).orElse(null);
     }
 
     public void delete(long id) {
@@ -43,7 +41,10 @@ public class AnimalService {
     public List<Animal> getRandom(int number) {
         List<Animal> animals = animalRepo.findAll();
         Collections.shuffle(animals);
-        return animals.subList(0, number - 1);
+        if(animals.isEmpty()){
+            return animals;
+        }
+        return animals.subList(0, Math.min(number - 1, animals.size()));
     }
 
     public List<Animal> findAll(int pageNumber, int rowPerPage) {

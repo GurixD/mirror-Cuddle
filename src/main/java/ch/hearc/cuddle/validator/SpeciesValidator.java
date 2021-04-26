@@ -3,7 +3,6 @@ package ch.hearc.cuddle.validator;
 import ch.hearc.cuddle.models.Animal;
 import ch.hearc.cuddle.models.DatabaseEnum;
 import ch.hearc.cuddle.models.Species;
-import ch.hearc.cuddle.service.BreedService;
 import ch.hearc.cuddle.service.SpeciesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

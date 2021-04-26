@@ -1,12 +1,8 @@
 package ch.hearc.cuddle;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;

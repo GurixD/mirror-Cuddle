@@ -1,6 +1,5 @@
 package ch.hearc.cuddle.repository;
 
-import ch.hearc.cuddle.models.Breed;
 import ch.hearc.cuddle.models.Species;
 import org.springframework.data.jpa.repository.JpaRepository;
 

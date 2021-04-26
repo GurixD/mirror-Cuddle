@@ -1,6 +1,5 @@
 package ch.hearc.cuddle.service;
 
-import ch.hearc.cuddle.models.Animal;
 import ch.hearc.cuddle.models.Breed;
 import ch.hearc.cuddle.models.DatabaseEnum;
 import ch.hearc.cuddle.repository.BreedRepository;

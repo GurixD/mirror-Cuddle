@@ -1,13 +1,7 @@
 package ch.hearc.cuddle.models;
 
-import com.sun.istack.NotNull;
-
 import javax.persistence.*;
-import javax.persistence.criteria.CriteriaBuilder;
 import java.io.File;
-import java.net.URL;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 
 @Entity
 @Table(name="animal")

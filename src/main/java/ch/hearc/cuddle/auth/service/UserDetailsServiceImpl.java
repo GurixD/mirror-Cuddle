@@ -1,7 +1,7 @@
 package ch.hearc.cuddle.auth.service;
 
-import ch.hearc.cuddle.auth.repository.UserRepository;
 import ch.hearc.cuddle.auth.model.User;
+import ch.hearc.cuddle.auth.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

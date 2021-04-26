@@ -1,9 +1,8 @@
 package ch.hearc.cuddle.auth.service;
 
+import ch.hearc.cuddle.auth.model.User;
 import ch.hearc.cuddle.auth.repository.RoleRepository;
 import ch.hearc.cuddle.auth.repository.UserRepository;
-import ch.hearc.cuddle.auth.model.User;
-import ch.hearc.cuddle.models.Animal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;

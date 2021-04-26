@@ -42,26 +42,44 @@ public class DashboardController {
     private AnimalValidator animalValidator;
 
     @GetMapping("")
-    public String dashboard(Model model) {
+    public String dashboard(Model model, @RequestParam(required = false) Integer speciesID, @RequestParam(required = false) Integer breedID, @RequestParam(required = false) String hasTreatment) {
         List<Species> species = speciesService.findAll();
         List<Breed> breeds = breedService.findAll();
         List<Animal> animals = animalService.findAll();
+
         Map<String, Animal[]> animalDict = species.stream() //
-                .parallel() //
+                .parallel()//
+                .filter(s -> speciesID == null || s.getId() == speciesID.intValue())
                 .collect(Collectors //
-                        .toMap(DatabaseEnum::getName, //
+                        .toMap(Species::getName, //
                                 l -> animals //
                                         .stream() //
                                         .parallel() //
                                         .filter(a -> a //
                                                 .getSpecies() //
                                                 .getId() //
-                                                .equals(l.getId())) //
+                                                .equals(l.getId()))
+                                        .filter(a -> breedID == null || a.getBreed().getId() == breedID.intValue())//
+                                        .filter(a -> hasTreatment == null || !a.getTreatment().isEmpty())//
                                         .toArray(Animal[]::new))); //
 
+        animalDict = animalDict.entrySet().stream().parallel().filter(entry -> entry.getValue().length > 0).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+//        if (speciesID != null)
+//            listAnimals = listAnimals.stream().filter(animal -> animal.getSpecies().getId() == speciesID.intValue())
+//                    .collect(Collectors.toList());
+//
+//        if (breedID != null)
+//            listAnimals = listAnimals.stream().filter(animal -> animal.getBreed().getId() == breedID.intValue())
+//                    .collect(Collectors.toList());
+
+        model.addAttribute("listBreed", breeds);
+        model.addAttribute("listSpecies", species);
         model.addAttribute("animalDict", animalDict);
         model.addAttribute("species", species);
         model.addAttribute("breeds", breeds);
+        model.addAttribute("speciesID", speciesID);
+        model.addAttribute("breedID", breedID);
+        model.addAttribute("hasTreatment", hasTreatment);
 
 
         return "dashboard";
