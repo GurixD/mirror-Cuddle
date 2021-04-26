@@ -14,8 +14,8 @@
     <input type="submit" value="Log in" />
 </form>
 
-<p th:text="${error}" />
-<p th:text="${message}" />
+<p th:utext="${error}"></p>
+<p th:utext="${message}"></p>
 <div th:replace="fragments/fragments.html :: scripts"></div>
 </body>
 </html>
