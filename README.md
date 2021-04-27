@@ -1,5 +1,11 @@
 # Cuddle
 
+## Instruction de connexion
+Pour vous connecter différent utilisateur sont créer par défaut :
+- Email : florian.feuillade@he-arc.ch    Password : Pass1234!    Role : STAFF
+- Email : antoine.lestrade@he-arc.ch    Password : Pass1234!    Role : ADMIN
+- Email : testVet@test.com    Password : Pass1234!    Role : VETERINARY
+
 ## Description 
 
 Site pour un refuge pour animaux. Le but serait d’informatiser les entrées et sorties des animaux dans le refuge ainsi que la gestion de ceux-ci. Le site affichera sur une page les animaux du refuge pouvant en attente d’un nouveau foyer. Les visiteurs auront accès à un formulaire pour prendre contact avec le refuge. 
