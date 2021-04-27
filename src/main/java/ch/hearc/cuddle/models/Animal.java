@@ -1,7 +1,10 @@
 package ch.hearc.cuddle.models;
 
 import javax.persistence.*;
-import java.io.File;
+import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
 
 @Entity
 @Table(name="animal")
@@ -89,9 +92,8 @@ public class Animal {
     public String getImagePath() {
         if (image == null || id == null) return image;
 
-        String imgPath = "media/img/animal/" + id + "/" + image;
-        if (new File(imgPath).exists()) return "/" + imgPath;
-        return image;
+        String imgPath = "/media/img/animal/" + id + "/" + image;
+        return imgPath;
     }
 
     public void setBreed(Breed breed) {

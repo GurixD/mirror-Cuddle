@@ -6,7 +6,7 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: cuddle
-      MYSQL_USER: root
+      MYSQL_USER: cuddle_user
       MYSQL_PASSWORD: toor
       MYSQL_ROOT_PASSWORD: toor
     volumes:
@@ -32,7 +32,7 @@ services:
     ports:
       - "8088:8080"
     depends_on: 
-      - mysql-db  
+      - mysql-db 
     environment:      
       SPRING_DATASOURCE_USERNAME: root
       SPRING_DATASOURCE_PASSWORD: toor

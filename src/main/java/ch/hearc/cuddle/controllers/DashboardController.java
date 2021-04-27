@@ -64,13 +64,6 @@ public class DashboardController {
                                         .toArray(Animal[]::new))); //
 
         animalDict = animalDict.entrySet().stream().parallel().filter(entry -> entry.getValue().length > 0).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
-//        if (speciesID != null)
-//            listAnimals = listAnimals.stream().filter(animal -> animal.getSpecies().getId() == speciesID.intValue())
-//                    .collect(Collectors.toList());
-//
-//        if (breedID != null)
-//            listAnimals = listAnimals.stream().filter(animal -> animal.getBreed().getId() == breedID.intValue())
-//                    .collect(Collectors.toList());
 
         model.addAttribute("listBreed", breeds);
         model.addAttribute("listSpecies", species);
@@ -83,53 +76,5 @@ public class DashboardController {
 
 
         return "dashboard";
-    }
-
-    @GetMapping("/addAnimal")
-    public String addAnimal(Model model) {
-
-        addAnimalModel(model, new Animal());
-
-        return "addAnimal";
-    }
-
-    private void addAnimalModel(Model model, Animal animal) {
-        List<Species> species = speciesService.findAll();
-        List<Breed> breeds = breedService.findAll();
-
-        model.addAttribute("species", species);
-        model.addAttribute("breeds", breeds);
-        model.addAttribute("newAnimal", animal);
-    }
-
-    @PostMapping("/addAnimal")
-    public String addAnimal(@ModelAttribute("newAnimal") Animal newAnimal, @RequestParam("formImage") MultipartFile multipartFile, BindingResult bindingResult, Model model
-                            ) throws IOException {
-
-        String fileExt = FilenameUtils.getExtension(multipartFile.getOriginalFilename()).toLowerCase();
-        String fileName = UUID.randomUUID() + "." + fileExt;
-        String[] mimeTypes = {"image/png", "image/jpeg", "image/jpg", "image/gif"};
-
-        if (!multipartFile.isEmpty() && Arrays.asList(mimeTypes).contains(multipartFile.getContentType()))
-        {
-            newAnimal.setImage(fileName);
-        }
-
-        animalValidator.validate(newAnimal, bindingResult);
-
-        if (bindingResult.hasErrors()) {
-            List<ObjectError> errors = bindingResult.getAllErrors();
-            for (ObjectError error : errors) {
-                System.out.println(error);
-            }
-
-            addAnimalModel(model, newAnimal);
-            return "addAnimal";
-        }
-
-        Animal savedAnimal = animalService.save(newAnimal);
-        String uploadDir = "media/img/animal/" + savedAnimal.getId();
-        FileHelper.saveFile(uploadDir, fileName, multipartFile);
-        return "redirect:/home";
     }
 }

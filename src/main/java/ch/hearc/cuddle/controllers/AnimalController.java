@@ -111,7 +111,7 @@ public class AnimalController {
             Animal animal = animalService.save(newAnimal);
 
             if (animal != null) {
-                String uploadDir = "media/img/animal/" + animal.getId();
+                String uploadDir = "src/main/resources/static/media/img/animal/" + animal.getId();
                 FileHelper.saveFile(uploadDir, fileName, multipartFile);
                 return "redirect:/dashboard/animals/" + animal.getId();
             } else
@@ -181,7 +181,7 @@ public class AnimalController {
 
             if (updated) {
                 if (newImage) {
-                    String uploadDir = "media/img/animal/" + newAnimal.getId();
+                    String uploadDir = "src/main/resources/static/media/img/animal/" + newAnimal.getId();
                     FileHelper.saveFile(uploadDir, fileName, multipartFile);
                     FileHelper.deleteFile(uploadDir, oldImage);
                 }
