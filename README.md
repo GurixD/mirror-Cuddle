@@ -2,9 +2,9 @@
 
 ## Instruction de connexion
 Pour vous connecter différent utilisateur sont créer par défaut :
-- Email : florian.feuillade@he-arc.ch    Password : Pass1234!    Role : STAFF
-- Email : antoine.lestrade@he-arc.ch    Password : Pass1234!    Role : ADMIN
-- Email : testVet@test.com    Password : Pass1234!    Role : VETERINARY
+- **Email : **florian.feuillade@he-arc.ch   ** Password :** Pass1234!    **Role :** STAFF
+- **Email :** antoine.lestrade@he-arc.ch    **Password :** Pass1234!    **Role :** ADMIN
+- **Email :** testVet@test.com    **Password :** Pass1234!    **Role :** VETERINARY
 
 ## Description 
 
