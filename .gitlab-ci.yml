@@ -44,7 +44,9 @@ katalon_test_suite:
   stage: test
   script:
     - echo "start katalon test suite"
+    - docker-compose down --rmi all
     - katalonc -runMode=console -projectPath=$(pwd) -testSuitePath=Cuddle -browserType=Chrome
+    - docker-compose up -d --build
     - echo "katalon test suite ok"
   only:
     - master
