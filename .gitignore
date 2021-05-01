@@ -34,3 +34,8 @@ build/
 
 src/main/resources/application.properties
 media/img/animal/
+/bin/
+/Libs/
+/.settings/
+/.classpath
+.svn/
