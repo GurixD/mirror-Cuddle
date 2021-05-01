@@ -6,9 +6,9 @@ variables:
 
 stages:
   - test
+  - deploy
   # - build
   # - sonarqube
-  # - deploy
 
 before_script:
   - echo "Start CI/CD"
