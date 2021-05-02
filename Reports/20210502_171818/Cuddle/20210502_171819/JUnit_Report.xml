@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Cuddle" time="70.307" tests="8" failures="0" skips="0" errors="0">
+   <testsuite name="Cuddle" tests="8" failures="0" errors="0" time="70.307" skips="0" timestamp="2021-05-02 17:18:21" hostname="Frictus - DESKTOP-PVFQ9EE.mshome.net" id="Test Suites/Cuddle">
+      <properties>
+         <property name="deviceName" value=""/>
+         <property name="devicePlatform" value=""/>
+         <property name="logFolder" value="C:\\DEV\\JEE\\cuddleKatalon\\Reports\\20210502_171818\\Cuddle\\20210502_171819"/>
+         <property name="logFiles" value="C:\\DEV\\JEE\\cuddleKatalon\\Reports\\20210502_171818\\Cuddle\\20210502_171819\\execution0.log"/>
+         <property name="attachments" value=""/>
+         <property name="hostName" value="Frictus - DESKTOP-PVFQ9EE.mshome.net"/>
+         <property name="os" value="Windows 10 64bit"/>
+         <property name="katalonVersion" value="7.9.1.208"/>
+         <property name="browser" value="Chrome 90.0.4430.93"/>
+         <property name="hostAddress" value="172.24.112.1"/>
+         <property name="sessionId" value="eb4796711b018ed249cff7b8b75e7ebf"/>
+         <property name="seleniumVersion" value="3.141.59"/>
+         <property name="proxyInformation" value="ProxyInformation { proxyOption=NO_PROXY, proxyServerType=HTTP, username=, password=********, proxyServerAddress=, proxyServerPort=0, executionList=&quot;&quot;, isApplyToDesiredCapabilities=true }"/>
+         <property name="platform" value="Windows 10"/>
+      </properties>
+      <testcase name="Test Cases/Home_Adopt_Details" time="5.59" classname="Test Cases/Home_Adopt_Details" status="PASSED">
+         <system-out><![CDATA[2021-05-02 17:18:22 - [TEST_CASE][PASSED] - Test Cases/Home_Adopt_Details: Test Cases/Home_Adopt_Details
+
+2021-05-02 17:18:22 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+2021-05-02 17:18:22 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+2021-05-02 17:18:22 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+2021-05-02 17:18:23 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+2021-05-02 17:18:23 - [TEST_STEP][PASSED] - navigateToUrl("http://localhost:8080/"): Navigate to 'http://localhost:8080/' successfully
+
+2021-05-02 17:18:24 - [MESSAGE][PASSED] - Navigate to 'http://localhost:8080/' successfully
+
+2021-05-02 17:18:24 - [TEST_STEP][PASSED] - maximizeWindow(): Current window maximized
+
+2021-05-02 17:18:24 - [MESSAGE][PASSED] - Current window maximized
+
+2021-05-02 17:18:24 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Cuddle/a_Adopt")): Object: 'Object Repository/Page_Cuddle/a_Adopt' is clicked on
+
+2021-05-02 17:18:25 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Cuddle/a_Adopt' is clicked on
+
+2021-05-02 17:18:25 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Age  2007_stretched-link")): null
+
+2021-05-02 17:18:25 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Cuddle/a_Adopt")): Object: 'Object Repository/Page_Cuddle/a_Adopt' is clicked on
+
+2021-05-02 17:18:26 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Cuddle/a_Adopt' is clicked on
+
+2021-05-02 17:18:26 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Age  2011_stretched-link")): null
+
+2021-05-02 17:18:26 - [TEST_STEP][PASSED] - closeBrowser(): Browser is closed
+
+2021-05-02 17:18:27 - [MESSAGE][PASSED] - Browser is closed]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Login_Logout" time="5.712" classname="Test Cases/Login_Logout" status="PASSED">
+         <system-out><![CDATA[2021-05-02 17:18:27 - [TEST_CASE][PASSED] - Test Cases/Login_Logout: Test Cases/Login_Logout
+
+2021-05-02 17:18:27 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+2021-05-02 17:18:27 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+2021-05-02 17:18:27 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+2021-05-02 17:18:28 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+2021-05-02 17:18:28 - [TEST_STEP][PASSED] - navigateToUrl("http://localhost:8080/"): Navigate to 'http://localhost:8080/' successfully
+
+2021-05-02 17:18:29 - [MESSAGE][PASSED] - Navigate to 'http://localhost:8080/' successfully
+
+2021-05-02 17:18:29 - [TEST_STEP][PASSED] - maximizeWindow(): Current window maximized
+
+2021-05-02 17:18:29 - [MESSAGE][PASSED] - Current window maximized
+
+2021-05-02 17:18:29 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Cuddle/a_Login")): Object: 'Object Repository/Page_Cuddle/a_Login' is clicked on
+
+2021-05-02 17:18:30 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Cuddle/a_Login' is clicked on
+
+2021-05-02 17:18:30 - [TEST_STEP][PASSED] - setText(findTestObject("Object Repository/Page_Please sign in/input_Username_username"), "antoine.lestrade@he-arc.ch"): Text 'antoine.lestrade@he-arc.ch' is set on object 'Object Repository/Page_Please sign in/input_Username_username'
+
+2021-05-02 17:18:30 - [MESSAGE][PASSED] - Text 'antoine.lestrade@he-arc.ch' is set on object 'Object Repository/Page_Please sign in/input_Username_username'
+
+2021-05-02 17:18:31 - [TEST_STEP][PASSED] - setEncryptedText(findTestObject("Object Repository/Page_Please sign in/input_Password_password"), "V2rEZwedbz9dlLHBWTk7CA=="): Text ****** has been set on object 'Object Repository/Page_Please sign in/input_Password_password'
+
+2021-05-02 17:18:31 - [MESSAGE][PASSED] - Text ****** has been set on object 'Object Repository/Page_Please sign in/input_Password_password'
+
+2021-05-02 17:18:31 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Please sign in/button_Sign in")): Object: 'Object Repository/Page_Please sign in/button_Sign in' is clicked on
+
+2021-05-02 17:18:31 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Please sign in/button_Sign in' is clicked on
+
+2021-05-02 17:18:31 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Cuddle/a_antoine.lestradehe-arc.ch")): Object: 'Object Repository/Page_Cuddle/a_antoine.lestradehe-arc.ch' is clicked on
+
+2021-05-02 17:18:32 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Cuddle/a_antoine.lestradehe-arc.ch' is clicked on
+
+2021-05-02 17:18:32 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Logout")): null
+
+2021-05-02 17:18:32 - [TEST_STEP][PASSED] - closeBrowser(): Browser is closed
+
+2021-05-02 17:18:33 - [MESSAGE][PASSED] - Browser is closed]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/BadCredential" time="7.561" classname="Test Cases/BadCredential" status="PASSED">
+         <system-out><![CDATA[2021-05-02 17:18:33 - [TEST_CASE][PASSED] - Test Cases/BadCredential: Test Cases/BadCredential
+
+2021-05-02 17:18:33 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+2021-05-02 17:18:33 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+2021-05-02 17:18:33 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+2021-05-02 17:18:34 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+2021-05-02 17:18:34 - [TEST_STEP][PASSED] - navigateToUrl("http://localhost:8080/"): Navigate to 'http://localhost:8080/' successfully
+
+2021-05-02 17:18:34 - [MESSAGE][PASSED] - Navigate to 'http://localhost:8080/' successfully
+
+2021-05-02 17:18:34 - [TEST_STEP][PASSED] - maximizeWindow(): Current window maximized
+
+2021-05-02 17:18:34 - [MESSAGE][PASSED] - Current window maximized
+
+2021-05-02 17:18:34 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Login")): null
+
+2021-05-02 17:18:35 - [TEST_STEP][PASSED] - setText(findTestObject("Object Repository/Page_Please sign in/input_Username_username"), "florian.lestrade@he-arc.ch"): Text 'florian.lestrade@he-arc.ch' is set on object 'Object Repository/Page_Please sign in/input_Username_username'
+
+2021-05-02 17:18:36 - [MESSAGE][PASSED] - Text 'florian.lestrade@he-arc.ch' is set on object 'Object Repository/Page_Please sign in/input_Username_username'
+
+2021-05-02 17:18:36 - [TEST_STEP][PASSED] - setEncryptedText(findTestObject("Object Repository/Page_Please sign in/input_Password_password"), "V2rEZwedbz9dlLHBWTk7CA=="): Text ****** has been set on object 'Object Repository/Page_Please sign in/input_Password_password'
+
+2021-05-02 17:18:36 - [MESSAGE][PASSED] - Text ****** has been set on object 'Object Repository/Page_Please sign in/input_Password_password'
+
+2021-05-02 17:18:36 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Please sign in/button_Sign in")): Object: 'Object Repository/Page_Please sign in/button_Sign in' is clicked on
+
+2021-05-02 17:18:36 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Please sign in/button_Sign in' is clicked on
+
+2021-05-02 17:18:36 - [TEST_STEP][PASSED] - delay(1): Delayed 1 second(s)
+
+2021-05-02 17:18:37 - [MESSAGE][PASSED] - Delayed 1 second(s)
+
+2021-05-02 17:18:37 - [TEST_STEP][PASSED] - navigateToUrl("http://localhost:8080/login"): Navigate to 'http://localhost:8080/login' successfully
+
+2021-05-02 17:18:37 - [MESSAGE][PASSED] - Navigate to 'http://localhost:8080/login' successfully
+
+2021-05-02 17:18:37 - [TEST_STEP][PASSED] - setText(findTestObject("Object Repository/Page_Please sign in/input_Username_username"), "florian.feuillade@he-arc.ch"): Text 'florian.feuillade@he-arc.ch' is set on object 'Object Repository/Page_Please sign in/input_Username_username'
+
+2021-05-02 17:18:38 - [MESSAGE][PASSED] - Text 'florian.feuillade@he-arc.ch' is set on object 'Object Repository/Page_Please sign in/input_Username_username'
+
+2021-05-02 17:18:38 - [TEST_STEP][PASSED] - setEncryptedText(findTestObject("Object Repository/Page_Please sign in/input_Password_password"), "p4y+y39Ir5MSxNs1t5lTZQ=="): Text ****** has been set on object 'Object Repository/Page_Please sign in/input_Password_password'
+
+2021-05-02 17:18:38 - [MESSAGE][PASSED] - Text ****** has been set on object 'Object Repository/Page_Please sign in/input_Password_password'
+
+2021-05-02 17:18:38 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Please sign in/button_Sign in")): Object: 'Object Repository/Page_Please sign in/button_Sign in' is clicked on
+
+2021-05-02 17:18:39 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Please sign in/button_Sign in' is clicked on
+
+2021-05-02 17:18:39 - [TEST_STEP][PASSED] - delay(1): Delayed 1 second(s)
+
+2021-05-02 17:18:40 - [MESSAGE][PASSED] - Delayed 1 second(s)
+
+2021-05-02 17:18:40 - [TEST_STEP][PASSED] - closeBrowser(): Browser is closed
+
+2021-05-02 17:18:40 - [MESSAGE][PASSED] - Browser is closed]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Dashboard_Security" time="5.564" classname="Test Cases/Dashboard_Security" status="PASSED">
+         <system-out><![CDATA[2021-05-02 17:18:40 - [TEST_CASE][PASSED] - Test Cases/Dashboard_Security: Test Cases/Dashboard_Security
+
+2021-05-02 17:18:41 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+2021-05-02 17:18:41 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+2021-05-02 17:18:41 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+2021-05-02 17:18:42 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+2021-05-02 17:18:42 - [TEST_STEP][PASSED] - navigateToUrl("http://localhost:8080/"): Navigate to 'http://localhost:8080/' successfully
+
+2021-05-02 17:18:42 - [MESSAGE][PASSED] - Navigate to 'http://localhost:8080/' successfully
+
+2021-05-02 17:18:42 - [TEST_STEP][PASSED] - maximizeWindow(): Current window maximized
+
+2021-05-02 17:18:43 - [MESSAGE][PASSED] - Current window maximized
+
+2021-05-02 17:18:43 - [TEST_STEP][PASSED] - navigateToUrl("http://localhost:8080/dashboard"): Navigate to 'http://localhost:8080/dashboard' successfully
+
+2021-05-02 17:18:43 - [MESSAGE][PASSED] - Navigate to 'http://localhost:8080/dashboard' successfully
+
+2021-05-02 17:18:43 - [TEST_STEP][PASSED] - setText(findTestObject("Object Repository/Page_Please sign in/input_Username_username"), "antoine.lestrade@he-arc.ch"): Text 'antoine.lestrade@he-arc.ch' is set on object 'Object Repository/Page_Please sign in/input_Username_username'
+
+2021-05-02 17:18:43 - [MESSAGE][PASSED] - Text 'antoine.lestrade@he-arc.ch' is set on object 'Object Repository/Page_Please sign in/input_Username_username'
+
+2021-05-02 17:18:43 - [TEST_STEP][PASSED] - setEncryptedText(findTestObject("Object Repository/Page_Please sign in/input_Password_password"), "V2rEZwedbz9dlLHBWTk7CA=="): Text ****** has been set on object 'Object Repository/Page_Please sign in/input_Password_password'
+
+2021-05-02 17:18:44 - [MESSAGE][PASSED] - Text ****** has been set on object 'Object Repository/Page_Please sign in/input_Password_password'
+
+2021-05-02 17:18:44 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Please sign in/button_Sign in")): Object: 'Object Repository/Page_Please sign in/button_Sign in' is clicked on
+
+2021-05-02 17:18:44 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Please sign in/button_Sign in' is clicked on
+
+2021-05-02 17:18:44 - [TEST_STEP][PASSED] - delay(1): Delayed 1 second(s)
+
+2021-05-02 17:18:45 - [MESSAGE][PASSED] - Delayed 1 second(s)
+
+2021-05-02 17:18:45 - [TEST_STEP][PASSED] - closeBrowser(): Browser is closed
+
+2021-05-02 17:18:46 - [MESSAGE][PASSED] - Browser is closed]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/Filter" time="10.372" classname="Test Cases/Filter" status="PASSED">
+         <system-out><![CDATA[2021-05-02 17:18:46 - [TEST_CASE][PASSED] - Test Cases/Filter: Test Cases/Filter
+
+2021-05-02 17:18:46 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+2021-05-02 17:18:46 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+2021-05-02 17:18:46 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+2021-05-02 17:18:47 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+2021-05-02 17:18:47 - [TEST_STEP][PASSED] - navigateToUrl("http://localhost:8080/"): Navigate to 'http://localhost:8080/' successfully
+
+2021-05-02 17:18:48 - [MESSAGE][PASSED] - Navigate to 'http://localhost:8080/' successfully
+
+2021-05-02 17:18:48 - [TEST_STEP][PASSED] - maximizeWindow(): Current window maximized
+
+2021-05-02 17:18:48 - [MESSAGE][PASSED] - Current window maximized
+
+2021-05-02 17:18:48 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Adopt")): null
+
+2021-05-02 17:18:49 - [TEST_STEP][PASSED] - selectOptionByValue(findTestObject("Object Repository/Page_Cuddle/select_-- select a species --             C_4f5b6a"), "2", true): All options with value '2' are selected in object 'Object Repository/Page_Cuddle/select_-- select a species --             C_4f5b6a'  using regular expression
+
+2021-05-02 17:18:50 - [MESSAGE][PASSED] - All options with value '2' are selected in object 'Object Repository/Page_Cuddle/select_-- select a species --             C_4f5b6a'  using regular expression
+
+2021-05-02 17:18:50 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Cuddle/button_search")): Object: 'Object Repository/Page_Cuddle/button_search' is clicked on
+
+2021-05-02 17:18:50 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Cuddle/button_search' is clicked on
+
+2021-05-02 17:18:50 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Login")): null
+
+2021-05-02 17:18:51 - [TEST_STEP][PASSED] - setText(findTestObject("Object Repository/Page_Please sign in/input_Username_username"), "antoine.lestrade@he-arc.ch"): Text 'antoine.lestrade@he-arc.ch' is set on object 'Object Repository/Page_Please sign in/input_Username_username'
+
+2021-05-02 17:18:51 - [MESSAGE][PASSED] - Text 'antoine.lestrade@he-arc.ch' is set on object 'Object Repository/Page_Please sign in/input_Username_username'
+
+2021-05-02 17:18:51 - [TEST_STEP][PASSED] - setEncryptedText(findTestObject("Object Repository/Page_Please sign in/input_Password_password"), "V2rEZwedbz9dlLHBWTk7CA=="): Text ****** has been set on object 'Object Repository/Page_Please sign in/input_Password_password'
+
+2021-05-02 17:18:52 - [MESSAGE][PASSED] - Text ****** has been set on object 'Object Repository/Page_Please sign in/input_Password_password'
+
+2021-05-02 17:18:52 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Please sign in/button_Sign in")): Object: 'Object Repository/Page_Please sign in/button_Sign in' is clicked on
+
+2021-05-02 17:18:52 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Please sign in/button_Sign in' is clicked on
+
+2021-05-02 17:18:52 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Dashboard")): null
+
+2021-05-02 17:18:53 - [TEST_STEP][PASSED] - selectOptionByValue(findTestObject("Object Repository/Page_Cuddle/select_-- select a species --              _d5172c"), "1", true): All options with value '1' are selected in object 'Object Repository/Page_Cuddle/select_-- select a species --              _d5172c'  using regular expression
+
+2021-05-02 17:18:54 - [MESSAGE][PASSED] - All options with value '1' are selected in object 'Object Repository/Page_Cuddle/select_-- select a species --              _d5172c'  using regular expression
+
+2021-05-02 17:18:54 - [TEST_STEP][PASSED] - selectOptionByValue(findTestObject("Object Repository/Page_Cuddle/select_-- select a breed --                _129fe6"), "2", true): All options with value '2' are selected in object 'Object Repository/Page_Cuddle/select_-- select a breed --                _129fe6'  using regular expression
+
+2021-05-02 17:18:55 - [MESSAGE][PASSED] - All options with value '2' are selected in object 'Object Repository/Page_Cuddle/select_-- select a breed --                _129fe6'  using regular expression
+
+2021-05-02 17:18:55 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Cuddle/input_Has a treatment_hasTreatment")): Object: 'Object Repository/Page_Cuddle/input_Has a treatment_hasTreatment' is clicked on
+
+2021-05-02 17:18:55 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Cuddle/input_Has a treatment_hasTreatment' is clicked on
+
+2021-05-02 17:18:55 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Cuddle/button_search")): Object: 'Object Repository/Page_Cuddle/button_search' is clicked on
+
+2021-05-02 17:18:56 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Cuddle/button_search' is clicked on
+
+2021-05-02 17:18:56 - [TEST_STEP][PASSED] - closeBrowser(): Browser is closed
+
+2021-05-02 17:18:56 - [MESSAGE][PASSED] - Browser is closed]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/CRUD/Breeds" time="10.97" classname="Test Cases/CRUD/Breeds" status="PASSED">
+         <system-out><![CDATA[2021-05-02 17:18:56 - [TEST_CASE][PASSED] - Test Cases/CRUD/Breeds: Test Cases/CRUD/Breeds
+
+2021-05-02 17:18:57 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+2021-05-02 17:18:57 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+2021-05-02 17:18:57 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+2021-05-02 17:18:58 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+2021-05-02 17:18:58 - [TEST_STEP][PASSED] - navigateToUrl("http://localhost:8080/"): Navigate to 'http://localhost:8080/' successfully
+
+2021-05-02 17:18:59 - [MESSAGE][PASSED] - Navigate to 'http://localhost:8080/' successfully
+
+2021-05-02 17:18:59 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Login")): null
+
+2021-05-02 17:18:59 - [TEST_STEP][PASSED] - setText(findTestObject("Object Repository/Page_Please sign in/input_Username_username"), "florian.feuillade@he-arc.ch"): Text 'florian.feuillade@he-arc.ch' is set on object 'Object Repository/Page_Please sign in/input_Username_username'
+
+2021-05-02 17:19:00 - [MESSAGE][PASSED] - Text 'florian.feuillade@he-arc.ch' is set on object 'Object Repository/Page_Please sign in/input_Username_username'
+
+2021-05-02 17:19:00 - [TEST_STEP][PASSED] - setEncryptedText(findTestObject("Object Repository/Page_Please sign in/input_Password_password"), "V2rEZwedbz9dlLHBWTk7CA=="): Text ****** has been set on object 'Object Repository/Page_Please sign in/input_Password_password'
+
+2021-05-02 17:19:00 - [MESSAGE][PASSED] - Text ****** has been set on object 'Object Repository/Page_Please sign in/input_Password_password'
+
+2021-05-02 17:19:00 - [TEST_STEP][PASSED] - sendKeys(findTestObject("Object Repository/Page_Please sign in/input_Password_password"), Keys.chord(ENTER)): Keys 'ENTER + ' sent to object: 'Object Repository/Page_Please sign in/input_Password_password'
+
+2021-05-02 17:19:00 - [MESSAGE][PASSED] - Keys 'ENTER + ' sent to object: 'Object Repository/Page_Please sign in/input_Password_password'
+
+2021-05-02 17:19:00 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Dashboard")): null
+
+2021-05-02 17:19:01 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Manage Breeds")): null
+
+2021-05-02 17:19:02 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Add breeds")): null
+
+2021-05-02 17:19:02 - [TEST_STEP][PASSED] - setText(findTestObject("Object Repository/Page_Cuddle/input_Name_name"), "Maine Coon"): Text 'Maine Coon' is set on object 'Object Repository/Page_Cuddle/input_Name_name'
+
+2021-05-02 17:19:03 - [MESSAGE][PASSED] - Text 'Maine Coon' is set on object 'Object Repository/Page_Cuddle/input_Name_name'
+
+2021-05-02 17:19:03 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Cuddle/input")): Object: 'Object Repository/Page_Cuddle/input' is clicked on
+
+2021-05-02 17:19:03 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Cuddle/input' is clicked on
+
+2021-05-02 17:19:03 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Edit")): null
+
+2021-05-02 17:19:04 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Cuddle/tr_Name")): Object: 'Object Repository/Page_Cuddle/tr_Name' is clicked on
+
+2021-05-02 17:19:05 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Cuddle/tr_Name' is clicked on
+
+2021-05-02 17:19:05 - [TEST_STEP][PASSED] - setText(findTestObject("Object Repository/Page_Cuddle/input_Name_name"), "Sphynx"): Text 'Sphynx' is set on object 'Object Repository/Page_Cuddle/input_Name_name'
+
+2021-05-02 17:19:05 - [MESSAGE][PASSED] - Text 'Sphynx' is set on object 'Object Repository/Page_Cuddle/input_Name_name'
+
+2021-05-02 17:19:05 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Cuddle/inputEdit")): Object: 'Object Repository/Page_Cuddle/inputEdit' is clicked on
+
+2021-05-02 17:19:06 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Cuddle/inputEdit' is clicked on
+
+2021-05-02 17:19:06 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Delete")): null
+
+2021-05-02 17:19:06 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Cuddle/inputYes")): Object: 'Object Repository/Page_Cuddle/inputYes' is clicked on
+
+2021-05-02 17:19:07 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Cuddle/inputYes' is clicked on
+
+2021-05-02 17:19:07 - [TEST_STEP][PASSED] - closeBrowser(): Browser is closed
+
+2021-05-02 17:19:07 - [MESSAGE][PASSED] - Browser is closed]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/CRUD/Species" time="10.207" classname="Test Cases/CRUD/Species" status="PASSED">
+         <system-out><![CDATA[2021-05-02 17:19:07 - [TEST_CASE][PASSED] - Test Cases/CRUD/Species: Test Cases/CRUD/Species
+
+2021-05-02 17:19:08 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+2021-05-02 17:19:08 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+2021-05-02 17:19:08 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+2021-05-02 17:19:09 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+2021-05-02 17:19:09 - [TEST_STEP][PASSED] - navigateToUrl("http://localhost:8080/"): Navigate to 'http://localhost:8080/' successfully
+
+2021-05-02 17:19:09 - [MESSAGE][PASSED] - Navigate to 'http://localhost:8080/' successfully
+
+2021-05-02 17:19:09 - [TEST_STEP][PASSED] - maximizeWindow(): Current window maximized
+
+2021-05-02 17:19:09 - [MESSAGE][PASSED] - Current window maximized
+
+2021-05-02 17:19:09 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Login")): null
+
+2021-05-02 17:19:09 - [TEST_STEP][PASSED] - setText(findTestObject("Object Repository/Page_Please sign in/input_Username_username"), "florian.feuillade@he-arc.ch"): Text 'florian.feuillade@he-arc.ch' is set on object 'Object Repository/Page_Please sign in/input_Username_username'
+
+2021-05-02 17:19:10 - [MESSAGE][PASSED] - Text 'florian.feuillade@he-arc.ch' is set on object 'Object Repository/Page_Please sign in/input_Username_username'
+
+2021-05-02 17:19:10 - [TEST_STEP][PASSED] - setEncryptedText(findTestObject("Object Repository/Page_Please sign in/input_Password_password"), "V2rEZwedbz9dlLHBWTk7CA=="): Text ****** has been set on object 'Object Repository/Page_Please sign in/input_Password_password'
+
+2021-05-02 17:19:10 - [MESSAGE][PASSED] - Text ****** has been set on object 'Object Repository/Page_Please sign in/input_Password_password'
+
+2021-05-02 17:19:10 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Please sign in/button_Sign in")): Object: 'Object Repository/Page_Please sign in/button_Sign in' is clicked on
+
+2021-05-02 17:19:11 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Please sign in/button_Sign in' is clicked on
+
+2021-05-02 17:19:11 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Dashboard")): null
+
+2021-05-02 17:19:11 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Manage Species")): null
+
+2021-05-02 17:19:12 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Add species")): null
+
+2021-05-02 17:19:12 - [TEST_STEP][PASSED] - setText(findTestObject("Object Repository/Page_Cuddle/input_Name_name"), "Hamster"): Text 'Hamster' is set on object 'Object Repository/Page_Cuddle/input_Name_name'
+
+2021-05-02 17:19:13 - [MESSAGE][PASSED] - Text 'Hamster' is set on object 'Object Repository/Page_Cuddle/input_Name_name'
+
+2021-05-02 17:19:13 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Cuddle/input")): Object: 'Object Repository/Page_Cuddle/input' is clicked on
+
+2021-05-02 17:19:14 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Cuddle/input' is clicked on
+
+2021-05-02 17:19:14 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Edit")): null
+
+2021-05-02 17:19:14 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Cuddle/tr_Name")): Object: 'Object Repository/Page_Cuddle/tr_Name' is clicked on
+
+2021-05-02 17:19:15 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Cuddle/tr_Name' is clicked on
+
+2021-05-02 17:19:15 - [TEST_STEP][PASSED] - setText(findTestObject("Object Repository/Page_Cuddle/input_Name_name"), "Rabbit"): Text 'Rabbit' is set on object 'Object Repository/Page_Cuddle/input_Name_name'
+
+2021-05-02 17:19:15 - [MESSAGE][PASSED] - Text 'Rabbit' is set on object 'Object Repository/Page_Cuddle/input_Name_name'
+
+2021-05-02 17:19:15 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Cuddle/inputEdit")): Object: 'Object Repository/Page_Cuddle/inputEdit' is clicked on
+
+2021-05-02 17:19:16 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Cuddle/inputEdit' is clicked on
+
+2021-05-02 17:19:16 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Delete")): null
+
+2021-05-02 17:19:16 - [TEST_STEP][PASSED] - click(findTestObject("Object Repository/Page_Cuddle/inputYes")): Object: 'Object Repository/Page_Cuddle/inputYes' is clicked on
+
+2021-05-02 17:19:17 - [MESSAGE][PASSED] - Object: 'Object Repository/Page_Cuddle/inputYes' is clicked on
+
+2021-05-02 17:19:17 - [TEST_STEP][PASSED] - closeBrowser(): Browser is closed
+
+2021-05-02 17:19:18 - [MESSAGE][PASSED] - Browser is closed]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <testcase name="Test Cases/CRUD/User" time="13.462" classname="Test Cases/CRUD/User" status="PASSED">
+         <system-out><![CDATA[2021-05-02 17:19:18 - [TEST_CASE][PASSED] - Test Cases/CRUD/User: Test Cases/CRUD/User
+
+2021-05-02 17:19:18 - [TEST_STEP][PASSED] - openBrowser(""): Browser is opened with url: ''
+
+2021-05-02 17:19:18 - [MESSAGE][INFO] - Starting 'Chrome' driver
+
+2021-05-02 17:19:18 - [MESSAGE][INFO] - Action delay is set to 0 milliseconds
+
+2021-05-02 17:19:19 - [MESSAGE][PASSED] - Browser is opened with url: ''
+
+2021-05-02 17:19:19 - [TEST_STEP][PASSED] - navigateToUrl("http://localhost:8080/"): Navigate to 'http://localhost:8080/' successfully
+
+2021-05-02 17:19:20 - [MESSAGE][PASSED] - Navigate to 'http://localhost:8080/' successfully
+
+2021-05-02 17:19:20 - [TEST_STEP][PASSED] - maximizeWindow(): Current window maximized
+
+2021-05-02 17:19:20 - [MESSAGE][PASSED] - Current window maximized
+
+2021-05-02 17:19:20 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Login")): null
+
+2021-05-02 17:19:20 - [TEST_STEP][PASSED] - setText(findTestObject("Object Repository/Page_Please sign in/input_Username_username"), "antoine.lestrade@he-arc.ch"): Text 'antoine.lestrade@he-arc.ch' is set on object 'Object Repository/Page_Please sign in/input_Username_username'
+
+2021-05-02 17:19:21 - [MESSAGE][PASSED] - Text 'antoine.lestrade@he-arc.ch' is set on object 'Object Repository/Page_Please sign in/input_Username_username'
+
+2021-05-02 17:19:21 - [TEST_STEP][PASSED] - setEncryptedText(findTestObject("Object Repository/Page_Please sign in/input_Password_password"), "V2rEZwedbz9dlLHBWTk7CA=="): Text ****** has been set on object 'Object Repository/Page_Please sign in/input_Password_password'
+
+2021-05-02 17:19:21 - [MESSAGE][PASSED] - Text ****** has been set on object 'Object Repository/Page_Please sign in/input_Password_password'
+
+2021-05-02 17:19:21 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Please sign in/button_Sign in")): null
+
+2021-05-02 17:19:22 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Dashboard")): null
+
+2021-05-02 17:19:22 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Manage users")): null
+
+2021-05-02 17:19:23 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Add User")): null
+
+2021-05-02 17:19:23 - [TEST_STEP][PASSED] - setText(findTestObject("Object Repository/Page_Cuddle/input_Email_email"), "test@test.ch"): Text 'test@test.ch' is set on object 'Object Repository/Page_Cuddle/input_Email_email'
+
+2021-05-02 17:19:24 - [MESSAGE][PASSED] - Text 'test@test.ch' is set on object 'Object Repository/Page_Cuddle/input_Email_email'
+
+2021-05-02 17:19:24 - [TEST_STEP][PASSED] - setText(findTestObject("Object Repository/Page_Cuddle/input_First Name_firstName"), "test"): Text 'test' is set on object 'Object Repository/Page_Cuddle/input_First Name_firstName'
+
+2021-05-02 17:19:25 - [MESSAGE][PASSED] - Text 'test' is set on object 'Object Repository/Page_Cuddle/input_First Name_firstName'
+
+2021-05-02 17:19:25 - [TEST_STEP][PASSED] - setText(findTestObject("Object Repository/Page_Cuddle/input_Last Name_lastName"), "test"): Text 'test' is set on object 'Object Repository/Page_Cuddle/input_Last Name_lastName'
+
+2021-05-02 17:19:25 - [MESSAGE][PASSED] - Text 'test' is set on object 'Object Repository/Page_Cuddle/input_Last Name_lastName'
+
+2021-05-02 17:19:25 - [TEST_STEP][PASSED] - selectOptionByValue(findTestObject("Object Repository/Page_Cuddle/select_ROLE_ADMIN                        RO_4a0f48"), "2", true): All options with value '2' are selected in object 'Object Repository/Page_Cuddle/select_ROLE_ADMIN                        RO_4a0f48'  using regular expression
+
+2021-05-02 17:19:26 - [MESSAGE][PASSED] - All options with value '2' are selected in object 'Object Repository/Page_Cuddle/select_ROLE_ADMIN                        RO_4a0f48'  using regular expression
+
+2021-05-02 17:19:26 - [TEST_STEP][PASSED] - setEncryptedText(findTestObject("Object Repository/Page_Cuddle/input_Password_password"), "V2rEZwedbz9dlLHBWTk7CA=="): Text ****** has been set on object 'Object Repository/Page_Cuddle/input_Password_password'
+
+2021-05-02 17:19:27 - [MESSAGE][PASSED] - Text ****** has been set on object 'Object Repository/Page_Cuddle/input_Password_password'
+
+2021-05-02 17:19:27 - [TEST_STEP][PASSED] - setEncryptedText(findTestObject("Object Repository/Page_Cuddle/input_Password confirm_passwordConfirm"), "V2rEZwedbz9dlLHBWTk7CA=="): Text ****** has been set on object 'Object Repository/Page_Cuddle/input_Password confirm_passwordConfirm'
+
+2021-05-02 17:19:27 - [MESSAGE][PASSED] - Text ****** has been set on object 'Object Repository/Page_Cuddle/input_Password confirm_passwordConfirm'
+
+2021-05-02 17:19:27 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/input")): null
+
+2021-05-02 17:19:27 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Edit")): null
+
+2021-05-02 17:19:28 - [TEST_STEP][PASSED] - setText(findTestObject("Object Repository/Page_Cuddle/input_First Name_firstName"), "testou"): Text 'testou' is set on object 'Object Repository/Page_Cuddle/input_First Name_firstName'
+
+2021-05-02 17:19:29 - [MESSAGE][PASSED] - Text 'testou' is set on object 'Object Repository/Page_Cuddle/input_First Name_firstName'
+
+2021-05-02 17:19:29 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/inputEdit")): null
+
+2021-05-02 17:19:29 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/a_Delete")): null
+
+2021-05-02 17:19:30 - [TEST_STEP][PASSED] - Util.jsClick(findTestObject("Object Repository/Page_Cuddle/inputYes")): null
+
+2021-05-02 17:19:30 - [TEST_STEP][PASSED] - closeBrowser(): Browser is closed
+
+2021-05-02 17:19:31 - [MESSAGE][PASSED] - Browser is closed]]></system-out>
+         <system-err><![CDATA[]]></system-err>
+      </testcase>
+      <system-out><![CDATA[2021-05-02 17:18:21 - [TEST_SUITE][PASSED] - Cuddle: Test Cases/CRUD/User]]></system-out>
+      <system-err><![CDATA[]]></system-err>
+   </testsuite>
+</testsuites>

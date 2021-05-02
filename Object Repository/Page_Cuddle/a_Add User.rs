@@ -6,12 +6,12 @@
    <elementGuidId>1eb0f554-c078-4d7d-b5a3-1f8ee07b0b89</elementGuidId>
    <selectorCollection>
       <entry>
-         <key>XPATH</key>
-         <value>//a[contains(text(),'Add User')]</value>
-      </entry>
-      <entry>
          <key>CSS</key>
          <value>a.btn.btn-primary</value>
+      </entry>
+      <entry>
+         <key>XPATH</key>
+         <value>//a[contains(text(),'Add User')]</value>
       </entry>
    </selectorCollection>
    <selectorMethod>XPATH</selectorMethod>

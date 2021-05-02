@@ -16,6 +16,7 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
+import util.Util as Util
 
 WebUI.openBrowser('')
 
@@ -23,15 +24,44 @@ WebUI.navigateToUrl('http://localhost:8080/')
 
 WebUI.maximizeWindow()
 
-WebUI.navigateToUrl('http://localhost:8080/dashboard')
+Util.jsClick(findTestObject('Object Repository/Page_Cuddle/a_Login'))
 
 WebUI.setText(findTestObject('Object Repository/Page_Please sign in/input_Username_username'), 'antoine.lestrade@he-arc.ch')
 
 WebUI.setEncryptedText(findTestObject('Object Repository/Page_Please sign in/input_Password_password'), 'V2rEZwedbz9dlLHBWTk7CA==')
 
-WebUI.click(findTestObject('Object Repository/Page_Please sign in/button_Sign in'))
+Util.jsClick(findTestObject('Object Repository/Page_Please sign in/button_Sign in'))
 
-WebUI.delay(1)
+Util.jsClick(findTestObject('Object Repository/Page_Cuddle/a_Dashboard'))
+
+Util.jsClick(findTestObject('Object Repository/Page_Cuddle/a_Manage users'))
+
+Util.jsClick(findTestObject('Object Repository/Page_Cuddle/a_Add User'))
+
+WebUI.setText(findTestObject('Object Repository/Page_Cuddle/input_Email_email'), 'test@test.ch')
+
+WebUI.setText(findTestObject('Object Repository/Page_Cuddle/input_First Name_firstName'), 'test')
+
+WebUI.setText(findTestObject('Object Repository/Page_Cuddle/input_Last Name_lastName'), 'test')
+
+WebUI.selectOptionByValue(findTestObject('Object Repository/Page_Cuddle/select_ROLE_ADMIN                        RO_4a0f48'), 
+    '2', true)
+
+WebUI.setEncryptedText(findTestObject('Object Repository/Page_Cuddle/input_Password_password'), 'V2rEZwedbz9dlLHBWTk7CA==')
+
+WebUI.setEncryptedText(findTestObject('Object Repository/Page_Cuddle/input_Password confirm_passwordConfirm'), 'V2rEZwedbz9dlLHBWTk7CA==')
+
+Util.jsClick(findTestObject('Object Repository/Page_Cuddle/input'))
+
+Util.jsClick(findTestObject('Object Repository/Page_Cuddle/a_Edit'))
+
+WebUI.setText(findTestObject('Object Repository/Page_Cuddle/input_First Name_firstName'), 'testou')
+
+Util.jsClick(findTestObject('Object Repository/Page_Cuddle/inputEdit'))
+
+Util.jsClick(findTestObject('Object Repository/Page_Cuddle/a_Delete'))
+
+Util.jsClick(findTestObject('Object Repository/Page_Cuddle/inputYes'))
 
 WebUI.closeBrowser()
 

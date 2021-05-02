@@ -24,13 +24,25 @@ WebUI.navigateToUrl('http://localhost:8080/')
 
 WebUI.maximizeWindow()
 
-WebUI.click(findTestObject('Object Repository/Page_Cuddle/a_Adopt'))
+Util.jsClick(findTestObject('Object Repository/Page_Cuddle/a_Login'))
 
-Util.jsClick(findTestObject('Object Repository/Page_Cuddle/a_Age  2007_stretched-link'))
+WebUI.setText(findTestObject('Object Repository/Page_Please sign in/input_Username_username'), 'florian.lestrade@he-arc.ch')
 
-WebUI.click(findTestObject('Object Repository/Page_Cuddle/a_Adopt'))
+WebUI.setEncryptedText(findTestObject('Object Repository/Page_Please sign in/input_Password_password'), 'V2rEZwedbz9dlLHBWTk7CA==')
 
-Util.jsClick(findTestObject('Object Repository/Page_Cuddle/a_Age  2011_stretched-link'))
+WebUI.click(findTestObject('Object Repository/Page_Please sign in/button_Sign in'))
+
+WebUI.delay(1)
+
+WebUI.navigateToUrl('http://localhost:8080/login')
+
+WebUI.setText(findTestObject('Object Repository/Page_Please sign in/input_Username_username'), 'florian.feuillade@he-arc.ch')
+
+WebUI.setEncryptedText(findTestObject('Object Repository/Page_Please sign in/input_Password_password'), 'p4y+y39Ir5MSxNs1t5lTZQ==')
+
+WebUI.click(findTestObject('Object Repository/Page_Please sign in/button_Sign in'))
+
+WebUI.delay(1)
 
 WebUI.closeBrowser()
 

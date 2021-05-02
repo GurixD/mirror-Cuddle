@@ -1,0 +1,135 @@
+Suite/Test/Step Name,Browser,Description,Tag,Start time,End time,Duration,Status
+Cuddle,Chrome 90.0.4430.93,,,2021-05-02 17:18:21,2021-05-02 17:19:31,1m - 10.149s,PASSED
+,,,,,,,
+Test Cases/Home_Adopt_Details,Chrome 90.0.4430.93,,,2021-05-02 17:18:22,2021-05-02 17:18:27,5.590s,PASSED
+"openBrowser("""")",Chrome 90.0.4430.93,,,2021-05-02 17:18:22,2021-05-02 17:18:23,1.604s,PASSED
+"navigateToUrl(""http://localhost:8080/"")",Chrome 90.0.4430.93,,,2021-05-02 17:18:23,2021-05-02 17:18:24,0.778s,PASSED
+maximizeWindow(),Chrome 90.0.4430.93,,,2021-05-02 17:18:24,2021-05-02 17:18:24,0.138s,PASSED
+"click(findTestObject(""Object Repository/Page_Cuddle/a_Adopt""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:24,2021-05-02 17:18:25,0.496s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Age  2007_stretched-link""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:25,2021-05-02 17:18:25,0.548s,PASSED
+"click(findTestObject(""Object Repository/Page_Cuddle/a_Adopt""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:25,2021-05-02 17:18:26,0.506s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Age  2011_stretched-link""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:26,2021-05-02 17:18:26,0.581s,PASSED
+closeBrowser(),Chrome 90.0.4430.93,,,2021-05-02 17:18:26,2021-05-02 17:18:27,0.637s,PASSED
+,,,,,,,
+Test Cases/Login_Logout,Chrome 90.0.4430.93,,,2021-05-02 17:18:27,2021-05-02 17:18:33,5.712s,PASSED
+"openBrowser("""")",Chrome 90.0.4430.93,,,2021-05-02 17:18:27,2021-05-02 17:18:28,1.089s,PASSED
+"navigateToUrl(""http://localhost:8080/"")",Chrome 90.0.4430.93,,,2021-05-02 17:18:28,2021-05-02 17:18:29,0.826s,PASSED
+maximizeWindow(),Chrome 90.0.4430.93,,,2021-05-02 17:18:29,2021-05-02 17:18:29,0.135s,PASSED
+"click(findTestObject(""Object Repository/Page_Cuddle/a_Login""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:29,2021-05-02 17:18:30,0.470s,PASSED
+"setText(findTestObject(""Object Repository/Page_Please sign in/input_Username_username""), ""antoine.lestrade@he-arc.ch"")",Chrome 90.0.4430.93,,,2021-05-02 17:18:30,2021-05-02 17:18:31,0.627s,PASSED
+"setEncryptedText(findTestObject(""Object Repository/Page_Please sign in/input_Password_password""), ""V2rEZwedbz9dlLHBWTk7CA=="")",Chrome 90.0.4430.93,,,2021-05-02 17:18:31,2021-05-02 17:18:31,0.396s,PASSED
+"click(findTestObject(""Object Repository/Page_Please sign in/button_Sign in""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:31,2021-05-02 17:18:31,0.480s,PASSED
+"click(findTestObject(""Object Repository/Page_Cuddle/a_antoine.lestradehe-arc.ch""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:31,2021-05-02 17:18:32,0.451s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Logout""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:32,2021-05-02 17:18:32,0.366s,PASSED
+closeBrowser(),Chrome 90.0.4430.93,,,2021-05-02 17:18:32,2021-05-02 17:18:33,0.636s,PASSED
+,,,,,,,
+Test Cases/BadCredential,Chrome 90.0.4430.93,,,2021-05-02 17:18:33,2021-05-02 17:18:40,7.561s,PASSED
+"openBrowser("""")",Chrome 90.0.4430.93,,,2021-05-02 17:18:33,2021-05-02 17:18:34,1.075s,PASSED
+"navigateToUrl(""http://localhost:8080/"")",Chrome 90.0.4430.93,,,2021-05-02 17:18:34,2021-05-02 17:18:34,0.180s,PASSED
+maximizeWindow(),Chrome 90.0.4430.93,,,2021-05-02 17:18:34,2021-05-02 17:18:34,0.145s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Login""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:34,2021-05-02 17:18:35,0.419s,PASSED
+"setText(findTestObject(""Object Repository/Page_Please sign in/input_Username_username""), ""florian.lestrade@he-arc.ch"")",Chrome 90.0.4430.93,,,2021-05-02 17:18:35,2021-05-02 17:18:36,0.640s,PASSED
+"setEncryptedText(findTestObject(""Object Repository/Page_Please sign in/input_Password_password""), ""V2rEZwedbz9dlLHBWTk7CA=="")",Chrome 90.0.4430.93,,,2021-05-02 17:18:36,2021-05-02 17:18:36,0.361s,PASSED
+"click(findTestObject(""Object Repository/Page_Please sign in/button_Sign in""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:36,2021-05-02 17:18:36,0.417s,PASSED
+delay(1),Chrome 90.0.4430.93,,,2021-05-02 17:18:36,2021-05-02 17:18:37,1.019s,PASSED
+"navigateToUrl(""http://localhost:8080/login"")",Chrome 90.0.4430.93,,,2021-05-02 17:18:37,2021-05-02 17:18:37,0.037s,PASSED
+"setText(findTestObject(""Object Repository/Page_Please sign in/input_Username_username""), ""florian.feuillade@he-arc.ch"")",Chrome 90.0.4430.93,,,2021-05-02 17:18:37,2021-05-02 17:18:38,0.639s,PASSED
+"setEncryptedText(findTestObject(""Object Repository/Page_Please sign in/input_Password_password""), ""p4y+y39Ir5MSxNs1t5lTZQ=="")",Chrome 90.0.4430.93,,,2021-05-02 17:18:38,2021-05-02 17:18:38,0.359s,PASSED
+"click(findTestObject(""Object Repository/Page_Please sign in/button_Sign in""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:38,2021-05-02 17:18:39,0.419s,PASSED
+delay(1),Chrome 90.0.4430.93,,,2021-05-02 17:18:39,2021-05-02 17:18:40,1.015s,PASSED
+closeBrowser(),Chrome 90.0.4430.93,,,2021-05-02 17:18:40,2021-05-02 17:18:40,0.605s,PASSED
+,,,,,,,
+Test Cases/Dashboard_Security,Chrome 90.0.4430.93,,,2021-05-02 17:18:40,2021-05-02 17:18:46,5.564s,PASSED
+"openBrowser("""")",Chrome 90.0.4430.93,,,2021-05-02 17:18:41,2021-05-02 17:18:42,1.078s,PASSED
+"navigateToUrl(""http://localhost:8080/"")",Chrome 90.0.4430.93,,,2021-05-02 17:18:42,2021-05-02 17:18:42,0.812s,PASSED
+maximizeWindow(),Chrome 90.0.4430.93,,,2021-05-02 17:18:42,2021-05-02 17:18:43,0.135s,PASSED
+"navigateToUrl(""http://localhost:8080/dashboard"")",Chrome 90.0.4430.93,,,2021-05-02 17:18:43,2021-05-02 17:18:43,0.129s,PASSED
+"setText(findTestObject(""Object Repository/Page_Please sign in/input_Username_username""), ""antoine.lestrade@he-arc.ch"")",Chrome 90.0.4430.93,,,2021-05-02 17:18:43,2021-05-02 17:18:43,0.636s,PASSED
+"setEncryptedText(findTestObject(""Object Repository/Page_Please sign in/input_Password_password""), ""V2rEZwedbz9dlLHBWTk7CA=="")",Chrome 90.0.4430.93,,,2021-05-02 17:18:43,2021-05-02 17:18:44,0.361s,PASSED
+"click(findTestObject(""Object Repository/Page_Please sign in/button_Sign in""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:44,2021-05-02 17:18:44,0.511s,PASSED
+delay(1),Chrome 90.0.4430.93,,,2021-05-02 17:18:44,2021-05-02 17:18:45,1.013s,PASSED
+closeBrowser(),Chrome 90.0.4430.93,,,2021-05-02 17:18:45,2021-05-02 17:18:46,0.679s,PASSED
+,,,,,,,
+Test Cases/Filter,Chrome 90.0.4430.93,,,2021-05-02 17:18:46,2021-05-02 17:18:56,10.372s,PASSED
+"openBrowser("""")",Chrome 90.0.4430.93,,,2021-05-02 17:18:46,2021-05-02 17:18:47,1.073s,PASSED
+"navigateToUrl(""http://localhost:8080/"")",Chrome 90.0.4430.93,,,2021-05-02 17:18:47,2021-05-02 17:18:48,0.823s,PASSED
+maximizeWindow(),Chrome 90.0.4430.93,,,2021-05-02 17:18:48,2021-05-02 17:18:48,0.139s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Adopt""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:48,2021-05-02 17:18:49,0.417s,PASSED
+"selectOptionByValue(findTestObject(""Object Repository/Page_Cuddle/select_-- select a species --             C_4f5b6a""), ""2"", true)",Chrome 90.0.4430.93,,,2021-05-02 17:18:49,2021-05-02 17:18:50,1.085s,PASSED
+"click(findTestObject(""Object Repository/Page_Cuddle/button_search""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:50,2021-05-02 17:18:50,0.385s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Login""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:50,2021-05-02 17:18:51,0.633s,PASSED
+"setText(findTestObject(""Object Repository/Page_Please sign in/input_Username_username""), ""antoine.lestrade@he-arc.ch"")",Chrome 90.0.4430.93,,,2021-05-02 17:18:51,2021-05-02 17:18:51,0.627s,PASSED
+"setEncryptedText(findTestObject(""Object Repository/Page_Please sign in/input_Password_password""), ""V2rEZwedbz9dlLHBWTk7CA=="")",Chrome 90.0.4430.93,,,2021-05-02 17:18:51,2021-05-02 17:18:52,0.362s,PASSED
+"click(findTestObject(""Object Repository/Page_Please sign in/button_Sign in""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:52,2021-05-02 17:18:52,0.455s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Dashboard""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:52,2021-05-02 17:18:53,0.579s,PASSED
+"selectOptionByValue(findTestObject(""Object Repository/Page_Cuddle/select_-- select a species --              _d5172c""), ""1"", true)",Chrome 90.0.4430.93,,,2021-05-02 17:18:53,2021-05-02 17:18:54,1.162s,PASSED
+"selectOptionByValue(findTestObject(""Object Repository/Page_Cuddle/select_-- select a breed --                _129fe6""), ""2"", true)",Chrome 90.0.4430.93,,,2021-05-02 17:18:54,2021-05-02 17:18:55,1.073s,PASSED
+"click(findTestObject(""Object Repository/Page_Cuddle/input_Has a treatment_hasTreatment""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:55,2021-05-02 17:18:55,0.324s,PASSED
+"click(findTestObject(""Object Repository/Page_Cuddle/button_search""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:55,2021-05-02 17:18:56,0.362s,PASSED
+closeBrowser(),Chrome 90.0.4430.93,,,2021-05-02 17:18:56,2021-05-02 17:18:56,0.621s,PASSED
+,,,,,,,
+Test Cases/CRUD/Breeds,Chrome 90.0.4430.93,,,2021-05-02 17:18:56,2021-05-02 17:19:07,10.970s,PASSED
+"openBrowser("""")",Chrome 90.0.4430.93,,,2021-05-02 17:18:57,2021-05-02 17:18:58,1.090s,PASSED
+"navigateToUrl(""http://localhost:8080/"")",Chrome 90.0.4430.93,,,2021-05-02 17:18:58,2021-05-02 17:18:59,0.852s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Login""))",Chrome 90.0.4430.93,,,2021-05-02 17:18:59,2021-05-02 17:18:59,0.522s,PASSED
+"setText(findTestObject(""Object Repository/Page_Please sign in/input_Username_username""), ""florian.feuillade@he-arc.ch"")",Chrome 90.0.4430.93,,,2021-05-02 17:18:59,2021-05-02 17:19:00,0.622s,PASSED
+"setEncryptedText(findTestObject(""Object Repository/Page_Please sign in/input_Password_password""), ""V2rEZwedbz9dlLHBWTk7CA=="")",Chrome 90.0.4430.93,,,2021-05-02 17:19:00,2021-05-02 17:19:00,0.378s,PASSED
+"sendKeys(findTestObject(""Object Repository/Page_Please sign in/input_Password_password""), Keys.chord(ENTER))",Chrome 90.0.4430.93,,,2021-05-02 17:19:00,2021-05-02 17:19:00,0.458s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Dashboard""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:00,2021-05-02 17:19:01,0.663s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Manage Breeds""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:01,2021-05-02 17:19:02,0.474s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Add breeds""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:02,2021-05-02 17:19:02,0.558s,PASSED
+"setText(findTestObject(""Object Repository/Page_Cuddle/input_Name_name""), ""Maine Coon"")",Chrome 90.0.4430.93,,,2021-05-02 17:19:02,2021-05-02 17:19:03,0.849s,PASSED
+"click(findTestObject(""Object Repository/Page_Cuddle/input""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:03,2021-05-02 17:19:03,0.382s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Edit""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:03,2021-05-02 17:19:04,0.558s,PASSED
+"click(findTestObject(""Object Repository/Page_Cuddle/tr_Name""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:04,2021-05-02 17:19:05,0.541s,PASSED
+"setText(findTestObject(""Object Repository/Page_Cuddle/input_Name_name""), ""Sphynx"")",Chrome 90.0.4430.93,,,2021-05-02 17:19:05,2021-05-02 17:19:05,0.627s,PASSED
+"click(findTestObject(""Object Repository/Page_Cuddle/inputEdit""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:05,2021-05-02 17:19:06,0.385s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Delete""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:06,2021-05-02 17:19:06,0.556s,PASSED
+"click(findTestObject(""Object Repository/Page_Cuddle/inputYes""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:06,2021-05-02 17:19:07,0.610s,PASSED
+closeBrowser(),Chrome 90.0.4430.93,,,2021-05-02 17:19:07,2021-05-02 17:19:07,0.615s,PASSED
+,,,,,,,
+Test Cases/CRUD/Species,Chrome 90.0.4430.93,,,2021-05-02 17:19:07,2021-05-02 17:19:18,10.207s,PASSED
+"openBrowser("""")",Chrome 90.0.4430.93,,,2021-05-02 17:19:08,2021-05-02 17:19:09,1.081s,PASSED
+"navigateToUrl(""http://localhost:8080/"")",Chrome 90.0.4430.93,,,2021-05-02 17:19:09,2021-05-02 17:19:09,0.180s,PASSED
+maximizeWindow(),Chrome 90.0.4430.93,,,2021-05-02 17:19:09,2021-05-02 17:19:09,0.129s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Login""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:09,2021-05-02 17:19:09,0.403s,PASSED
+"setText(findTestObject(""Object Repository/Page_Please sign in/input_Username_username""), ""florian.feuillade@he-arc.ch"")",Chrome 90.0.4430.93,,,2021-05-02 17:19:09,2021-05-02 17:19:10,0.624s,PASSED
+"setEncryptedText(findTestObject(""Object Repository/Page_Please sign in/input_Password_password""), ""V2rEZwedbz9dlLHBWTk7CA=="")",Chrome 90.0.4430.93,,,2021-05-02 17:19:10,2021-05-02 17:19:10,0.364s,PASSED
+"click(findTestObject(""Object Repository/Page_Please sign in/button_Sign in""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:10,2021-05-02 17:19:11,0.445s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Dashboard""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:11,2021-05-02 17:19:11,0.656s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Manage Species""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:11,2021-05-02 17:19:12,0.463s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Add species""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:12,2021-05-02 17:19:12,0.563s,PASSED
+"setText(findTestObject(""Object Repository/Page_Cuddle/input_Name_name""), ""Hamster"")",Chrome 90.0.4430.93,,,2021-05-02 17:19:12,2021-05-02 17:19:13,0.842s,PASSED
+"click(findTestObject(""Object Repository/Page_Cuddle/input""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:13,2021-05-02 17:19:14,0.383s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Edit""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:14,2021-05-02 17:19:14,0.557s,PASSED
+"click(findTestObject(""Object Repository/Page_Cuddle/tr_Name""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:14,2021-05-02 17:19:15,0.536s,PASSED
+"setText(findTestObject(""Object Repository/Page_Cuddle/input_Name_name""), ""Rabbit"")",Chrome 90.0.4430.93,,,2021-05-02 17:19:15,2021-05-02 17:19:15,0.635s,PASSED
+"click(findTestObject(""Object Repository/Page_Cuddle/inputEdit""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:15,2021-05-02 17:19:16,0.368s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Delete""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:16,2021-05-02 17:19:16,0.552s,PASSED
+"click(findTestObject(""Object Repository/Page_Cuddle/inputYes""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:16,2021-05-02 17:19:17,0.595s,PASSED
+closeBrowser(),Chrome 90.0.4430.93,,,2021-05-02 17:19:17,2021-05-02 17:19:18,0.616s,PASSED
+,,,,,,,
+Test Cases/CRUD/User,Chrome 90.0.4430.93,,,2021-05-02 17:19:18,2021-05-02 17:19:31,13.462s,PASSED
+"openBrowser("""")",Chrome 90.0.4430.93,,,2021-05-02 17:19:18,2021-05-02 17:19:19,1.086s,PASSED
+"navigateToUrl(""http://localhost:8080/"")",Chrome 90.0.4430.93,,,2021-05-02 17:19:19,2021-05-02 17:19:20,0.821s,PASSED
+maximizeWindow(),Chrome 90.0.4430.93,,,2021-05-02 17:19:20,2021-05-02 17:19:20,0.140s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Login""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:20,2021-05-02 17:19:20,0.417s,PASSED
+"setText(findTestObject(""Object Repository/Page_Please sign in/input_Username_username""), ""antoine.lestrade@he-arc.ch"")",Chrome 90.0.4430.93,,,2021-05-02 17:19:20,2021-05-02 17:19:21,0.625s,PASSED
+"setEncryptedText(findTestObject(""Object Repository/Page_Please sign in/input_Password_password""), ""V2rEZwedbz9dlLHBWTk7CA=="")",Chrome 90.0.4430.93,,,2021-05-02 17:19:21,2021-05-02 17:19:21,0.361s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Please sign in/button_Sign in""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:21,2021-05-02 17:19:22,0.423s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Dashboard""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:22,2021-05-02 17:19:22,0.645s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Manage users""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:22,2021-05-02 17:19:23,0.455s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Add User""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:23,2021-05-02 17:19:23,0.567s,PASSED
+"setText(findTestObject(""Object Repository/Page_Cuddle/input_Email_email""), ""test@test.ch"")",Chrome 90.0.4430.93,,,2021-05-02 17:19:23,2021-05-02 17:19:24,0.843s,PASSED
+"setText(findTestObject(""Object Repository/Page_Cuddle/input_First Name_firstName""), ""test"")",Chrome 90.0.4430.93,,,2021-05-02 17:19:24,2021-05-02 17:19:25,0.616s,PASSED
+"setText(findTestObject(""Object Repository/Page_Cuddle/input_Last Name_lastName""), ""test"")",Chrome 90.0.4430.93,,,2021-05-02 17:19:25,2021-05-02 17:19:25,0.622s,PASSED
+"selectOptionByValue(findTestObject(""Object Repository/Page_Cuddle/select_ROLE_ADMIN                        RO_4a0f48""), ""2"", true)",Chrome 90.0.4430.93,,,2021-05-02 17:19:25,2021-05-02 17:19:26,0.945s,PASSED
+"setEncryptedText(findTestObject(""Object Repository/Page_Cuddle/input_Password_password""), ""V2rEZwedbz9dlLHBWTk7CA=="")",Chrome 90.0.4430.93,,,2021-05-02 17:19:26,2021-05-02 17:19:27,0.363s,PASSED
+"setEncryptedText(findTestObject(""Object Repository/Page_Cuddle/input_Password confirm_passwordConfirm""), ""V2rEZwedbz9dlLHBWTk7CA=="")",Chrome 90.0.4430.93,,,2021-05-02 17:19:27,2021-05-02 17:19:27,0.376s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/input""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:27,2021-05-02 17:19:27,0.438s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Edit""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:27,2021-05-02 17:19:28,0.576s,PASSED
+"setText(findTestObject(""Object Repository/Page_Cuddle/input_First Name_firstName""), ""testou"")",Chrome 90.0.4430.93,,,2021-05-02 17:19:28,2021-05-02 17:19:29,0.846s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/inputEdit""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:29,2021-05-02 17:19:29,0.358s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/a_Delete""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:29,2021-05-02 17:19:30,0.561s,PASSED
+"Util.jsClick(findTestObject(""Object Repository/Page_Cuddle/inputYes""))",Chrome 90.0.4430.93,,,2021-05-02 17:19:30,2021-05-02 17:19:30,0.575s,PASSED
+closeBrowser(),Chrome 90.0.4430.93,,,2021-05-02 17:19:30,2021-05-02 17:19:31,0.596s,PASSED

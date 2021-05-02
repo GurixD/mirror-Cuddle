@@ -16,21 +16,41 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
-import util.Util as Util
+import util.Util
 
 WebUI.openBrowser('')
 
 WebUI.navigateToUrl('http://localhost:8080/')
 
-WebUI.maximizeWindow()
+Util.jsClick(findTestObject('Object Repository/Page_Cuddle/a_Login'))
 
-WebUI.click(findTestObject('Object Repository/Page_Cuddle/a_Adopt'))
+WebUI.setText(findTestObject('Object Repository/Page_Please sign in/input_Username_username'), 'florian.feuillade@he-arc.ch')
 
-Util.jsClick(findTestObject('Object Repository/Page_Cuddle/a_Age  2007_stretched-link'))
+WebUI.setEncryptedText(findTestObject('Object Repository/Page_Please sign in/input_Password_password'), 'V2rEZwedbz9dlLHBWTk7CA==')
 
-WebUI.click(findTestObject('Object Repository/Page_Cuddle/a_Adopt'))
+WebUI.sendKeys(findTestObject('Object Repository/Page_Please sign in/input_Password_password'), Keys.chord(Keys.ENTER))
 
-Util.jsClick(findTestObject('Object Repository/Page_Cuddle/a_Age  2011_stretched-link'))
+Util.jsClick(findTestObject('Object Repository/Page_Cuddle/a_Dashboard'))
+
+Util.jsClick(findTestObject('Object Repository/Page_Cuddle/a_Manage Breeds'))
+
+Util.jsClick(findTestObject('Object Repository/Page_Cuddle/a_Add breeds'))
+
+WebUI.setText(findTestObject('Object Repository/Page_Cuddle/input_Name_name'), 'Maine Coon')
+
+WebUI.click(findTestObject('Object Repository/Page_Cuddle/input'))
+
+Util.jsClick(findTestObject('Object Repository/Page_Cuddle/a_Edit'))
+
+WebUI.click(findTestObject('Object Repository/Page_Cuddle/tr_Name'))
+
+WebUI.setText(findTestObject('Object Repository/Page_Cuddle/input_Name_name'), 'Sphynx')
+
+WebUI.click(findTestObject('Object Repository/Page_Cuddle/inputEdit'))
+
+Util.jsClick(findTestObject('Object Repository/Page_Cuddle/a_Delete'))
+
+WebUI.click(findTestObject('Object Repository/Page_Cuddle/inputYes'))
 
 WebUI.closeBrowser()
 
