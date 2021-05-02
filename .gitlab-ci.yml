@@ -7,7 +7,7 @@ variables:
 stages:
   - build
   - test
-  - sonarqube
+  - sonarcloud
   - deploy
 
 before_script:
@@ -40,23 +40,25 @@ unittest:
     - Cuddle runner
 
 katalon_test_suite:
+  image: katalonstudio/katalon:latest
   stage: test
   script:
     - echo "start katalon test suite"
+    - echo "ah bah en fait non :^)"
     - echo "katalon test suite ok"
   only:
     - master
   tags:
     - Cuddle runner
 
-sonarqube:
+sonarcloud:
   image: maven:latest
-  stage: sonarqube
+  stage: sonarcloud
   script:
-    - echo "start sonarqube stage"
+    - echo "start sonarcloud stage"
     - mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
     - echo "Wow, code is so clean!"
-    - echo "sonarqube ok"
+    - echo "sonarcloud ok"
   only:
     - master
   tags:
