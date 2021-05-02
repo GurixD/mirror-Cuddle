@@ -24,7 +24,7 @@ values  (1, 'British Shorthair'),
         (9, 'Norvegian');
 
 insert into cuddle.animal (id, age, description, image, name, sex, treatment, breed_id, species_id)
-values  (1, 2020, 'Très soyeux', '9017dfe9-096f-4120-aedc-b58ce2c12489.jpg', 'Yuri', 'Male', 'Trois câlins par jour maximum', 2, 1),
+values  (1, 2020, 'Très soyeux', '2506b461-50b8-4a5d-8326-b4f97b4b9ceb.png', 'Yuri', 'Male', 'Trois câlins par jour maximum', 2, 1),
         (2, 2009, 'Mad mad mad', 'c8a846c6-eeb9-482a-8385-d76bdc304401.png', 'Billy', 'Female', '1mg/jour de dafalgan', 1, 1),
         (3, 2007, '<3 <3 <3', 'aea908b5-cd9f-491d-b884-81038fce6f9b.png', 'Chaplin', 'Male', '', 4, 1),
         (4, 2006, 'Much wow', '3219b38e-5172-415f-a03d-9a2ec593c23c.png', 'Doge', 'Female', '', 5, 2),
