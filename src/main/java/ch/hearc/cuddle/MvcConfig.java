@@ -10,6 +10,11 @@ import java.nio.file.Paths;
 @Configuration
 public class MvcConfig implements WebMvcConfigurer {
 
+    @Override
+    public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/media/**").addResourceLocations("file:///" + System.getProperty("user.dir") + "/src/main/media/");
+    }
+
 
     // @Override
     // public void addResourceHandlers(ResourceHandlerRegistry registry) {
